@@ -1,0 +1,11 @@
+{
+    "name": "${application}-prod-permission-target",
+    "repo": {
+      "repositories": "${application}-gradle-prod-local,${application}-docker-prod-local,${application}-helm-prod-local",
+      "include-patterns": "**",
+      "actions-groups": {
+        "dev-group": "managedXrayMeta,read",
+        "release-managers-group": "read,annotate,write,managedXrayMeta,distribute"
+      }
+    }
+  }

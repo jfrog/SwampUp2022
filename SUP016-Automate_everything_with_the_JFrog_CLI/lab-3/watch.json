@@ -1,0 +1,79 @@
+{
+    "general_data": {
+        "name": "su-115-xray-watch",
+        "description": "su-115 training xray watch",
+        "active": true
+    },
+    "project_resources": {
+        "resources": [
+            {
+                "type": "repository",
+                "bin_mgr_id": "default",
+                "name": "app-gradle-remote",
+                "repo_type": "remote"
+            },
+            {
+                "type": "repository",
+                "bin_mgr_id": "default",
+                "name": "app-gradle-dev-local",
+                "repo_type": "local"
+            },
+            {
+                "type": "repository",
+                "bin_mgr_id": "default",
+                "name": "app-gradle-rc-local",
+                "repo_type": "local"
+            },
+            {
+                "type": "repository",
+                "bin_mgr_id": "default",
+                "name": "app-gradle-prod-local",
+                "repo_type": "local"
+            },
+            {
+                "type": "repository",
+                "bin_mgr_id": "default",
+                "name": "app-docker-remote",
+                "repo_type": "remote"
+            },
+            {
+                "type": "repository",
+                "bin_mgr_id": "default",
+                "name": "app-docker-dev-local",
+                "repo_type": "local"
+            },
+            {
+                "type": "repository",
+                "bin_mgr_id": "default",
+                "name": "app-docker-rc-local",
+                "repo_type": "local"
+            },
+            {
+                "type": "repository",
+                "bin_mgr_id": "default",
+                "name": "app-docker-prod-local",
+                "repo_type": "local"
+            },
+            {
+                "type": "build",
+                "bin_mgr_id": "default",
+                "name": "gradle-su-115"
+            },
+            {
+                "type": "build",
+                "bin_mgr_id": "default",
+                "name": "docker-su-115"
+            }
+        ]
+    },
+    "assigned_policies": [
+        {
+            "name": "highRisk",
+            "type": "security"
+        },
+        {
+            "name": "gpl-blacklisting",
+            "type": "license"
+        }
+    ]
+}

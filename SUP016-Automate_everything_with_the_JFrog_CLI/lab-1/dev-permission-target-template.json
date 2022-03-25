@@ -1,0 +1,11 @@
+{
+    "name": "${application}-dev-permission-target",
+    "repo": {
+      "repositories": "${application}-gradle-dev-local,${application}-gradle-rc-local,${application}-gradle-remote,${application}-docker-dev-local,${application}-docker-rc-local,${application}-docker-remote,${application}-helm-dev-local,${application}-helm-rc-local",
+      "include-patterns": "**",
+      "actions-groups": {
+        "dev-group": "managedXrayMeta,read,write,annotate",
+        "release-managers-group": "read,annotate,managedXrayMeta"
+      }
+    }
+  }

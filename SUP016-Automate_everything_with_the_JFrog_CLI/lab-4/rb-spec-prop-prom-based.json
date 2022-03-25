@@ -1,0 +1,47 @@
+{
+	"files": [{
+		"aql": {
+			"items.find": {
+				"$or": [{
+						"$and": [{
+							"repo": {
+								"$eq": "app-docker-virtual"
+							},
+							"artifact.module.build.name": {
+								"$eq": "docker-su-115"
+							},
+                            "artifact.module.build.promotion.status": {
+								"$eq": "released"
+							},
+							"@stage": {
+								"$match": "prod"
+							},
+							"@appnmv": {
+								"$match": "${app-id}/${app-version}"
+							}
+						}]
+					},
+					{
+						"$and": [{
+							"repo": {
+								"$eq": "app-helm-virtual"
+							},
+							"artifact.module.build.name": {
+								"$eq": "helm-su-115"
+							},
+                            "artifact.module.build.promotion.status": {
+								"$eq": "released"
+							},
+							"@stage": {
+								"$match": "prod"
+							},
+							"@appnmv": {
+								"$match": "${app-id}/${app-version}"
+							}
+						}]
+					}
+				]
+			}
+		}
+	}]
+}

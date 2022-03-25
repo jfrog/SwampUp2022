@@ -1,0 +1,6 @@
+{
+  "description" : "for swampup 2021",
+  "autoJoin" : false,
+  "realm" : "internal",
+  "adminPrivileges" : true
+}

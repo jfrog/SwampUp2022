@@ -1,0 +1,20 @@
+localRepositories:
+  nac-gradle-prod-local:
+      type: gradle
+      description: "production deployment"
+      projectKey: "swampup-115"
+      xray:
+        enabled: true
+  nac-gradle-rc-local:
+      type: gradle
+      description: "staging build"
+      projectKey: "swampup-115"
+      xray:
+        enabled: true
+  nac-gradle-dev-local:
+      type: gradle
+      description: "dev build"
+      projectKey: "swampup-115"
+      xray:
+        enabled: true
+  
