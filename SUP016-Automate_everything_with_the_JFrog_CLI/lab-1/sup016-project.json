@@ -1,6 +1,6 @@
 {
-    "display_name": "training",
-    "description": "Swampup training group",
+    "display_name": "sup016",
+    "description": "SwampUp training group 2022",
     "admin_privileges": {
       "manage_members": true,
       "manage_resources": true
@@ -8,5 +8,5 @@
     "storage_quota_bytes": 107374182400,
     "soft_limit": false,
     "storage_quota_email_notification": true,
-    "project_key": "su115"
+    "project_key": "sup016"
   }

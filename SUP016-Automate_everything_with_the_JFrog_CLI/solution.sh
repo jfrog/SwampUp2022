@@ -17,36 +17,36 @@ source .env
 ################################################################################################################
 
 # Configure CLI in the main JPD
-jfrog config add swampup115 --artifactory-url=https://$JFROG_PLATFORM/artifactory --dist-url=https://$JFROG_PLATFORM/distribution --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
+jfrog config add sup016 --artifactory-url=https://$JFROG_PLATFORM/artifactory --distribution-url=https://$JFROG_PLATFORM/distribution --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
 
 # Configure CLI in the Artifactory Edge
-jfrog config add swampup115-edge --artifactory-url=https://$JFROG_EDGE/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
+jfrog config add sup016-edge --artifactory-url=https://$JFROG_EDGE/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
 
 # Check existing configuration
-jfrog rt c show
+jfrog config show
 
 # Make it default
-jfrog config use swampup115
+jfrog config use sup016
 
 # Create all repositories in the main Artifactory JPD
 jfrog rt curl -XPATCH /api/system/configuration -T $SCRIPT_DIR/lab-1/repo-conf-creation-main.yaml
 
 # Create all repositories in the Artifactory Edge Node
-jfrog rt curl -XPATCH /api/system/configuration -T $SCRIPT_DIR/lab-1/repo-conf-creation-edge.yaml --server-id swampup115-edge
+jfrog rt curl -XPATCH /api/system/configuration -T $SCRIPT_DIR/lab-1/repo-conf-creation-edge.yaml --server-id sup016-edge
 
 # Create two groups (dev, release managers)
 jfrog rt curl -XPUT /api/security/groups/dev-group -T $SCRIPT_DIR/lab-1/dev-group.json
 jfrog rt curl -XPUT /api/security/groups/release-managers-group -T $SCRIPT_DIR/lab-1/release-managers-group.json
 
 # Create permission targets Dev and Prod
-jfrog rt ptc $SCRIPT_DIR/lab-1/dev-permission-target-template.json --vars="application=app"
-jfrog rt ptc $SCRIPT_DIR/lab-1/prod-permission-target-template.json --vars="application=app"
+jfrog rt ptc $SCRIPT_DIR/lab-1/dev-permission-target-template.json --vars="application=$APP_ID"
+jfrog rt ptc $SCRIPT_DIR/lab-1/prod-permission-target-template.json --vars="application=$APP_ID"
 
 # How to update a permission?
-jfrog rt ptu $SCRIPT_DIR/lab-1/dev-permission-target-template.json --vars="application=app"
+jfrog rt ptu $SCRIPT_DIR/lab-1/dev-permission-target-template.json --vars="application=$APP_ID"
 
 # Create project
-curl -XPOST -H "Authorization: Bearer ${token}" -H 'Content-Type:application/json' https://$JFROG_PLATFORM/access/api/v1/projects -T ./lab-1/su115-project.json
+curl -XPOST -H "Authorization: Bearer ${token}" -H 'Content-Type:application/json' https://$JFROG_PLATFORM/access/api/v1/projects -T ./lab-1/sup016-project.json
 
 # Sharing repositories in a project
 $SCRIPT_DIR/lab-1/sharing-repositories.sh
@@ -56,10 +56,10 @@ $SCRIPT_DIR/lab-1/sharing-repositories.sh
 # This operation is only available in the UI for now
 
 # 2) Creating custom roles
-curl -XPOST -H "Authorization: Bearer ${token}" -H 'Content-Type:application/json' https://$JFROG_PLATFORM/access/api/v1/projects/su115/roles -T ./lab-1/infosec-role-create.json
+curl -XPOST -H "Authorization: Bearer ${token}" -H 'Content-Type:application/json' https://$JFROG_PLATFORM/access/api/v1/projects/sup016/roles -T ./lab-1/infosec-role-create.json
 
 # 3) Tagging repositories (Dev , PROD)
-jfrog rt curl -XPOST /api/repositories/app-gradle-rc-local -H "content-type: application/vnd.org.jfrog.artifactory.repositories.LocalRepositoryConfiguration+json" --data '{"environments":["DEV", "PROD"]}'
+jfrog rt curl -XPOST /api/repositories/sup016-gradle-rc-local -H "content-type: application/vnd.org.jfrog.artifactory.repositories.LocalRepositoryConfiguration+json" --data '{"environments":["DEV", "PROD"]}'
 
 # Adding builds to the Xray indexing process
 curl -u$ADMIN_USER:$ADMIN_PASSWORD -X POST -H "content-type: application/json"  https://$JFROG_PLATFORM/xray/api/v1/binMgr/builds -T $SCRIPT_DIR/lab-3/indexed-builds.json
