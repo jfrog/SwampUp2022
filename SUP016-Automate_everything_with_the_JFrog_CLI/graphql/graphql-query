@@ -1,0 +1,36 @@
+# Query package name and description, filtered by name pattern, ordered by name descending
+query {
+    packages(
+        filter: {
+            packageTypeIn: [NPM, DOCKER, GRADLE]
+        },
+        first: 10,
+        orderBy: {
+            field: NAME, 
+            direction: ASC
+        }
+    ) {
+        edges {
+            node {
+                name
+                description
+              	created
+              	tags
+              	versions{
+                    name
+                    size
+                    licenses{
+                        name
+                        source
+                    }
+                }
+              	vulnerabilities{
+                    medium
+                  	critical
+                  	high
+                }
+              	
+            }
+        }
+    }
+}

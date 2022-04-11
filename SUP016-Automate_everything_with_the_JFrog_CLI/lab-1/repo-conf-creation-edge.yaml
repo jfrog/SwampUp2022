@@ -1,0 +1,24 @@
+localRepositories:
+  app-docker-prod-local:
+      type: docker
+      repoLayout: simple-default
+      description: "production deployment"
+      xray:
+        enabled: true
+  app-helm-prod-local:
+      type: helm
+      repoLayout: simple-default
+      description: "helm local prod "
+      xray:
+        enabled: true
+virtualRepositories:
+  app-docker-virtual:
+      type: docker
+      repositories:
+        - app-docker-prod-local
+      description: "docker virtual"
+  app-helm-virtual:
+      type: helm
+      repositories:
+        - app-helm-prod-local
+      description: "helm virtual"

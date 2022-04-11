@@ -1,0 +1,10 @@
+{
+    "distribution_rules": [
+      {
+        "site_name": "edge115singapore"
+      },
+      {
+        "site_name": "edge115oregon"
+      }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+  "files": [
+    {
+      "aql": {
+          "items.find": {
+            "$and": [
+              {
+                "$or": [
+                  {
+                    "repo": {
+                    "$eq": "app-docker-virtual"
+                  }
+                }
+              ]
+            },
+            {
+              "$or": [
+                {
+                  "$and": [
+                    {
+                      "artifact.module.build.name": {
+                        "$eq": "docker-su-115"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$or": [
+                {
+                  "@stage": "prod"
+                },
+                {
+                  "@appnnv": "${app-id}/${app-version}"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

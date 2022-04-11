@@ -1,0 +1,21 @@
+{
+    "distribution_destinations": [
+        {
+            "site_name": "*",
+            "city_name": "*",
+            "country_codes": [
+                "*"
+            ]
+        }
+    ],
+    "name": "perm-delivery",
+    "principals": {
+        "users": {},
+        "groups": {
+            "delivery-team": [
+                "x"
+            ]
+        }
+    },
+    "resource_type": "destination"
+}

@@ -1,0 +1,32 @@
+{
+    "files": [
+      {
+        "aql": {
+            "items.find": {
+                "$and": [
+                    {
+                        "$or": [
+                            {
+                                "$and": [
+                                    {
+                                        "dependency.module.build.name": {
+                                            "$eq": "${build-name}"
+                                        }
+                                    },
+                                    {
+                                        "dependency.module.build.number": {
+                                            "$eq": "${build-number}"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+        
+            }
+        },
+        "sortBy": ["created"]
+      }
+    ]
+  }

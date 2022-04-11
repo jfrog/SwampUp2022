@@ -1,0 +1,233 @@
+pipelines:
+  - name: suv_115_back_app_gradle_pipeline
+    configuration:
+      environmentVariables:
+        readOnly:
+          application_id : my-hza-app-{{gitBranch}}
+          JFROG_CLI_EXTRACTORS_REMOTE : ArtifactoryUnified/extractors
+    steps:
+      - name: conf_init
+        type: Bash
+        configuration:
+          inputResources:
+            - name: src_code_back_app_hza
+          integrations:
+            - name: ArtifactoryUnified
+        execution:
+          onStart:
+            - echo 'Applying repository configuration for branch {{gitBranch}}'
+            - sed "s/application/${application_id}/g" ${res_src_code_back_app_hza_resourcePath}/back/CI/jfrog/repo-conf-template.yaml > ${application_id}-repo-conf.yaml
+            - cat ${application_id}-repo-conf.yaml
+            - jfrog rt curl -XPATCH /api/system/configuration -T ./${application_id}-repo-conf.yaml
+      
+      - name: build_app_gradle_backend_hza
+        type: GradleBuild
+        configuration: 
+          environmentVariables:
+            JFROG_CLI_BUILD_NAME:    ${application_id}_back_app_gradle_pipeline
+            env2:     value2
+          runtime:
+            type: image
+            image:
+              custom:
+                name: drydock/u18java
+                tag: master
+          gradleCommand:  clean artifactoryPublish -b build.gradle
+          sourceLocation:       back/src  #required
+          #configFileLocation:   .  #required
+          #configFileName:       gradle-art-config  #required
+          resolverRepo: ${application_id}-gradle-virtual
+          deployerRepo: ${application_id}-gradle-virtual
+          forceXrayScan:        false #optional
+          autoPublishBuildInfo: true #optional
+          inputSteps: 
+            - name: conf_init
+          inputResources:
+            - name: src_code_back_app_hza
+          outputResources:
+            - name: back_appBuildInfo_hza
+          integrations:
+            - name: ArtifactoryUnified
+        execution:
+          onStart:
+            - echo  "Preparing for work... {{gitBranch}}"
+          onSuccess:
+            - echo ${res_src_code_back_app_hza_isGitTag}
+            - appVersion=`if [[ ${res_src_code_back_app_hza_isGitTag} == "True" ]]; then echo ${res_src_code_back_app_hza_gitTagName}; else echo ${res_src_code_back_app_hza_commitSha}; fi`
+            - echo $appVersion
+            - add_pipeline_variables appVersion="${appVersion}"
+            - add_pipeline_variables subPath="${res_src_code_back_app_hza_branchName}/${appVersion}"      
+          onFailure:
+            - echo "You Lose"
+          onComplete: #always
+            - echo "Leave it as you found it. Let's clean it"
+
+      - name: build_docker_backapp_hza
+        type: DockerBuild
+        configuration:
+          environmentVariables:
+            JFROG_CLI_BUILD_NAME:    ${application_id}_back_app_docker_pipeline
+          affinityGroup: swampup
+          dockerFileName: jfrog-Dockerfile
+          dockerFileLocation: back/CI/Docker/
+          dockerImageName: '${ArtIP}/${application_id}-docker-virtual/jfrog-docker-app'
+          dockerImageTag: '${run_number}'
+          inputResources:
+            - name: src_dockerfile_back_app_hza
+            - name: back_appBuildInfo_hza
+            - name: back_app_exec_hza
+          integrations:
+            - name: ArtifactoryUnified
+            - name: app_docker_registry
+        execution:
+          onStart:
+            - 'export ArtIP=$(echo ${int_ArtifactoryUnified_url}|awk -F ''/'' ''{print $3}'')'
+            - echo ${res_build_info_back_app_promoted_staging_hza_myversion}
+            - add_pipeline_variables appVersion="1.0"
+            - echo $triggerBuildInfoName
+            - echo $triggerBuildInfoNumber
+            - add_pipeline_variables triggerBuildInfoName="${res_build_info_back_app_promoted_staging_hza_buildName}"
+            - add_pipeline_variables triggerBuildInfoNumber="${res_build_info_back_app_promoted_staging_hza_buildNumber}"
+            - echo $triggerBuildInfoName
+            - echo $triggerBuildInfoNumber
+            #- echo "items.find({\"@build.name\":\"${triggerBuildInfoName}\",\"@build.number\":\"${triggerBuildInfoNumber}\"}).include(\"@app.version\")" > aql.json
+            #- cat aql.json
+            #- jfrog rt curl -XPOST api/search/aql -T aql.json
+            #- appVersion=`jfrog rt curl -XPOST api/search/aql -T aql.json | jq --raw-output .results[].properties[].value`
+            #- echo $appVersion
+            #- add_pipeline_variables appVersion="${appVersion}" 
+            - echo ${appVersion}
+            - echo $triggerBuildInfoName
+            - echo ${triggerBuildInfoNumber}
+            #####################################
+            - echo ${res_back_app_exec_hza_resourcePath}
+            - echo "Gradle App Build number :" 
+            - echo ${triggerBuildInfoNumber}
+            - echo "Webservice App version :" 
+            - echo ${appVersion} 
+            - echo "Git repo hash :" 
+            - echo ${res_src_dockerfile_back_hza_app_commitSha}
+            - echo "Copying exec binary to specific location..." && ls -l
+            - echo "Filespec location :" && echo ${res_back_app_exec_hza_resourcePath} && ls -l ${res_back_app_exec_hza_resourcePath}
+            #- cp ${res_back_app_exec_resourcePath}/back* ${res_src_dockerfile_back_app_resourcePath}/back/CI/Docker/
+            #- cd ${res_src_dockerfile_back_app_resourcePath}/back/CI/Docker/
+            #- tar xvf back*.tgz
+            #- ls -l ${res_src_dockerfile_back_app_resourcePath}/back/CI/Docker
+            - echo $appVersion
+            - sed -i "s/registry/${ArtIP}\/${application_id}-docker-virtual/g" ${res_src_dockerfile_back_app_hza_resourcePath}/back/CI/Docker/jfrog-Dockerfile
+            - add_pipeline_variables myDockerTag="${appVersion}-${res_src_dockerfile_back_app_hza_commitSha}"
+          onSuccess:
+            - echo "Job well done!"
+
+      - name: publish_docker_backapp_hza
+        type: DockerPush
+        configuration:
+          environmentVariables:
+            JFROG_CLI_BUILD_NAME:    ${application_id}_back_app_docker_pipeline
+          affinityGroup: swampup
+          targetRepository: ${application_id}-docker-virtual
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: build_docker_backapp_hza
+          integrations:
+            - name: ArtifactoryUnified
+          outputResources:
+            - name: build_info_docker_backapp_hza
+            - name: suv_115_docker_resource
+        execution:
+          #onStart: 
+            #- jfrog rt dl app-gradle-rc-local/org/jfrog/example/gradle/webservice/1.1.2/webservice-1.1.2.war --build-name="suv_003_backapp_docker_pipeline" --build-number=${run_number}
+          onSuccess:
+            - echo "Job well done!"
+            - echo $appVersion
+
+      - name: build_helm_backapp_hza
+        type: HelmPublish
+        configuration:
+          environmentVariables: 
+            version: ${run_number}
+            JFROG_CLI_BUILD_NAME: ${application_id}_back_app_helm_pipeline
+          autoPublishBuildInfo: true
+          affinityGroup: swampup
+          inputResources:
+            - name: suv_115_docker_resource
+            - name: src_code_back_app_hza
+          outputResources:
+            - name: suv_115_helm_chart_resource
+            - name: build_info_helm_backapp
+          chartPath: back/CI/docker-app-chart
+        execution:
+          onStart:
+             - cd ${res_src_code_back_app_hza_resourcePath}/back/CI/docker-app-chart/
+             - ls -la
+             - echo ${front_docker_registry}
+             - echo ${front_docker_image}
+             - echo ${front_docker_tag}
+             - sed -ie 's/0.1.1/0.1.'"$run_number"'/' Chart.yaml
+             - sed -ie 's/latest/'"$run_number"'/g' values.yaml
+             - sed -i "s#FRONT_DOCKER_REGISTRY#${front_docker_registry}#g" values.yaml
+             - sed -i "s#FRONT_DOCKER_IMAGE#${front_docker_image}#g" values.yaml
+             - sed -i "s#FRONT_DOCKER_TAG#${front_docker_tag}#g" values.yaml
+             - sed -i "s#BACK_DOCKER_REGISTRY#${back_docker_registry}#g" values.yaml
+             - sed -i "s#BACK_DOCKER_IMAGE#${back_docker_image}#g" values.yaml
+             - sed -i "s#BACK_DOCKER_TAG#${back_docker_tag}#g" values.yaml
+             - cat Chart.yaml
+             - cat values.yaml
+
+
+      - name: suv_115_deploy_helm_chart_sit
+        type: Bash
+        configuration:
+          inputResources:
+            - name: suv_115_helm_chart_resource
+        execution:
+          onStart: 
+            - echo "Helm Chart Deployment to SIT k8s cluster"
+          onSuccess: 
+            - echo "Deployment done !"
+
+      - name: promoting_helm_backapp_prod
+        type: PromoteBuild
+        configuration:
+          targetRepository: ${application_id}-helm-prod-local
+          includeDependencies: false
+          status: "released"
+          comment: "Helm Chart successfully tested in SIT"
+          copy: true
+          integrations:
+            - name: ArtifactoryUnified
+          inputSteps:
+            - name: suv_115_deploy_helm_chart_sit
+          inputResources:
+            - name: build_info_helm_backapp
+              trigger: false
+          outputResources:
+            - name: build_info_helm_backapp_promoted_prod
+        execution:
+          onStart:
+            - echo ${res_build_info_back_app_promoted_staging_buildName}
+            - echo ${res_build_info_back_app_promoted_staging_buildNumber}
+            #- jfrog rt cp --build=${res_build_info_back_app_promoted_staging_buildName}/${res_build_info_back_app_promoted_staging_buildNumber} app-gradle-rc-local/ app-gradle-release-local/  
+
+      - name: promoting_docker_backapp_prod
+        type: PromoteBuild
+        configuration:
+          targetRepository: ${application_id}-docker-prod-local
+          includeDependencies: false
+          status: "released"
+          comment: "Docker image successfully tested in SIT"
+          copy: true
+          integrations:
+            - name: ArtifactoryUnified
+          inputSteps:
+            - name: suv_115_deploy_helm_chart_sit
+          inputResources:
+             - name: build_info_docker_backapp_hza
+               trigger: false
+          outputResources:
+            - name: build_info_docker_backapp_promoted_prod_hza
+        execution:
+          onStart:
+            - echo ${res_build_info_back_app_promoted_staging_buildName}
+            - echo ${res_build_info_back_app_promoted_staging_buildNumber}
+            #- jfrog rt cp --build=${res_build_info_back_app_promoted_staging_buildName}/${res_build_info_back_app_promoted_staging_buildNumber} app-gradle-rc-local/ app-gradle-release-local/   
