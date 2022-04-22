@@ -1,7 +1,7 @@
 # LAB 0
 
 ### Prerequisites
-- Make sure JFrog CLI is installed on your machine by running `jf -v`
+- JFrog CLI is installed on your machine by running `jf -v`
 
 ### Setup JFrog CLI
 - Checkout all ``jf`` configs ``jf config show``
@@ -20,4 +20,3 @@
 
 - Healthcheck ``jf rt ping``
 
-![](../gifs/lab0_cli_config.gif)
