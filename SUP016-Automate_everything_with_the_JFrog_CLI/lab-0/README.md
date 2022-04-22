@@ -20,3 +20,4 @@
 
 - Healthcheck ``jf rt ping``
 
+![lab0_cli_config](https://user-images.githubusercontent.com/7561138/164789237-bcfd7067-19f6-491f-aae5-e903ad691714.gif)
