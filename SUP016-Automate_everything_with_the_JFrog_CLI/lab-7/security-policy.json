@@ -1,34 +1,49 @@
 {
-    "name":"highRisk",
+    "name":"criticalRisk",
     "type":"security",
     "description":"block high risk vulnerabilities",
     "rules":[{
-            "name":"high",
-            "priority":1,
-            "criteria":{
-                "min_severity":"High"
-                },
-            "actions":{
+              "name":"critical",
+              "priority":1,
+              "criteria":{
+                "min_severity":"critical"
+              },
+              "actions":{
                 "fail_build":true,
                 "block_download":{
-                        "unscanned":false,"active":true
-                        }
-                    }
+                  "unscanned":false,
+                  "active":true
+                }
+              }
             },
             {
-                "name":"medium",
-                "priority":2,
-                "criteria":
-                {
-                    "min_severity":"Medium"
-                },
-                "actions":{
-                    "fail_build":false,
-                    "block_download":{
-                        "unscanned":false,
-                        "active":false
-                        }
+              "name":"high",
+              "priority":2,
+              "criteria":{
+                "min_severity":"High"
+              },
+              "actions":{
+                "fail_build":true,
+                "block_download":{
+                  "unscanned":false,
+                  "active":true
                 }
+              }
+            },
+            {
+              "name":"medium",
+              "priority":3,
+              "criteria":
+              {
+                "min_severity":"Medium"
+              },
+              "actions":{
+                "fail_build":false,
+                "block_download":{
+                  "unscanned":false,
+                  "active":false
+                }
+              }
             }
         ]
 }

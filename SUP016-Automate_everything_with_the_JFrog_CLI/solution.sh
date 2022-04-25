@@ -13,20 +13,24 @@
 source .env
 
 ################################################################################################################
-## LAB 1 - Repository and project provisioning
+## LAB 0 - Config JFrog CLI
 ################################################################################################################
 
 # Configure CLI in the main JPD
-jfrog config add sup016 --artifactory-url=https://$JFROG_PLATFORM/artifactory --distribution-url=https://$JFROG_PLATFORM/distribution --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
-
-# Configure CLI in the Artifactory Edge
-jfrog config add sup016-edge --artifactory-url=https://$JFROG_EDGE/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
+jfrog config add SUP016 --url=https://$JFROG_PLATFORM/ --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
 
 # Check existing configuration
 jfrog config show
 
 # Make it default
-jfrog config use sup016
+jfrog config use SUP016
+
+# Ping
+jfrog rt ping
+
+################################################################################################################
+## LAB 1 - Repository and project provisioning
+################################################################################################################
 
 # Create all repositories in the main Artifactory JPD
 jfrog rt curl -XPATCH /api/system/configuration -T $SCRIPT_DIR/lab-1/repo-conf-creation-main.yaml
