@@ -15,7 +15,7 @@
     - Insert the value for repoLayoutRef (press Tab for options): > `npm-default`
     - Select the next configuration key (press Tab for options): `xrayIndex`
     - Insert the value for xrayIndex (press Tab for options): > `true`
-      Select the next configuration key (press Tab for options): `:x`
+    - Select the next configuration key (press Tab for options): `:x`
     - Validate template `template-local.json` is created successfully. - ``ls -la``
     - View template
       ```json
@@ -39,7 +39,7 @@
       - Insert the value for repoLayoutRef (press Tab for options): > `npm-default`
       - Select the next configuration key (press Tab for options): `xrayIndex`
       - Insert the value for xrayIndex (press Tab for options): > `true`
-        Select the next configuration key (press Tab for options): `:x`
+      - Select the next configuration key (press Tab for options): `:x`
       - Validate template `template-remote.json` is created successfully. ``ls -la``
       - View template
         ```json
