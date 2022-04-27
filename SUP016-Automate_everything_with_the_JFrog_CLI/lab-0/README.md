@@ -1,4 +1,4 @@
-# LAB 0
+# LAB 0 - Configure JFrog CLI
 
 ### Prerequisites
 - JFrog CLI is installed on your machine by running `jf -v`

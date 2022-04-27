@@ -1,4 +1,4 @@
-# LAB 1
+# LAB 1 - Repository Provisioning
 
 ### Prerequisites
 - Lab-0 - Configure JFrog CLI 
