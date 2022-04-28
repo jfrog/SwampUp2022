@@ -23,51 +23,50 @@ Adding Users to Groups
 
 ### Create Permission Target Template
 - Run ``jf rt permission-target-template pt-template.json``
-  - Insert the permission target name > development
+  - Insert the permission target name > `development`
   - You can type ":x" at any time to save and exit. 
-  - Select the permission target section to configure (press Tab for options): repo
+  - Select the permission target section to configure (press Tab for options): `repo`
     Insert the section's repositories value.
     - You can specify the name "ANY" to apply to all repositories, "ANY REMOTE" for all remote repositories or "ANY LOCAL" for all local repositories:
-    - The value should be a comma separated list > {{list_of_repos}}
+    - The value should be a comma separated list > `{{list_of_repos}}`
     - Insert a value for include-patterns:
     - The value should be a comma separated list (press enter for default) [**]:
     - Insert value for exclude-patterns:
     - The value should be a comma separated list (press enter for default) []:
-    - Configure actions for users? (press Tab for options): [yes]: yes
+    - Configure actions for users? (press Tab for options): [yes]: `yes`
     - Insert user name (press enter to finish) >
-    - Configure actions for groups? [yes]: yes
-    - Insert group name (press enter to finish) > developers
-    - Select permission value for developers (press tab for options or enter to finish) > read
+    - Configure actions for groups? [yes]: `yes`
+    - Insert group name (press enter to finish) > `developers`
+    - Select permission value for developers (press tab for options or enter to finish) > `read`
     - Select permission value for developers (press tab for options or enter to finish) >
-    - Insert group name (press enter to finish) > secops
-    - Select permission value for secops (press tab for options or enter to finish) > managedXrayMeta
+    - Insert group name (press enter to finish) > `secops`
+    - Select permission value for secops (press tab for options or enter to finish) > `managedXrayMeta`
     - Select permission value for secops (press tab for options or enter to finish) >
-    - Insert group name (press enter to finish) > ops
-    - Select permission value for ops (press tab for options or enter to finish) > manage
-    - Select permission value for ops (press tab for options or enter to finish) > write
+    - Insert group name (press enter to finish) > `ops`
+    - Select permission value for ops (press tab for options or enter to finish) > `manage`
+    - Select permission value for ops (press tab for options or enter to finish) > `write`
     - Select permission value for ops (press tab for options or enter to finish) >
     - Insert group name (press enter to finish) >
-  - Select the permission target section to configure (press Tab for options): build
+  - Select the permission target section to configure (press Tab for options): `build`
     - Insert a value for include-patterns:
     - The value should be a comma separated list (press enter for default) [**]:
     - Insert value for exclude-patterns:
     - The value should be a comma separated list (press enter for default) []:
     - Configure actions for users? (press Tab for options): [yes]:
     - Insert user name (press enter to finish) >
-    - Configure actions for groups? [yes]: yes
-    - Insert group name (press enter to finish) > ops
-    - Select permission value for ops (press tab for options or enter to finish) > manage
+    - Configure actions for groups? [yes]: `yes`
+    - Insert group name (press enter to finish) > `ops`
+    - Select permission value for ops (press tab for options or enter to finish) > `manage`
     - Select permission value for ops (press tab for options or enter to finish) >
     - Insert group name (press enter to finish) >
-    - Select the permission target section to configure (press Tab for options): :x
-
-    [🔵Info] Permission target configuration template successfully created at `pt-template.json`.
+    - Select the permission target section to configure (press Tab for options): `:x`
 
 ### Create Permission Target using Template
 - Run ``jf rt permission-target-create pt-template.json``
 
-    [🔵Info] Creating permission target...
-    [🔵Info] Done creating permission target.
+### Create JFrog Project
+--- NO NATIVE or CURL SUPPORT for now
+
 
 ### Delete User (Internal) - [POST SESSION TASK]
 - Run ``jf rt users-delete "mike,bob,jennifer,rolando,irene,matt,support"``
