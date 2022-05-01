@@ -1,2 +1,11 @@
 .idea/
 .DS_Store
+
+../../../.jfrog/*
+../maven-example/.jfrog/*
+./.jfrog/*
+
+SUP016-Automate_everything_with_the_JFrog_CLI/example-projects/npm-example/node_modules/*
+SUP016-Automate_everything_with_the_JFrog_CLI/example-projects/npm-example/ package-lock.json
+
+
