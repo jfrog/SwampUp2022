@@ -1,4 +1,0 @@
-[
-  {"key":"sup016mp-docker-dev-local","packageType":"docker","rclass":"local","repoLayoutRef":"simple-default", "xrayIndex":"true"},
-  {"key":"sup016mp-docker-stage-local","packageType":"docker","rclass":"local","repoLayoutRef":"simple-default", "xrayIndex":"true"}
-]

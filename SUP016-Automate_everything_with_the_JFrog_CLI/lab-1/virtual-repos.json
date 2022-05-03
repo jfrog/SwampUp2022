@@ -1,0 +1,5 @@
+[
+  {"key":"sup016-docker-virtual","packageType":"docker","rclass":"virtual","repoLayoutRef":"simple-default","defaultDeploymentRepo":"sup016-docker-dev-local","externalDependenciesRemoteRepo":"sup016-docker-remote","repositories":"sup016-docker-dev-local,sup016-docker-qa-local,sup016-docker-prod-local,sup016-docker-remote"},
+  {"key":"sup016-maven-virtual","packageType":"maven","rclass":"virtual","repoLayoutRef":"maven-2-default","defaultDeploymentRepo":"sup016-maven-dev-local","externalDependenciesRemoteRepo":"sup016-maven-remote","repositories":"sup016-maven-dev-local,sup016-maven-qa-local,sup016-maven-prod-local,sup016-maven-remote"},
+  {"key":"sup016-npm-virtual","packageType":"npm","rclass":"virtual","repoLayoutRef":"npm-default","defaultDeploymentRepo":"sup016-npm-dev-local","externalDependenciesRemoteRepo":"sup016-npm-remote","repositories":"sup016-npm-dev-local,sup016-npm-qa-local,sup016-npm-prod-local,sup016-npm-remote"}
+]
