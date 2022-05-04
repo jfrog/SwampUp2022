@@ -11,12 +11,12 @@
   - Run ``jf mvnc``
     - Resolve dependencies from Artifactory? (y/n) [y]? `y`
     - Set Artifactory server ID [rtsaas]: ↵   
-    - Set resolution repository for release dependencies (press Tab for options): `sup016mp-maven-virtual`
-    - Set resolution repository for snapshot dependencies (press Tab for options): `sup016mp-maven-virtual`
+    - Set resolution repository for release dependencies (press Tab for options): `sup016-maven-virtual`
+    - Set resolution repository for snapshot dependencies (press Tab for options): `sup016-maven-virtual`
     - Deploy project artifacts to Artifactory? (y/n) [y]? `y`  
     - Set Artifactory server ID [rtsaas]: ↵
-    - Set repository for release artifacts deployment (press Tab for options): `sup016mp-maven-virtual`
-    - Set repository for snapshot artifacts deployment (press Tab for options): `sup016mp-maven-virtual`
+    - Set repository for release artifacts deployment (press Tab for options): `sup016-maven-virtual`
+    - Set repository for snapshot artifacts deployment (press Tab for options): `sup016-maven-virtual`
     - Would you like to filter out some of the deployed artifacts? (y/n) [n]? `n`
 - Navigate to ``~/SwampUp2022/SUP016-Automate_everything_with_the_JFrog_CLI/example-projects/maven-example``
 - Run ``jf rt mvn clean install -f pom.xml --build-name sup016-maven --build-number 1.0.0
@@ -27,13 +27,13 @@
   - Run ``jf npmc``
   - Resolve dependencies from Artifactory? (y/n) [y]? `y`
   - Set Artifactory server ID [rtsaas]: ↵
-  - Set repository for dependencies resolution (press Tab for options): `sup016mp-npm-virtual`
+  - Set repository for dependencies resolution (press Tab for options): `sup016-npm-virtual`
   - Deploy project artifacts to Artifactory? (y/n) [y]? `y`
   - Set Artifactory server ID [rtsaas]: ↵
-  - Set repository for artifacts deployment (press Tab for options): `sup016mp-npm-virtual`
+  - Set repository for artifacts deployment (press Tab for options): `sup016-npm-virtual`
 - Navigate to ``~/SwampUp2022/SUP016-Automate_everything_with_the_JFrog_CLI/example-projects/npm-example``
-- Run ``jf rt npm install --build-name sup016-npm --build-number 1.0.0``
-- Run `` jf npm publish --build-name sup016-npm --build-number 1.0.0`` - Publish build Artifact to repository
+- Run ``jf npm install --build-name sup016-npm --build-number 1.0.0``
+- Run ``jf npm publish --build-name sup016-npm --build-number 1.0.0`` - Publish build Artifact to repository
 
 #### Docker - Package Manager Integration
 - Run

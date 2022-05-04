@@ -1,7 +1,7 @@
 {
-    "name":"criticalRisk",
+    "name":"prod-security-policy",
     "type":"security",
-    "description":"block high risk vulnerabilities",
+    "description":"Fail build and block download for critical, high and medium risk vulnerabilities",
     "rules":[{
               "name":"critical",
               "priority":1,
@@ -9,11 +9,13 @@
                 "min_severity":"critical"
               },
               "actions":{
+                "webhooks": [],
                 "fail_build":true,
                 "block_download":{
-                  "unscanned":false,
+                  "unscanned":true,
                   "active":true
-                }
+                },
+                "notify_deployer": true
               }
             },
             {
@@ -23,11 +25,13 @@
                 "min_severity":"High"
               },
               "actions":{
+                "webhooks": [],
                 "fail_build":true,
                 "block_download":{
-                  "unscanned":false,
+                  "unscanned":true,
                   "active":true
-                }
+                },
+                "notify_deployer": true
               }
             },
             {
@@ -38,11 +42,30 @@
                 "min_severity":"Medium"
               },
               "actions":{
+                "webhooks": [],
+                "fail_build":true,
+                "block_download":{
+                  "unscanned":true,
+                  "active":true
+                },
+                "notify_deployer": true
+              }
+            },
+            {
+              "name":"low",
+              "priority":4,
+              "criteria":
+              {
+                "min_severity":"Low"
+              },
+              "actions":{
+                "webhooks": [],
                 "fail_build":false,
                 "block_download":{
                   "unscanned":false,
                   "active":false
-                }
+                },
+                "notify_deployer": true
               }
             }
         ]
