@@ -10,11 +10,11 @@
 - To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.) 
   - Run ``jf mvnc``
     - Resolve dependencies from Artifactory? (y/n) [y]? `y`
-    - Set Artifactory server ID [rtsaas]: ↵   
+    - Set Artifactory server ID [SUP016]: ↵   
     - Set resolution repository for release dependencies (press Tab for options): `sup016-maven-virtual`
     - Set resolution repository for snapshot dependencies (press Tab for options): `sup016-maven-virtual`
     - Deploy project artifacts to Artifactory? (y/n) [y]? `y`  
-    - Set Artifactory server ID [rtsaas]: ↵
+    - Set Artifactory server ID [SUP016]: ↵
     - Set repository for release artifacts deployment (press Tab for options): `sup016-maven-virtual`
     - Set repository for snapshot artifacts deployment (press Tab for options): `sup016-maven-virtual`
     - Would you like to filter out some of the deployed artifacts? (y/n) [n]? `n`
@@ -26,10 +26,10 @@
 - To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.)
   - Run ``jf npmc``
   - Resolve dependencies from Artifactory? (y/n) [y]? `y`
-  - Set Artifactory server ID [rtsaas]: ↵
+  - Set Artifactory server ID [SUP016]: ↵
   - Set repository for dependencies resolution (press Tab for options): `sup016-npm-virtual`
   - Deploy project artifacts to Artifactory? (y/n) [y]? `y`
-  - Set Artifactory server ID [rtsaas]: ↵
+  - Set Artifactory server ID [SUP016]: ↵
   - Set repository for artifacts deployment (press Tab for options): `sup016-npm-virtual`
 - Navigate to ``~/SwampUp2022/SUP016-Automate_everything_with_the_JFrog_CLI/example-projects/npm-example``
 - Run ``jf npm install --build-name sup016-npm --build-number 1.0.0``

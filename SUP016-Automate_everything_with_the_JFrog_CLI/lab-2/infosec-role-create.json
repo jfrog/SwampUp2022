@@ -1,7 +1,0 @@
-{
-  "name" : "Infosec",
-  "description" : "Infosec Role",
-  "type" : "CUSTOM",
-  "environments" : [ "DEV", "PROD" ],
-  "actions" : [ "READ_REPOSITORY", "READ_RELEASE_BUNDLE", "READ_BUILD", "READ_SOURCES_PIPELINE", "READ_INTEGRATIONS_PIPELINE", "READ_POOLS_PIPELINE" ]
-}

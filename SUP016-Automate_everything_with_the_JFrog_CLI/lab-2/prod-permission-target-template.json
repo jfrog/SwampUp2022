@@ -1,11 +1,28 @@
 {
-    "name": "${application}-prod-permission-target",
-    "repo": {
-      "repositories": "${application}-gradle-prod-local,${application}-docker-prod-local,${application}-helm-prod-local",
-      "include-patterns": "**",
-      "actions-groups": {
-        "dev-group": "managedXrayMeta,read",
-        "release-managers-group": "read,annotate,write,managedXrayMeta,distribute"
-      }
+  "build": {
+    "include-patterns": "**",
+    "actions-groups": {
+      "developers": "read",
+      "ops": "read,write,annotate,delete,manage",
+      "secops": "read,managedXrayMeta"
+    }
+  },
+  "name": "production",
+  "releaseBundle": {
+    "include-patterns": "**",
+    "actions-groups": {
+      "developers": "read",
+      "ops": "manage,distribute,read,write,annotate,delete",
+      "secops": "managedXrayMeta,read"
+    }
+  },
+  "repo": {
+    "repositories": "ANY",
+    "include-patterns": "**",
+    "actions-groups": {
+      "developers": "read",
+      "ops": "read,write,annotate,delete,manage,distribute",
+      "secops": "read,managedXrayMeta"
     }
   }
+}
