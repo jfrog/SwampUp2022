@@ -1,0 +1,26 @@
+{
+  "name": "License-Report-On-Repositories",
+  "resources": {
+    "repositories": [
+      {
+        "name": "sup016-npm-dev-local"
+      }
+    ]
+  },
+  "filters": {
+    "artifact": "",
+    "component": "",
+    "license_names": [
+      "Unknown",
+      "Apache-2.0"
+    ],
+    "published": {
+      "start": null,
+      "end": null
+    },
+    "scan_date": {
+      "start": null,
+      "end": null
+    }
+  }
+}

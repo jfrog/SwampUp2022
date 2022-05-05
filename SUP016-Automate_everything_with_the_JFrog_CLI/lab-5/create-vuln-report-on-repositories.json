@@ -1,0 +1,30 @@
+{
+  "name": "Vuln-Report-On-Repositories",
+  "resources": {
+    "repositories": [
+      {
+        "name": "sup016-npm-dev-local"
+      }
+    ]
+  },
+  "filters": {
+    "artifact": "",
+    "component": "",
+    "has_remediation": null,
+    "cvss_score": null,
+    "cve": "",
+    "issue_id": "",
+    "severities": [
+      "Critical",
+      "High"
+    ],
+    "published": {
+      "start": null,
+      "end": null
+    },
+    "scan_date": {
+      "start": null,
+      "end": null
+    }
+  }
+}

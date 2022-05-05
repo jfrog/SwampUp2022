@@ -1,5 +1,12 @@
- -T $SCRIPT_DIR/lab-5/prod-security-policy.json
-curl -u$ADMIN_USER:$ADMIN_PASSWORD -X POST -H "content-type: application/json"  https://$JFROG_PLATFORM/xray/api/v2/policies -T $SCRIPT_DIR/lab-5/dev-security-policy.json
-curl -u$ADMIN_USER:$ADMIN_PASSWORD -X POST -H "content-type: application/json"  https://$JFROG_PLATFORM/xray/api/v2/policies -T $SCRIPT_DIR/lab-5/license-policy.json
-curl -u$ADMIN_USER:$ADMIN_PASSWORD -X POST -H "content-type: application/json"  https://$JFROG_PLATFORM/xray/api/v2/watches -T $SCRIPT_DIR/lab-5/watch.json
-curl -u$ADMIN_USER:$ADMIN_PASSWORD -X POST -H "content-type: application/json"  https://$JFROG_PLATFORM/xray/api/v1/binMgr/builds -T $SCRIPT_DIR/lab-5/index-builds.json
+# Index builds
+jf xr curl -XPOST /api/v1/binMgr/builds -H 'Content-Type: application/json' -d @index-builds.json
+
+# Create Security Policy
+jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @prod-security-policy.json
+jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @dev-security-policy.json
+
+# Create License Policy
+jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @license-policy.json
+
+# Create a Watch
+jf xr curl -XPOST /api/v2/watches -H 'Content-Type: application/json' -d @watch.json
