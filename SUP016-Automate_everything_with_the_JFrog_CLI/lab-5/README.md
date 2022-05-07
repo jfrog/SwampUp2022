@@ -76,6 +76,10 @@
 - Run ``jf xr curl -XPOST /api/v1/reports/violations -H 'Content-Type: application/json' -d @create-violations-report-on-repositories.json``
 
 
+## Generate SBOM Report
+https://www.jfrog.com/confluence/display/JFROG/Xray+REST+API#XrayRESTAPI-ExportComponentDetails
+
+
 
 ## Build Summary [need to fix]
 Run ``jf xr curl -XGET '/summary/build?build_name=sup016-npm&build_number=2.0.0'``

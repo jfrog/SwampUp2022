@@ -36,7 +36,11 @@
 - Run ``jf npm publish --build-name sup016-npm --build-number 1.0.0`` - Publish build Artifact to repository
 
 #### Docker - Package Manager Integration
-- Run
+- `cd /SwampUp2022/SUP016-Automate_everything_with_the_JFrog_CLI/example-projects/docker-example` 
+- Run `docker build -t sup016-docker-virtual/docker-example-app:latest .`
+- Run `docker tag sup016-docker-virtual/docker-example-app:latest soleng.jfrog.io/sup016-docker-virtual/docker-example-app:latest`
+- Run `jf rt dp soleng.jfrog.io/sup016-docker-virtual/docker-example-app:latest sup016-docker-virtual --build-name=sup016-docker-app --build-number=1`
+
 
 ### Collect Environment Variables
 #### Maven 
@@ -94,10 +98,10 @@
 
 ### Promoting a Build
 #### Maven
-- Run ``jf rt bpr sup016-maven 1.0.0 sup016mp-maven-stage-local``
+- Run ``jf rt bpr sup016-maven 1.0.0 sup016-maven-qa-local --status='stage candidate' --comment='webservice is now stage candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=staging"``
 
 #### NPM
-- Run ``jf rt bpr sup016-npm 1.0.0 sup016mp-maven-npm-local``
+- Run ``jf rt bpr sup016-npm 1.0.0 sup016-npm-qa-local --status='stage candidate' --comment='webservice is now stage candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=staging"``
 
 
 ### Collect Dependencies [OPTIONAL]
@@ -109,11 +113,11 @@
 ### Set Properties 
 - Run 
 
-  ``jf rt set-props "sup016mp-npm-dev-local/npm-example/-/npm-example-1.1.4.tgz" "unit-test=pass;integration-test=null;"``
+  ``jf rt set-props "sup016mp-npm-dev-local/npm-example/-/npm-example-1.1.4.tgz" "unit-test=pass;integration.test=null;"``
 
   or
 
-  ``jf rt sp "sup016mp-npm-dev-local/npm-example/-/npm-example-1.1.4.tgz" "unit-test=pass;integration-test=null;"``
+  ``jf rt sp "sup016mp-npm-dev-local/npm-example/-/npm-example-1.1.4.tgz" "unit-test=pass;integration.test=null;"``
 
 
 ### Challenge - Update Properties [Optional]
