@@ -3,7 +3,7 @@
 ### Prerequisites
 - Lab-0 - Configure JFrog CLI 
 
-### Create Repository Template
+### CREATE REPOSITORY TEMPLATE
 - Local Repository Template
   - run ``jf rt repo-template template-local.json``
     - Select the template type (press Tab for options): `create`
@@ -90,8 +90,20 @@
         }
         ```
 
-### Create repos 
-### check for priority resolutions
+### CREATE REPOSITORY
+- Run ``jf rt repo-create template-{{ local|remote|virtual }}.json``
+
+    or
+
+  ``jf rt rc template-{{ local|remote|virtual }}.json``
+
+**NOTE**: **--var** - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
+
+``jf rt rc template-local.json --var “repo-name=sup016-npm-qa-local”``
+
+
   
 ### Challenge - Update Repository [Optional] 
-- Update the description of one repository we created above  
+- Update the description of one repository we created above 
+- Configure repository with Include/Exclude Pattern
+- For remote repository, update metadata retrieval cache period in secs. (default: 7200secs)
