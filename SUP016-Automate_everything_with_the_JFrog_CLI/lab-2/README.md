@@ -4,26 +4,58 @@
 - Lab-0 - Configure JFrog CLI
 - Lab-1 - Repository Provisioning
 
-### Create User (Internal)
+### CREATE USER (Internal)
 - Please review the CSV that is part of the lab where `username`, `password`, `email` defined for few test users
-- Run ``jf rt users-create --csv users.csv``
+- Run ``jf rt users-create --csv users.csv`` or ``jf rt uc --csv users.csv``
 
-### Create Groups and add users to groups
-Create Groups
-- Run ``jf rt group-create developers``
-- Run ``jf rt group-create ops``
-- Run ``jf rt group-create secops``
-Adding Users to Groups
+### CREATE GROUPS AND ADD USERS TO GROUPS 
+**Create Groups**
+- Run ``jf rt group-create developers`` or ``jf rt gc developers``
+- Run ``jf rt group-create ops`` or ``jf rt gc ops``
+- Run ``jf rt group-create secops`` or ``jf rt gc secops``
+
+
+**Adding Users to Groups**
 - Developers - mike,jennifer
-  - Run ``jf rt group-add-users "developers" "mike,jennifer"``
-- ops - bob, rolando, jennifer, support
-  - Run ``jf rt group-add-users "ops" "bob,jennifer,rolando,support"``
-- secops - irene, matt, jennifer
-  - Run ``jf rt group-add-users "secops" "irene,matt,jennifer"``
+  - Run 
+    
+    ``jf rt group-add-users "developers" "mike,jennifer"`` 
+  
+    or 
+  
+    ``jf rt gau "developers" "mike,jennifer"``
 
-### Create Permission Target Template
-- Run ``jf rt permission-target-template pt-template.json``
+
+- ops - bob, rolando, jennifer, support
+  - Run 
+  
+   ``jf rt group-add-users "ops" "bob,jennifer,rolando,support"`` 
+
+   or 
+
+   ``jf rt gau "ops" "bob,jennifer,rolando,support"``
+
+
+- secops - irene, matt, jennifer
+  - Run 
+  
+    ``jf rt group-add-users "secops" "irene,matt,jennifer"`` 
+  
+    or 
+  
+    ``jf rt gau "secops" "irene,matt,jennifer"``
+
+
+### CREATE PERMISSION TARGET TEMPLATE 
+- Run 
+  
+  ``jf rt permission-target-template pt-template.json`` 
+  
+  or 
+
+  ``jf rt ptt pt-template.json``
   - Insert the permission target name > `development`
+  
   - You can type ":x" at any time to save and exit. 
   - Select the permission target section to configure (press Tab for options): `repo`
     Insert the section's repositories value.
@@ -61,17 +93,44 @@ Adding Users to Groups
     - Insert group name (press enter to finish) > ↵
     - Select the permission target section to configure (press Tab for options): `:x`
 
-### Create Permission Target using Template
-- Run ``jf rt permission-target-create pt-template.json``
+### CREATE PERMISSION TARGET USING TEMPLATE
+- Run 
+
+  ``jf rt permission-target-create pt-template.json`` 
+
+  or 
+
+  ``jf rt ptc pt-template.json``
+
+
+
+    NOTE: 
+
+    --var - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
+
 
 ### Create JFrog Project [Optional]
 --- NO NATIVE or CURL SUPPORT for now
 curl -XPOST -H "Authorization: Bearer {{access_token}}"  -H 'Content-Type:application/json' https://{{host}}/access/api/v1/projects  -T ./create-project.json
 
+
+
+### CHALLENGE
+- remote `deleteme` users from artifactory 
+- Update ``development`` permission target and give ``ops`` group ``managedXrayMeta`` permission
+
+
+
 ### Delete User (Internal) - [POST SESSION TASK]
-- Run ``jf rt users-delete "mike,bob,jennifer,rolando,irene,matt,support" --quiet``
-or
-- Run ``jf rt users-delete --csv users.csv``
+- Run 
+
+  ``jf rt users-delete users.csv --quiet``
+
+  or
+
+  ``jf rt udel --csv users.csv --quiet``
 
 ### Delete Group - [POST SESSION TASK]
-- Run ``jf rt group-delete developers``
+- Run 
+
+  ``jf rt group-delete developers``

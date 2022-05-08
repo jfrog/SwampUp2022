@@ -5,8 +5,8 @@
 - Lab-1 - Repository Provisioning
 - Lab-2 - Role-Based Access Control
 
-## Building and Deploying
-#### Maven - Package Manager Integration
+## BUILDING AND DEPLOYING
+#### MAVEN - Package Manager Integration
 - To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.) 
   - Run ``jf mvnc``
     - Resolve dependencies from Artifactory? (y/n) [y]? `y`
@@ -35,14 +35,14 @@
 - Run ``jf npm install --build-name sup016-npm --build-number 1.0.0``
 - Run ``jf npm publish --build-name sup016-npm --build-number 1.0.0`` - Publish build Artifact to repository
 
-#### Docker - Package Manager Integration
+#### DOCKER - Package Manager Integration
 - `cd /SwampUp2022/SUP016-Automate_everything_with_the_JFrog_CLI/example-projects/docker-example` 
 - Run `docker build -t sup016-docker-virtual/docker-example-app:latest .`
 - Run `docker tag sup016-docker-virtual/docker-example-app:latest soleng.jfrog.io/sup016-docker-virtual/docker-example-app:latest`
 - Run `jf rt dp soleng.jfrog.io/sup016-docker-virtual/docker-example-app:latest sup016-docker-virtual --build-name=sup016-docker-app --build-number=1`
 
 
-### Collect Environment Variables
+### COLLECT ENVIRONMENT VARIABLES 
 #### Maven 
 - Run 
   
@@ -55,18 +55,35 @@
 #### NPM
 - Run ``jf rt bce sup016-npm 1.0.0``
 
-### Collect Information from Git
+### COLLECT INFORMATION REGARDING GIT 
 #### Maven
 - Run 
 
   ``jf rt build-add-git sup016-maven 1.0.0 checkout-dir`` - (.git path[Optional] - Path to a directory containing the .git directory. If not specific, the .git directory is assumed to be in the current directory or in one of the parent directories.)
 
- or
+  or
 
- ``jf rt bag sup016-maven 1.0.0 checkout-dir``  
+  ``jf rt bag sup016-maven 1.0.0 checkout-dir``  
 
 #### NPM
 - Run ``jf rt bag sup016-npm 1.0.0``  - - (.git path[Optional] - Path to a directory containing the .git directory. If not specific, the .git directory is assumed to be in the current directory or in one of the parent directories.)
+
+
+### PUBLISH BUILD-INFO
+#### Maven build publish
+- Run ``jf rt bp sup016-maven 1.0.0``
+
+#### NPM build publish
+- Run ``jf rt bp sup016-npm 1.0.0``
+
+
+### Promoting a Build
+#### Maven
+- Run ``jf rt bpr sup016-maven 1.0.0 sup016-maven-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=qa"``
+
+#### NPM
+- Run ``jf rt bpr sup016-npm 1.0.0 sup016-npm-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=qa"``
+
 
 ### Add Files as Build Dependencies [OPTIONAL]
 - Run
@@ -76,13 +93,6 @@
   or
 
   ``jf rt bad sup016-maven 1.0.0 "path/to/build/dependencies/dir/"``
-
-### Publish Build-Info
-#### Maven build publish
-- Run ``jf rt bp sup016-maven 1.0.0``
-
-#### NPM build publish
-- Run ``jf rt bp sup016-npm 1.0.0``
 
 ### Aggregate Published Builds [OPTIONAL]
 - Create and publish build 1 for multi1
@@ -96,28 +106,30 @@
   - Run ``jf rt build-append sup016-maven 1.0.0 multi2-build 1``
 - Run ``jf rt bp sup016-maven 1.0.0``
 
-### Promoting a Build
-#### Maven
-- Run ``jf rt bpr sup016-maven 1.0.0 sup016-maven-qa-local --status='stage candidate' --comment='webservice is now stage candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=staging"``
-
-#### NPM
-- Run ``jf rt bpr sup016-npm 1.0.0 sup016-npm-qa-local --status='stage candidate' --comment='webservice is now stage candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=staging"``
-
 
 ### Collect Dependencies [OPTIONAL]
 - the following command downloads the ``shiro-core-1.7.1.jar`` file found in repository ``{{repository}}`` , but it also specifies this file as a dependency in build ``sup016-maven`` with build number ``1.0.0``
   - Run ``jf rt dl {{repository}}/org/apache/shiro/shiro-core/1.7.1/shiro-core-1.7.1.jar --build-name=sup016-maven --build-number=1.0.0`` - downloads the `shiro-core-1.7.1.jar` file found in repository ``{{repository}}`` , but it also specifies this file as a dependency in build
 
 
+
+
+
+
 ## Properties
 ### Set Properties 
 - Run 
 
-  ``jf rt set-props "sup016mp-npm-dev-local/npm-example/-/npm-example-1.1.4.tgz" "unit-test=pass;integration.test=null;"``
+  ``jf rt set-props "sup016-npm-dev-local/npm-example/-/npm-example-1.1.4.tgz" "unit.test=pass;integration.test=null;"``
 
   or
 
-  ``jf rt sp "sup016mp-npm-dev-local/npm-example/-/npm-example-1.1.4.tgz" "unit-test=pass;integration.test=null;"``
+  ``jf rt sp "sup016-npm-dev-local/npm-example/-/npm-example-1.1.4.tgz" "unit.test=pass;integration.test=null;"``
+
+
+
+## SETTING UP A CI PIPELINE
+
 
 
 ### Challenge - Update Properties [Optional]

@@ -11,8 +11,6 @@
     - Select the repository class (press Tab for options): `local`
     - Select the repository's package type (press Tab for options): `npm`
     - You can type ":x" at any time to save and exit.
-    - Select the next configuration key (press Tab for options): `projectKey`
-    - Insert the value for projectKey > `maharshi`
     - Select the next configuration key (press Tab for options): `repoLayoutRef`
     - Insert the value for repoLayoutRef (press Tab for options): > `npm-default`
     - Select the next configuration key (press Tab for options): `xrayIndex`
@@ -25,7 +23,6 @@
         "key":"${repo-name}",
         "packageType":"${package-type}",
         "rclass":"${repo-type}",
-        "projectKey": "${project-key}",
         "repoLayoutRef":"${repo-layout}",
         "xrayIndex":"${xray-enable}"
       }
@@ -37,9 +34,7 @@
       - Select the repository class (press Tab for options): `remote`
       - Insert the remote repository URL > `https://registry.npmjs.org`
       - Select the repository's package type (press Tab for options): `npm`
-      - You can type ":x" at any time to save and exit. 
-      - Select the next configuration key (press Tab for options): `projectKey`
-      - Insert the value for projectKey > `maharshi`
+      - You can type ":x" at any time to save and exit.
       - Select the next configuration key (press Tab for options): `repoLayoutRef`
       - Insert the value for repoLayoutRef (press Tab for options): > `npm-default`
       - Select the next configuration key (press Tab for options): `xrayIndex`
@@ -53,7 +48,6 @@
           "packageType":"${package-type}",
           "rclass":"${repo-type}",
           "url":"${url}",
-          "projectKey": "${project-key}",
           "repoLayoutRef":"${repo-layout}",
           "xrayIndex":"${xray-enable}"
         }
@@ -67,8 +61,6 @@
       - You can type ":x" at any time to save and exit. 
       - Select the next configuration key (press Tab for options): `repoLayoutRef`
       - Insert the value for repoLayoutRef (press Tab for options): > `npm-default`
-      - Select the next configuration key (press Tab for options): `projectKey` 
-      - Insert the value for projectKey > `maharshi`
       - Select the next configuration key (press Tab for options): `repositories` 
       - The value should be a comma separated list:
       - Insert the value for repositories > `sup016-npm-dev-local,sup016-npm-qa-local,sup016-npm-prod-local,sup016-npm-remote`
@@ -82,7 +74,6 @@
           "key":"${repo-name}",
           "packageType":"${package-type}",
           "rclass":"${repo-type}",
-          "projectKey": "${project-key}",
           "repoLayoutRef":"${repo-layout}",
           "defaultDeploymentRepo":"${deploy-repo-name}",
           "externalDependenciesRemoteRepo":"${external-remote-repo-name}",
@@ -97,13 +88,16 @@
 
   ``jf rt rc template-{{ local|remote|virtual }}.json``
 
-**NOTE**: **--var** - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
 
-``jf rt rc template-local.json --var “repo-name=sup016-npm-qa-local”``
+    NOTE: 
+
+    --var - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
+    
+    ``jf rt rc template-local.json --var “repo-name=sup016-npm-qa-local”``
 
 
   
-### Challenge - Update Repository [Optional] 
+### CHALLENGE - Update Repository [Optional] 
 - Update the description of one repository we created above 
 - Configure repository with Include/Exclude Pattern
 - For remote repository, update metadata retrieval cache period in secs. (default: 7200secs)

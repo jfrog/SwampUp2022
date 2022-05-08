@@ -9,4 +9,4 @@ jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @dev-s
 jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @license-policy.json
 
 # Create a Watch
-jf xr curl -XPOST /api/v2/watches -H 'Content-Type: application/json' -d @watch.json
+jf xr curl -XPOST /api/v2/watches -H 'Content-Type: application/json' -H 'Consumes: application/json' -H 'Produces: application/json' -d @watch.json

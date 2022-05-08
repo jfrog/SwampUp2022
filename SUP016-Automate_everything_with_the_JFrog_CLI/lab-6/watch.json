@@ -1,0 +1,34 @@
+{
+    "general_data": {
+        "name": "sup016-xray-watch",
+        "description": "",
+        "active": true,
+        "author": "",
+        "create_ticket_enabled": false,
+        "jira_profile": "Choose Jira Profile"
+    },
+    "notify": {
+        "emails": []
+    },
+    "project_resources": {
+        "resources": [{
+            "category": "all",
+            "name": "",
+            "repo_type": "",
+            "filters": [],
+            "type": "repository",
+            "include_patterns": [],
+            "exclude_patterns": []
+        }, {
+            "category": "all",
+            "name": "",
+            "repo_type": "",
+            "type": "build",
+            "include_patterns": [],
+            "exclude_patterns": []
+        }]
+    },
+    "policies": ["prod-security-policy", "gpl-blacklisting"],
+    "jira_profile": "Choose Jira Profile",
+    "create_ticket_enabled": false
+}
