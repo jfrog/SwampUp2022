@@ -31,9 +31,9 @@ This plugin recursively scans the root_folder for .jar and .war files; For every
 - Arguments:
   - root-folder - Directory to start the recursive scan from
 - Flags:
-  exclude: don't scan the specified directories
+  exclude: do not scan the specified directories
 ```
 
-- Run ``jf plugin install live-logs``
+- Run ``jf plugin install scan-log4j-versions``
 
 - Run ``jf scan-log4j-versions run maven-example``
