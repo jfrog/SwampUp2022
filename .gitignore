@@ -1,0 +1,7 @@
+.idea/
+.DS_Store
+
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/maven-example/.jfrog/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/npm-example/.jfrog/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/npm-example/node_modules/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/npm-example/ package-lock.json
