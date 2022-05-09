@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-echo "Enter already create CLI Configuration name"
+echo "Enter CLI Configuration name created during JFrog CLI Installation"
 read -r CLIName
 export CLI_NAME=${CLIName}
 
