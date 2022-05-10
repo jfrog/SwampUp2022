@@ -3,7 +3,7 @@
 #################
 # init process #
 #################
-#curl -fL https://install-cli.jfrog.io | sh
+curl -fL https://install-cli.jfrog.io | sh
 echo -n "Configuration name for CLI (unique name) : "
 read -r CLIName
 export CLI_NAME=${CLIName}
