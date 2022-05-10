@@ -44,3 +44,6 @@ jf rt curl -XDELETE /api/repositories/s003-npm-local
 jf rt curl -XDELETE /api/repositories/s003-npm-remote
 jf rt curl -XDELETE /api/repositories/s003-npm
 echo "\nComplete : Delete Repositories : "
+
+echo "Delete CLI Configuration : "
+jf config remove $CLI_NAME
