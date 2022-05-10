@@ -30,3 +30,5 @@ jf config add $CLI_NAME --user $INSTANCE_USERNAME --password $API_KEY --artifact
 jf config use $CLI_NAME
 
 echo -n "Make note of configuration name: " $CLI_NAME " which will be used for later CLI commands"
+
+jf config show $CLI_NAME
