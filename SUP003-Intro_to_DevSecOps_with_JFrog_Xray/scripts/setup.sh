@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
-echo "Enter CLI Configuration name created during JFrog CLI Installation"
+
+echo -n "Configuration name for CLI (unique name) : "
 read -r CLIName
 export CLI_NAME=${CLIName}
 
 jf config use $CLI_NAME
-
 echo -n "Jfrog is accessible check : "
-jf rt ping --url=http://$INSTANCE_NAME.jfrog.io/artifactory
+jf rt ping
 
 echo -n "START : Create local Repository in JFrog Artifactory"
 jf rt repo-create ./json/npm-local.json

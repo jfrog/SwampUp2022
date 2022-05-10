@@ -12,12 +12,11 @@
 
 cd ../maven-example
 
-echo "Enter CLI Configuration name created during JFrog CLI Installation"
+echo -n "Configuration name for CLI (unique name) : "
 read -r CLIName
 export CLI_NAME=${CLIName}
 
 jf config use $CLI_NAME
-
 echo -n "Jfrog is accessible check : "
 jf rt ping
 
@@ -42,7 +41,7 @@ jf rt bag swampup22_s003_mvn_pipeline $BUILD_NUMBER ../../.
 
 #Publish Build Info
 
-jf rt bp swampup22_s003_mvn_pipeline $BUILD_NUMBER
+jf rt bp --build-url JFrog-CLI swampup22_s003_mvn_pipeline $BUILD_NUMBER
 
 echo "START : Xray Scan"
 jf bs swampup22_s003_mvn_pipeline $BUILD_NUMBER
