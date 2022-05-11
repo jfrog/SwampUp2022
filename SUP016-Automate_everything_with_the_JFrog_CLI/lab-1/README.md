@@ -97,7 +97,7 @@
 
 
 ### CREATE ALL REPOSITORIES
-- Run `sh lab1-rescue.sh` and it will create all local, remote, virtual repositories.
+- Run `sh lab1_rescue.sh` and it will create all local, remote, virtual repositories.
 
   
 ### CHALLENGE - Update Repository [Optional] 

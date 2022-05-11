@@ -1,4 +1,4 @@
-# LAB 4 - JFROG CLI Plugin
+# LAB 8 - JFROG CLI Plugin
 
 - [JFrog CLI Plugin Registry](https://github.com/jfrog/jfrog-cli-plugins-reg)
 - [JFrog CLI Plugins Developer Guide](https://github.com/jfrog/jfrog-cli/blob/v2/guides/jfrog-cli-plugins-developer-guide.md#JFrog-CLI-Plugin-Developer-Guide)

@@ -105,7 +105,7 @@
   ```
 
 
-### Challenge - Update Properties [Optional]
+### Challenge [Optional]
 - Find Component by CVE       HINT: [searchByCves](https://www.jfrog.com/confluence/display/JFROG/Xray+REST+API#XrayRESTAPI-FindComponentbyCVE)
   - Log4J - [CVE-2021-44228](https://jfrog.com/blog/your-log4shell-remediation-cookbook-using-the-jfrog-platform/)
   - Spring4Shell - [CVE-2022-22965](https://jfrog.com/blog/springshell-zero-day-vulnerability-all-you-need-to-know/)

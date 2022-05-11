@@ -1,5 +1,0 @@
-[
-  {"key":"sup016-docker-prod-local","packageType":"docker","rclass":"local","repoLayoutRef":"simple-default", "xrayIndex":"true"},
-  {"key":"sup016-maven-prod-local","packageType":"maven","rclass":"local","repoLayoutRef":"maven-2-default", "xrayIndex":"true"},
-  {"key":"sup016-npm-prod-local","packageType":"npm","rclass":"local","repoLayoutRef":"npm-default", "xrayIndex":"true"}
-]
