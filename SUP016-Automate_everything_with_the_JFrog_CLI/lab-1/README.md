@@ -20,11 +20,11 @@
     - View template
       ```json
       {
-        "key":"${repo-name}",
-        "packageType":"${package-type}",
-        "rclass":"${repo-type}",
-        "repoLayoutRef":"${repo-layout}",
-        "xrayIndex":"${xray-enable}"
+        "key":"${repo-name}",               # sup016-npm-dev-local
+        "packageType":"${package-type}",    # npm
+        "rclass":"${repo-type}",            # local
+        "repoLayoutRef":"${repo-layout}",   # npm-default
+        "xrayIndex":"${xray-enable}"        # true
       }
       ```
 - Remote Repository Template
@@ -95,6 +95,9 @@
     
     ``jf rt rc template-local.json --var “repo-name=sup016-npm-qa-local”``
 
+
+### CREATE ALL REPOSITORIES
+- Run `sh lab1-rescue.sh` and it will create all local, remote, virtual repositories.
 
   
 ### CHALLENGE - Update Repository [Optional] 

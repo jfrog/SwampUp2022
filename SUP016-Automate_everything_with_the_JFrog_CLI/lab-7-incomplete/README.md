@@ -8,3 +8,9 @@
 - Lab 4 - Configure Replication
 - Lab 5 - Artifactory Query Language
 - Lab 6 - Xray
+
+### CREATE RELEASE BUNDLE
+- Run ``jf ds rbc --spec=new_rb.json new_rb_swamp 2.0.0``
+
+### SIGN RELEASE BUNDLE
+- Run ````

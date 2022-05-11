@@ -3,7 +3,7 @@
 ### Prerequisites
 - JFrog CLI is installed on your machine by running `jf -v`
 
-### SETUP JFROG CLI
+### SETUP JFROG CLI WITH MAIN JPD
 - Checkout all ``jf`` configs ``jf config show``
 
 
@@ -21,3 +21,7 @@
 - Healthcheck ``jf rt ping``
 
 ![lab0_cli_config](https://user-images.githubusercontent.com/7561138/164789237-bcfd7067-19f6-491f-aae5-e903ad691714.gif)
+
+
+### SETUP JFROG CLI WITH MAIN EDGE NODE
+- ``jf config add SUP016-edge --artifactory-url=https://$JFROG_EDGE/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false``
