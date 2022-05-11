@@ -1,34 +1,31 @@
 {
     "general_data": {
         "name": "sup016-xray-watch",
-        "description": "",
-        "active": true,
-        "author": "",
-        "create_ticket_enabled": false,
-        "jira_profile": "Choose Jira Profile"
-    },
-    "notify": {
-        "emails": []
+        "description": "This is Prod watch",
+        "active": true
     },
     "project_resources": {
         "resources": [{
-            "category": "all",
-            "name": "",
-            "repo_type": "",
-            "filters": [],
-            "type": "repository",
+            "type": "all-repos",
+            "bin_mgr_id": "default",
             "include_patterns": [],
             "exclude_patterns": []
-        }, {
-            "category": "all",
-            "name": "",
-            "repo_type": "",
-            "type": "build",
+        },{
+            "type": "all-builds",
+            "bin_mgr_id": "default",
             "include_patterns": [],
             "exclude_patterns": []
         }]
     },
-    "policies": ["prod-security-policy", "gpl-blacklisting"],
-    "jira_profile": "Choose Jira Profile",
-    "create_ticket_enabled": false
+    "assigned_policies": [
+        {
+            "name": "prod-security-policy",
+            "type": "security"
+        },
+        {
+            "name": "gpl-blacklisting",
+            "type": "license"
+        }
+    ],
+    "watch_recipients":[]
 }

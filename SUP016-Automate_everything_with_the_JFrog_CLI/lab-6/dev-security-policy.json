@@ -11,8 +11,8 @@
               "actions":{
                 "fail_build":true,
                 "block_download":{
-                  "unscanned":true,
-                  "active":true
+                  "unscanned":false,
+                  "active":false
                 }
               }
             },

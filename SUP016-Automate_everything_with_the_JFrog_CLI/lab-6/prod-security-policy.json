@@ -12,8 +12,8 @@
                 "webhooks": [],
                 "fail_build":true,
                 "block_download":{
-                  "unscanned":true,
-                  "active":true
+                  "unscanned":false,
+                  "active":false
                 },
                 "notify_deployer": true
               }
@@ -28,8 +28,8 @@
                 "webhooks": [],
                 "fail_build":true,
                 "block_download":{
-                  "unscanned":true,
-                  "active":true
+                  "unscanned":false,
+                  "active":false
                 },
                 "notify_deployer": true
               }
@@ -45,8 +45,8 @@
                 "webhooks": [],
                 "fail_build":true,
                 "block_download":{
-                  "unscanned":true,
-                  "active":true
+                  "unscanned":false,
+                  "active":false
                 },
                 "notify_deployer": true
               }
