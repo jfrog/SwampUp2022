@@ -1,0 +1,7 @@
+{
+    "key" : "s003-libs-release",
+    "rclass" : "virtual",
+    "packageType" : "maven",
+    "repositories" : "s003-libs-release-local,s003-maven-jcenter",
+    "defaultDeploymentRepo" : "s003-libs-release-local"
+}

@@ -1,0 +1,82 @@
+{
+    "name": "sec_policy",
+    "description": "This is a security policy",
+    "type": "security",
+    "rules": [
+        {
+            "name": "critical",
+            "criteria": {
+                "min_severity": "critical"
+            },
+            "actions": {
+                "webhooks": [],
+                "block_download": {
+                    "active": true,
+                    "unscanned": true
+                },
+                "block_release_bundle_distribution": false,
+                "fail_build": false,
+                "notify_deployer": true,
+                "notify_watch_recipients": true
+            },
+            "priority": 1
+        },
+        {
+            "name": "high",
+            "criteria": {
+                "min_severity": "high"
+            },
+            "actions": {
+                "webhooks": [],
+                "block_download": {
+                    "active": true,
+                    "unscanned": true
+                },
+                "block_release_bundle_distribution": false,
+                "fail_build": false,
+                "notify_deployer": false,
+                "notify_watch_recipients": false
+            },
+            "priority": 2
+        },
+        {
+            "name": "medium",
+            "criteria": {
+                "min_severity": "medium"
+            },
+            "actions": {
+                "webhooks": [],
+                "block_download": {
+                    "active": false,
+                    "unscanned": false
+                },
+                "block_release_bundle_distribution": false,
+                "fail_build": false,
+                "notify_deployer": false,
+                "notify_watch_recipients": false
+            },
+            "priority": 3
+        },
+        {
+            "name": "low",
+            "criteria": {
+                "cvss_range": {
+                    "from": 1,
+                    "to": 4
+                }
+            },
+            "actions": {
+                "webhooks": [],
+                "block_download": {
+                    "active": false,
+                    "unscanned": false
+                },
+                "block_release_bundle_distribution": false,
+                "fail_build": false,
+                "notify_deployer": false,
+                "notify_watch_recipients": false
+            },
+            "priority": 4
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "GitHub1",
+    "projectId": 1,
+    "masterIntegrationId": 20,
+    "masterIntegrationName": "github",
+    "formJSONValues": [
+        {
+            "label": "token",
+            "value": "b8d79c494dd5f237699517faf90fff9772491570"
+        },
+        {
+            "label": "url",
+            "value": "https://api.github.com"
+        }
+    ],
+    "permissions": {
+        "pipelineSources": {
+            "allowAllPipelineSources": true
+        }
+    }
+}

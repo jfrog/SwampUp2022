@@ -1,0 +1,64 @@
+{
+    "name": "sec_critical_policy",
+    "description": "This is a critical security policy",
+    "type": "security",
+    "rules": [
+        {
+            "name": "critical",
+            "criteria": {
+                "min_severity": "critical"
+            },
+            "actions": {
+                "webhooks": [],
+                "block_download": {
+                    "active": true,
+                    "unscanned": true
+                },
+                "block_release_bundle_distribution": false,
+                "fail_build": false,
+                "notify_deployer": true,
+                "notify_watch_recipients": true
+            },
+            "priority": 1
+        },
+        {
+            "name": "high",
+            "criteria": {
+                "min_severity": "high"
+            },
+            "actions": {
+                "webhooks": [],
+                "block_download": {
+                    "active": true,
+                    "unscanned": true
+                },
+                "block_release_bundle_distribution": false,
+                "fail_build": false,
+                "notify_deployer": false,
+                "notify_watch_recipients": false
+            },
+            "priority": 2
+        },
+        {
+            "name": "critical_cvss",
+            "criteria": {
+                "cvss_range": {
+                    "from": 9,
+                    "to": 10
+                }
+            },
+            "actions": {
+                "webhooks": [],
+                "block_download": {
+                    "active": false,
+                    "unscanned": false
+                },
+                "block_release_bundle_distribution": false,
+                "fail_build": false,
+                "notify_deployer": false,
+                "notify_watch_recipients": false
+            },
+            "priority": 3
+        }
+    ]
+}

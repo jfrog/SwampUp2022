@@ -1,0 +1,10 @@
+version: 1
+type: maven
+resolver:
+  serverId: localcli
+  snapshotRepo: su201-libs-snapshot
+  releaseRepo: su201-libs-release
+deployer:
+  serverId: localcli
+  snapshotRepo: su201-libs-snapshot
+  releaseRepo: su201-libs-release
