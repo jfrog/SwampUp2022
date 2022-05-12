@@ -12,12 +12,12 @@
 
 cd ../maven-example
 
-echo -n "Configuration name for CLI (unique name) : "
+echo "Configuration name for CLI (unique name) : "
 read -r CLIName
 export CLI_NAME=${CLIName}
 
 jf config use $CLI_NAME
-echo -n "Jfrog is accessible check : "
+echo "Jfrog is accessible check : "
 jf rt ping
 
 #Config Maven

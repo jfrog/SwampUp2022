@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-echo -n "Configuration name for CLI (unique name) : "
+echo "Configuration name for CLI (unique name) : "
 read -r CLIName
 export CLI_NAME=${CLIName}
 

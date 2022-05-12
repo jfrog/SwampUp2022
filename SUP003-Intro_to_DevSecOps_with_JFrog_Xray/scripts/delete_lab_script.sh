@@ -5,7 +5,7 @@ read -r CLIName
 export CLI_NAME=${CLIName}
 
 jf config use $CLI_NAME
-echo "\nJfrog is accessible check : "
+echo "Jfrog is accessible check : "
 jf rt ping
 
 echo "START : Delete Watches : "
