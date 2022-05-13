@@ -9,13 +9,13 @@
 #################
 # init process #
 #################
-cd ../npm-example
+cd ../../npm-example
 
 echo "Configuration name for CLI (unique name) : "
-read -r CLIName
-export CLI_NAME=${CLIName}
+read -r CLIConfigName
+export CLI_CONFIG_NAME=${CLIConfigName}
 
-jf config use $CLI_NAME
+jf config use $CLI_CONFIG_NAME
 echo "Jfrog is accessible check : "
 jf rt ping
 

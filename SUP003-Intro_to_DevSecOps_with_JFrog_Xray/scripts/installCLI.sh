@@ -5,8 +5,8 @@
 #################
 curl -fL https://install-cli.jfrog.io | sh
 echo "Configuration name for CLI (unique name) : "
-read -r CLIName
-export CLI_NAME=${CLIName}
+read -r CLIConfigName
+export CLI_CONFIG_NAME=${CLIConfigName}
 
 echo "Jfrog instance Name (copy instancename from host - https://{{instancename}}.jfrog.io/): "
 read -r instancename 
@@ -23,11 +23,10 @@ export API_KEY=${apikey}
 echo "Jfrog is accessible check : "
 jf rt ping --url=http://$INSTANCE_NAME.jfrog.io/artifactory
 
-chmod +x jfrog
-jf config add $CLI_NAME --user $INSTANCE_USERNAME --password $API_KEY --artifactory-url https://$INSTANCE_NAME.jfrog.io/artifactory --xray-url https://$INSTANCE_NAME.jfrog.io/xray/ --interactive=false
+jf config add $CLI_CONFIG_NAME --user $INSTANCE_USERNAME --password $API_KEY --artifactory-url https://$INSTANCE_NAME.jfrog.io/artifactory --xray-url https://$INSTANCE_NAME.jfrog.io/xray/ --interactive=false
 
-jf config use $CLI_NAME
+jf config use $CLI_CONFIG_NAME
 
-echo "Make note of configuration name: " $CLI_NAME " which will be used for later CLI commands"
+echo "Make note of configuration name: " $CLI_CONFIG_NAME " which will be used for later CLI commands"
 
-jf config show $CLI_NAME
+jf config show $CLI_CONFIG_NAME
