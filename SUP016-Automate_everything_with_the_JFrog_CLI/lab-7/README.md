@@ -19,6 +19,6 @@
 - Run ``jf ds rbd --dist-rules={{file_path}} {{release_bundle_name}} {{release_bundle_version}}``
 
 
-### Challenge [Optional]
+### CHALLENGE - Release Bundle [Optional]
 - Scan Release Bundle using Xray HINT: Need to be added to watch
 - Delete older Release Bundle

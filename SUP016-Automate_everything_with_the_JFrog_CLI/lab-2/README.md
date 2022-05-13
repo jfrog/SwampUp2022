@@ -115,12 +115,6 @@ curl -XPOST -H "Authorization: Bearer {{access_token}}"  -H 'Content-Type:applic
 
 
 
-### CHALLENGE
-- remote `deleteme` users from artifactory 
-- Update ``development`` permission target and give ``ops`` group ``managedXrayMeta`` permission
-
-
-
 ### Delete User (Internal) - [POST SESSION TASK]
 - Run 
 
@@ -134,3 +128,9 @@ curl -XPOST -H "Authorization: Bearer {{access_token}}"  -H 'Content-Type:applic
 - Run 
 
   ``jf rt group-delete developers``
+
+
+
+## CHALLENGE - RBAC [Optional]
+- remote `deleteme` users from artifactory
+- Update ``development`` permission target and give ``ops`` group ``managedXrayMeta`` permission

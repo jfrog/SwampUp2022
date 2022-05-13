@@ -39,3 +39,6 @@
 
     ``jf rt rplc template-pull.json``
 
+## CHALLENGE - Replications [Optional]
+- Setup Push based replication between two instances. 
+  - NOTE: target serverId requires JFrog CLI config with username/password  - In lab-0, we used access token. Instead of that we need to use username/password.
