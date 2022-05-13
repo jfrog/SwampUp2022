@@ -1,7 +1,4 @@
-for row in $(cat ./repos.json | jq -r '.[] | @base64'); do
-    _jq() {
-      echo ${row} | base64 --decode | jq -r ${1}
-    }
+echo "<< START - SETUP PULL REPLICATION >>"
+sh setup_pull_replication.sh
+echo "<< END - SETUP PULL REPLICATION >>"
 
-    jf rt rplc template-pull-rescue.json --vars "repo-name=$(_jq '.key')"
-done
