@@ -1,0 +1,13 @@
+{
+  "files": [
+    {
+      "aql": {
+        "items.find": {
+          "$and": [
+            { "name": { "$match": "frogsui*" } },
+            { "repo": { "$match": "*prod*" }  }
+          ]
+        }
+      }
+    }]
+}

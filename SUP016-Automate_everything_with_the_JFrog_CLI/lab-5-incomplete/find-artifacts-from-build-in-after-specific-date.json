@@ -1,0 +1,15 @@
+{
+  "files": [
+    {
+      "aql": {
+        "items.find": {
+          "@build.name":{
+            "$eq":"sup016-npm"
+          },
+          "created": {
+            "$last": "10d"
+          }
+        }
+      }
+    }]
+}
