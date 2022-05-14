@@ -8,26 +8,31 @@
 - Lab 4 - Configure Replication
 - Lab 5 - Artifactory Query Language
 
+<br />
 
 ## INDEX BUILDS
 - Run ``jf xr curl -XPOST /api/v1/binMgr/builds -H 'Content-Type: application/json' -d @index-builds.json``
 
+<br />
 
 ## CREATE SECURITY POLICY
 - Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @prod-security-policy.json``
 - Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @dev-security-policy.json``
 - Confirm Security Policy named with ``prod-security-policy`` and ``dev-security-policy`` are created
 
+<br />
 
 ## CREATE LICENSE POLICY
 - Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @license-policy.json``
 - Confirm License Policy named with ``gpl-blacklisting`` is created
 
+<br />
 
 ## CREATE WATCH
 - Run ``jf xr curl -XPOST /api/v2/watches -H 'Content-Type: application/json' -d @watch.json``
 - Confirm Watch named with ``sup016-xray-watch`` is created
 
+<br />
 
 ## SCAN DEPENDENCIES 
 - Run ``jf audit`` To see Vulnerabilities in table format. For JSON, `--format=json`
@@ -38,13 +43,15 @@
 
 - Run ``jf audit --repo-path "sup016-npm-dev-local"`` to audit the project at the current directory using the policies defined for the `sup016-npm-dev-local` path in Artifactory.
 
+<br />
 
 ## SCAN BUILDS 
 - Run ``jf bs sup016-npm 1.0.0`` 
   - We have configured policy with fail build so its showing us
   
     `[🚨 Error] One or more of the violations found are set to fail builds that include them`
-  
+
+<br />
 
 ## ON-DEMAND SCAN
 ### SCAN FILE ON LOCAL FILE SYSTEM
@@ -55,7 +62,7 @@
 - Run ``docker images``
 - Run ``jf docker scan {{select one of the image}}``
 
-
+<br />
 
 ## GENERATE VULNERABILITIES REPORT
 ### REPORT ON REPOSITORIES
@@ -70,7 +77,7 @@
 - Get the ``{{**report_id**}}`` number from above and replace 
   - Run ``jf xr curl -XPOST '/api/v1/reports/vulnerabilities/{{**report_id**}}?direction=asc&page_num=1&num_of_rows=10&order_by=summary'``
 
-
+<br />
 
 ## GENERATE LICENSE DUE DILIGENCE REPORT 
 - Run ``jf xr curl -XPOST /api/v1/reports/licenses -H 'Content-Type: application/json' -d @create-license-report-on-repositories.json``
@@ -79,10 +86,12 @@
 - Get the ``{{**report_id**}}`` number from above and replace
   - Run ``jf xr curl -XPOST '/api/v1/reports/licenses/97?direction=asc&page_num=1&num_of_rows=10&order_by=component'``
 
+<br />
 
 ## GENERATE VIOLATIONS REPORT
 - Run ``jf xr curl -XPOST /api/v1/reports/violations -H 'Content-Type: application/json' -d @create-violations-report-on-repositories.json``
 
+<br />
 
 ## GENERATE SBOM REPORT IN SPDX OR CYCLONEDX
 - Run ``jf xr curl -XPOST /api/v1/component/exportDetails -H 'Content-Type: application/json' -d @create-SBOM-spdx-report.json >> report.zip``
@@ -104,10 +113,13 @@
   }
   ```
 
+<br />
 
 ## Build Summary [need to fix]
 Run ``jf xr curl -XGET '/summary/build?build_name=sup016-npm&build_number=2.0.0'``
 
+<br />
+<br />
 
 
 ## CHALLENGE [Optional]
