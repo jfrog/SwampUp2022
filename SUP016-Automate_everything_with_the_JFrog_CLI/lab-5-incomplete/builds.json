@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "aql": {
+        "builds.find": {
+          "$and": [{
+            "name": { "$match": "npm-example*" }
+          },{
+            "@build.name": { "$match": "sup016*" }
+          },{
+            "@build.number": { "$match": "3.0.0" }
+          }]
+        }
+      }
+    }]
+}

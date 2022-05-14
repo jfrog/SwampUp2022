@@ -41,6 +41,10 @@
 - Run `docker tag sup016-docker-virtual/docker-example-app:latest soleng.jfrog.io/sup016-docker-virtual/docker-example-app:latest`
 - Run `jf rt dp soleng.jfrog.io/sup016-docker-virtual/docker-example-app:latest sup016-docker-virtual --build-name=sup016-docker-app --build-number=1`
 
+<br />
+<br />
+<br />
+
 
 ### COLLECT ENVIRONMENT VARIABLES 
 #### Maven 
@@ -55,6 +59,11 @@
 #### NPM
 - Run ``jf rt bce sup016-npm 1.0.0``
 
+<br />
+<br />
+<br />
+
+
 ### COLLECT INFORMATION REGARDING GIT 
 #### Maven
 - Run 
@@ -68,6 +77,10 @@
 #### NPM
 - Run ``jf rt bag sup016-npm 1.0.0``  - - (.git path[Optional] - Path to a directory containing the .git directory. If not specific, the .git directory is assumed to be in the current directory or in one of the parent directories.)
 
+<br />
+<br />
+<br />
+
 
 ### PUBLISH BUILD-INFO
 #### Maven build publish
@@ -75,6 +88,11 @@
 
 #### NPM build publish
 - Run ``jf rt bp sup016-npm 1.0.0``
+
+
+<br />
+<br />
+<br />
 
 
 ### Promoting a Build
@@ -85,6 +103,11 @@
 - Run ``jf rt bpr sup016-npm 1.0.0 sup016-npm-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=qa"``
 
 
+<br />
+<br />
+<br />
+
+
 ### Add Files as Build Dependencies [OPTIONAL]
 - Run
 
@@ -93,6 +116,12 @@
   or
 
   ``jf rt bad sup016-maven 1.0.0 "path/to/build/dependencies/dir/"``
+
+
+<br />
+<br />
+<br />
+
 
 ### Aggregate Published Builds [OPTIONAL]
 - Create and publish build 1 for multi1
@@ -107,13 +136,19 @@
 - Run ``jf rt bp sup016-maven 1.0.0``
 
 
+<br />
+<br />
+<br />
+
 ### Collect Dependencies [OPTIONAL]
 - the following command downloads the ``shiro-core-1.7.1.jar`` file found in repository ``{{repository}}`` , but it also specifies this file as a dependency in build ``sup016-maven`` with build number ``1.0.0``
   - Run ``jf rt dl {{repository}}/org/apache/shiro/shiro-core/1.7.1/shiro-core-1.7.1.jar --build-name=sup016-maven --build-number=1.0.0`` - downloads the `shiro-core-1.7.1.jar` file found in repository ``{{repository}}`` , but it also specifies this file as a dependency in build
 
 
-
-
+<br />
+<br />
+<br />
+<br />
 
 
 ## Properties
@@ -129,8 +164,10 @@
 
 
 ## SETTING UP A CI PIPELINE
+- Run `jf ci-setup`
 
-
+<br />
+<br />
 
 ### CHALLENGE - Update Properties [Optional]
 - Add new property to sub-folder inside the artifact - HINT: We need that property to be tagged to each and every single file of the Artifact recursively. 

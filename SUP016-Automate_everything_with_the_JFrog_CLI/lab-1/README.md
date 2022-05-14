@@ -96,11 +96,12 @@
     ``jf rt rc template-local.json --var “repo-name=sup016-npm-qa-local”``
 
 
-### CREATE ALL REPOSITORIES
+### Prerequisites for future labs - CREATE ALL REPOSITORIES
 - Run `sh lab1_rescue.sh` and it will create all local, remote, virtual repositories.
 
   
 ### CHALLENGE - Update Repository [Optional] 
-- Update the description of one repository we created above 
+- Disable indexing in Xray for one repository we created above
+- Update the description for one repository we created above 
 - Configure repository with Include/Exclude Pattern
 - For remote repository, update metadata retrieval cache period in secs. (default: 7200secs)

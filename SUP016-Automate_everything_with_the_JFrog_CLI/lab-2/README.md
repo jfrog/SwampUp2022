@@ -102,17 +102,14 @@
 
   ``jf rt ptc pt-template.json``
 
-
-
-    NOTE: 
-
+    ```json
+    NOTE:
     --var - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
+    ```
 
 
 ### Create JFrog Project [Optional]
---- NO NATIVE or CURL SUPPORT for now
-curl -XPOST -H "Authorization: Bearer {{access_token}}"  -H 'Content-Type:application/json' https://{{host}}/access/api/v1/projects  -T ./create-project.json
-
+`curl -XPOST -H "Authorization: Bearer {{access_token}}"  -H 'Content-Type:application/json' https://{{host}}/access/api/v1/projects  -T ./create-project.json`
 
 
 ### Delete User (Internal) - [POST SESSION TASK]
