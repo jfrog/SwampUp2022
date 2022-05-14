@@ -1,9 +1,11 @@
 # LAB 1 - Repository Provisioning
 
-### Prerequisites
+## Prerequisites
 - Lab-0 - Configure JFrog CLI 
 
-### CREATE REPOSITORY TEMPLATE
+<br />
+
+## CREATE REPOSITORY TEMPLATE
 - Local Repository Template
   - run ``jf rt repo-template template-local.json``
     - Select the template type (press Tab for options): `create`
@@ -81,7 +83,9 @@
         }
         ```
 
-### CREATE REPOSITORY
+<br />
+
+## CREATE REPOSITORY
 - Run ``jf rt repo-create template-{{ local|remote|virtual }}.json``
 
     or
@@ -95,12 +99,15 @@
     
     ``jf rt rc template-local.json --var “repo-name=sup016-npm-qa-local”``
 
+<br />
 
 ### Prerequisites for future labs - CREATE ALL REPOSITORIES
 - Run `sh lab1_rescue.sh` and it will create all local, remote, virtual repositories.
 
-  
-### CHALLENGE - Update Repository [Optional] 
+
+<br />
+
+## CHALLENGE - Update Repository [Optional] 
 - Disable indexing in Xray for one repository we created above
 - Update the description for one repository we created above 
 - Configure repository with Include/Exclude Pattern

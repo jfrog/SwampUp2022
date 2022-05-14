@@ -43,10 +43,8 @@
 
 <br />
 <br />
-<br />
 
-
-### COLLECT ENVIRONMENT VARIABLES 
+## COLLECT ENVIRONMENT VARIABLES 
 #### Maven 
 - Run 
   
@@ -61,10 +59,9 @@
 
 <br />
 <br />
-<br />
 
 
-### COLLECT INFORMATION REGARDING GIT 
+## COLLECT INFORMATION REGARDING GIT 
 #### Maven
 - Run 
 
@@ -79,23 +76,20 @@
 
 <br />
 <br />
-<br />
 
 
-### PUBLISH BUILD-INFO
+## PUBLISH BUILD-INFO
 #### Maven build publish
 - Run ``jf rt bp sup016-maven 1.0.0``
 
 #### NPM build publish
 - Run ``jf rt bp sup016-npm 1.0.0``
 
-
-<br />
 <br />
 <br />
 
 
-### Promoting a Build
+## Promoting a Build
 #### Maven
 - Run ``jf rt bpr sup016-maven 1.0.0 sup016-maven-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=qa"``
 
@@ -103,7 +97,6 @@
 - Run ``jf rt bpr sup016-npm 1.0.0 sup016-npm-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=qa"``
 
 
-<br />
 <br />
 <br />
 
@@ -117,11 +110,8 @@
 
   ``jf rt bad sup016-maven 1.0.0 "path/to/build/dependencies/dir/"``
 
-
 <br />
 <br />
-<br />
-
 
 ### Aggregate Published Builds [OPTIONAL]
 - Create and publish build 1 for multi1
@@ -135,21 +125,16 @@
   - Run ``jf rt build-append sup016-maven 1.0.0 multi2-build 1``
 - Run ``jf rt bp sup016-maven 1.0.0``
 
-
-<br />
 <br />
 <br />
 
 ### Collect Dependencies [OPTIONAL]
 - the following command downloads the ``shiro-core-1.7.1.jar`` file found in repository ``{{repository}}`` , but it also specifies this file as a dependency in build ``sup016-maven`` with build number ``1.0.0``
   - Run ``jf rt dl {{repository}}/org/apache/shiro/shiro-core/1.7.1/shiro-core-1.7.1.jar --build-name=sup016-maven --build-number=1.0.0`` - downloads the `shiro-core-1.7.1.jar` file found in repository ``{{repository}}`` , but it also specifies this file as a dependency in build
-
-
+  
 <br />
 <br />
 <br />
-<br />
-
 
 ## Properties
 ### Set Properties 
@@ -161,7 +146,8 @@
 
   ``jf rt sp "sup016-npm-dev-local/npm-example/-/npm-example-1.1.4.tgz" "unit.test=pass;integration.test=null;"``
 
-
+<br />
+<br />
 
 ## SETTING UP A CI PIPELINE
 - Run `jf ci-setup`
@@ -169,7 +155,7 @@
 <br />
 <br />
 
-### CHALLENGE - Update Properties [Optional]
+## CHALLENGE - Update Properties [Optional]
 - Add new property to sub-folder inside the artifact - HINT: We need that property to be tagged to each and every single file of the Artifact recursively. 
 - Update the ``integration.test`` to ``pass`` or ``fail`` 
 - NEED to be tested - Fetch all the artifacts under repository that does not have properties `"unit.test=pass;integration.test=pass;"`

@@ -1,14 +1,14 @@
 # LAB 2 - Role-Based Access Control
 
-### Prerequisites
+## Prerequisites
 - Lab-0 - Configure JFrog CLI
 - Lab-1 - Repository Provisioning
 
-### CREATE USER (Internal)
+## CREATE USER (Internal)
 - Please review the CSV that is part of the lab where `username`, `password`, `email` defined for few test users
 - Run ``jf rt users-create --csv users.csv`` or ``jf rt uc --csv users.csv``
 
-### CREATE GROUPS AND ADD USERS TO GROUPS 
+## CREATE GROUPS AND ADD USERS TO GROUPS 
 **Create Groups**
 - Run ``jf rt group-create developers`` or ``jf rt gc developers``
 - Run ``jf rt group-create ops`` or ``jf rt gc ops``
@@ -46,7 +46,7 @@
     ``jf rt gau "secops" "irene,matt,jennifer"``
 
 
-### CREATE PERMISSION TARGET TEMPLATE 
+## CREATE PERMISSION TARGET TEMPLATE 
 - Run 
   
   ``jf rt permission-target-template pt-template.json`` 
@@ -93,7 +93,9 @@
     - Insert group name (press enter to finish) > ↵
     - Select the permission target section to configure (press Tab for options): `:x`
 
-### CREATE PERMISSION TARGET USING TEMPLATE
+<br />
+
+## CREATE PERMISSION TARGET USING TEMPLATE
 - Run 
 
   ``jf rt permission-target-create pt-template.json`` 
@@ -107,10 +109,12 @@
     --var - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
     ```
 
+<br />
 
 ### Create JFrog Project [Optional]
 `curl -XPOST -H "Authorization: Bearer {{access_token}}"  -H 'Content-Type:application/json' https://{{host}}/access/api/v1/projects  -T ./create-project.json`
 
+<br />
 
 ### Delete User (Internal) - [POST SESSION TASK]
 - Run 
@@ -121,12 +125,15 @@
 
   ``jf rt udel --csv users.csv --quiet``
 
+<br />
+
 ### Delete Group - [POST SESSION TASK]
 - Run 
 
   ``jf rt group-delete developers``
 
-
+<br />
+<br />
 
 ## CHALLENGE - RBAC [Optional]
 - remote `deleteme` users from artifactory

@@ -6,7 +6,9 @@
 - Lab-2 - Role-Based Access Control
 - Lab-3 - Build Integration and Properties
 
-### CREATE REPLICATION TEMPLATE
+<br />
+
+## CREATE REPLICATION TEMPLATE
 - Run 
 
     ``jf rt replication-template template-pull.json``
@@ -30,7 +32,9 @@
       }
       ```
 
-### CREATE REPLICATION USING TEMPLATE
+<br />
+
+## CREATE REPLICATION USING TEMPLATE
 - Run 
 
     ``jf rt replication-create template-pull.json``
@@ -38,6 +42,8 @@
     or
 
     ``jf rt rplc template-pull.json``
+
+<br />
 
 ## CHALLENGE - Replications [Optional]
 - Setup Push based replication between two instances. 
