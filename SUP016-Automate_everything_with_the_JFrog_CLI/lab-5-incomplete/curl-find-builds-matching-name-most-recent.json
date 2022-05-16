@@ -1,1 +1,0 @@
-builds.find({ "$and": [{"name": { "$match": "*npm*" }},{"created" : {"$last" : "2w"}}]}).sort({"$asc" : ["created"]})

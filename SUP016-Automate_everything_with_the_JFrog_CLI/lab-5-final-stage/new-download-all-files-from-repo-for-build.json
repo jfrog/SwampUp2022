@@ -1,0 +1,9 @@
+{
+  "files": [
+    {
+      "pattern": "sup016-npm-dev-local/*",
+      "target": "local-copy/",
+      "build": "sup016-npm/3.0.0"
+    }
+  ]
+}

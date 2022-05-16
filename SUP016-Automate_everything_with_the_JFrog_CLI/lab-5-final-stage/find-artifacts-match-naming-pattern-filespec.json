@@ -2,7 +2,7 @@
   "files": [{
     "aql": {
       "items.find": {
-        "name": { "$match": "*example*" }
+        "name": { "$match": "*frog*" }
       }
     }
   }]

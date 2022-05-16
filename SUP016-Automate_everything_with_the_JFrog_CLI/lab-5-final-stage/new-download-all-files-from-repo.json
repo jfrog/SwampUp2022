@@ -1,0 +1,8 @@
+{
+  "files": [
+    {
+      "pattern": "swampup2022-npm-main/*",
+      "target": "local-copy/"
+    }
+  ]
+}

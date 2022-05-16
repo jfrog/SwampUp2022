@@ -1,0 +1,19 @@
+{
+  "files": [
+    {
+      "aql": {
+        "items.find": {
+          "$and": [
+            {
+              "repo": "swampup2022-npm-main"
+            },
+            {
+                "@npm.name": { "$match":  "frogsui" }
+            }
+          ]
+        }
+      },
+      "target": "sup016-npm-qa-local/"
+    }
+  ]
+}

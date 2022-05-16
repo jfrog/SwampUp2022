@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "aql" : {
+        "items.find": {
+          "$and": [
+            {
+              "repo": {"$match": "*prod*"},
+              "stat.downloads":{"$eq":"1"},
+              "stat.downloaded":{"$last": "1y"}
+            }
+          ]
+        }
+      }
+    }]
+}

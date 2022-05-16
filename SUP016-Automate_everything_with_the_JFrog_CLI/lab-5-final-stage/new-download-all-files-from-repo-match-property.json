@@ -1,0 +1,9 @@
+{
+  "files": [
+    {
+      "pattern": "swampup2022-npm-main/*",
+      "target": "local-copy/",
+      "props": "sup016.qa.ready=true"
+    }
+  ]
+}
