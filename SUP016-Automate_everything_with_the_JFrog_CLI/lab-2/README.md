@@ -136,5 +136,5 @@
 <br />
 
 ## CHALLENGE - RBAC [Optional]
-- remote `deleteme` users from artifactory
+- Remove `deleteme` users from artifactory
 - Update ``development`` permission target and give ``ops`` group ``managedXrayMeta`` permission
