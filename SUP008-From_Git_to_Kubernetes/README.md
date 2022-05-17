@@ -10,10 +10,10 @@
 ### <ins>Lab #1 - Onboarding to Labs Environment</ins>
 
 - Login to your SaaS Enterprise+ environment and make sure you are able to connect with your credentials.
-- Fork this ([https://github.com/jfrog/SwampUp2021](https://github.com/jfrog/SwampUp2021)) repository to your GitHub Account (Top right - Click on "Fork"):
+- Fork this ([https://github.com/jfrog/SwampUp2022](https://github.com/jfrog/SwampUp2022)) repository to your GitHub Account (Top right - Click on "Fork"):
 ![alt text](https://i.ibb.co/dr7btgf/Screen-Shot-2021-05-01-at-13-26-24.png)
-- Run ```git clone https://github.com/<YOUR_GITHUB_USERNAME>/SwampUp2021.git``` against your forked repository.
-- Run ```cd SwampUp2021/SU-114-From-Git-To-Kubernetes``` which is our class's folder with all the relevant code.
+- Run ```git clone https://github.com/<YOUR_GITHUB_USERNAME>/SwampUp2022.git``` against your forked repository.
+- Run ```cd SwampUp2022/SUP008-From_Git_to_Kubernetes``` which is our class's folder with all the relevant code.
 - Open the file "back/pipelines.resources.yaml" and change the configuration.path in the following snippet based on your github username:</br>
 ![alt text](https://i.ibb.co/wyrLVNK/Screen-Shot-2021-05-01-at-14-28-11.png)</br>
 - Commit the changes to your forked repository:
@@ -31,7 +31,7 @@ git push
     <img src="https://i.ibb.co/TqdyPSC/Screen-Shot-2021-05-01-at-13-55-05.png" width="30%" height="30%"></br>
     - "generic integration" (type: "Generic"), where the value equals to your SaaS server name (for example, for swampup203.jfrog.io the server name is swampup203): </br>
     <img src="https://i.ibb.co/CzmrF3n/Screen-Shot-2021-05-01-at-13-55-26.png" width="50%" height="50%"></br>
-- Create a Pipeline Source based on the forked repository, with the following Pipeline Config File Filter: ```SU-114-From-Git-To-Kubernetes/(.*)pipelines(.*).yaml``` and branch ```main```:</br>
+- Create a Pipeline Source based on the forked repository, with the following Pipeline Config File Filter: ```SUP008-From_Git_to_Kubernetes/(.*)pipelines(.*).yaml``` and branch ```main```:</br>
 <img src="https://i.ibb.co/BrMcgw7/Screen-Shot-2021-05-01-at-13-55-40.png" width="40%" height="40%"></br>
 - Make sure all pipelines were loaded under "My Pipelines":</br> 
 ![alt text](https://i.ibb.co/mqMSDpd/Screen-Shot-2021-05-11-at-13-32-51.png)</br>
