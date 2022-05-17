@@ -14,7 +14,10 @@
 
 - Login to your SaaS Enterprise+ environment and make sure you are able to connect with your credentials.
 - Fork this ([https://github.com/jfrog/SwampUp2022](https://github.com/jfrog/SwampUp2022)) repository to your GitHub Account (Top right - Click on "Fork"):
-![alt text](https://i.ibb.co/dr7btgf/Screen-Shot-2021-05-01-at-13-26-24.png)
+
+![Screen Shot 2022-05-16 at 9 33 21 PM](https://user-images.githubusercontent.com/2287053/168729604-840784e4-9248-4055-bb23-ca91bc7eb18d.png)
+
+
 - Run ```git clone https://github.com/<YOUR_GITHUB_USERNAME>/SwampUp2022.git``` against your forked repository.
 - Run ```cd SwampUp2022/SUP008-From_Git_to_Kubernetes``` which is our class's folder with all the relevant code.
 - Open the file "back/pipelines.resources.yaml" and change the configuration.path in the following snippet based on your github username:</br>
