@@ -1,0 +1,62 @@
+pipelines:
+  - name: suv_114_docker_framework_pipeline
+    steps:
+      - name: build_docker_framework
+        type: DockerBuild
+        configuration:
+          affinityGroup: fmkGroup
+          dockerFileLocation: SU-114-From-Git-To-Kubernetes/framework/
+          dockerFileName: Dockerfile
+          dockerImageName: ${int_server_name_value}.jfrog.io/su-114-docker-virtual/jfrog-docker-framework
+          dockerImageTag: 1.0.${run_number}
+          dockerOptions: --build-arg SERVER_NAME=${int_server_name_value}
+          integrations:        
+            - name: artifactory
+            - name: docker
+            - name: server_name
+          inputResources:
+            - name: source_code
+            - name: framework_generic_fileSpec
+
+      - name: push_docker_framework
+        type: DockerPush
+        configuration:
+          affinityGroup: fmkGroup
+          targetRepository: su-114-docker-virtual
+          autoPublishBuildInfo: true
+          integrations:
+            - name: artifactory
+          inputSteps:
+            - name: build_docker_framework
+          outputResources:
+            - name: docker_framework_build_info
+
+      - name: xray_scan_docker_framework_build
+        type: XrayScan
+        configuration:
+          affinityGroup: fmkGroup
+          failOnScan: false
+          inputSteps:
+            - name: push_docker_framework
+          inputResources:
+            - name: docker_framework_build_info
+              trigger: false
+
+      - name: promote_framework_build
+        type: PromoteBuild
+        configuration:
+          affinityGroup: fmkGroup
+          targetRepository: su-114-docker-prod-local
+          status: "DOCKER_SCAN_OK"
+          comment: "Xray scan passed succesfully"
+          copy: "True"
+          inputSteps:
+            - name: xray_scan_docker_framework_build
+          inputResources:
+            - name: docker_framework_build_info
+          outputResources:
+            - name: docker_framework_build_info_promoted
+        execution:
+          onSuccess:
+            - write_output docker_framework_build_info_promoted version=1.0.${run_number}
+      

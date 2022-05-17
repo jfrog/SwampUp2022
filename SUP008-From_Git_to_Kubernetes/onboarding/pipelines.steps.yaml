@@ -1,0 +1,33 @@
+pipelines:
+  - name: suv_114_on_boarding_environment
+    steps:
+      - name: create_repositories
+        type: Bash
+        configuration:
+          inputResources:
+            - name: source_code
+          integrations:
+            - name: artifactory
+        execution:
+          onStart:
+            - echo 'Applying repository configuration'
+            - ls -la
+            - ls ${res_source_code_resourcePath}
+            - ls ${res_source_code_resourcePath}/SU-114-From-Git-To-Kubernetes
+            - cd ${res_source_code_resourcePath}/SU-114-From-Git-To-Kubernetes/onboarding/
+            - ls -la
+            - jfrog rt curl -XPATCH /api/system/configuration -T repo-conf-template.yaml
+      - name: upload_apache_tomcat
+        type: Bash
+        configuration:
+          inputResources:
+            - name: source_code
+          integrations:
+            - name: artifactory
+          inputSteps:
+            - name: create_repositories
+        execution:
+          onStart:
+            - echo 'Downloading tomcat and uploading to Artifactory'
+            - curl https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.32/bin/apache-tomcat-8.0.32.tar.gz --output apache-tomcat-8.0.32.tar.gz
+            - jfrog rt upload "apache-tomcat-8.0.32.tar.gz" su-114-generic-local

@@ -1,0 +1,50 @@
+resources:
+  - name: build_info_frontapp
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: artifactory
+      buildName: suv_114_frontapp_npm_pipeline
+      buildNumber: ${run_number}
+  
+  - name: build_info_frontapp_promoted_staging
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: artifactory
+      buildName: suv_114_frontapp_npm_pipeline
+      buildNumber: '${run_number}'
+
+  - name: build_info_frontapp_promoted_prod
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: artifactory
+      buildName: suv_114_frontapp_npm_pipeline
+      buildNumber: '${run_number}'
+
+  - name: frontapp_exec
+    type: FileSpec
+    configuration:
+      sourceArtifactory: artifactory
+      pattern: su-114-npm-prod-local/front/-/front-0.1.0.tgz
+      flat: true
+
+  - name: build_info_docker_frontapp
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: artifactory
+      buildName: suv_114_frontapp_docker_pipeline
+      buildNumber: '${run_number}'
+
+  - name: build_info_docker_frontapp_promoted_staging
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: artifactory
+      buildName: suv_114_frontapp_docker_pipeline
+      buildNumber: '${run_number}'
+
+  - name: spring_helm_chart_front_app_resource
+    type: HelmChart
+    configuration:
+      sourceArtifactory: artifactory
+      repository: su-114-helm-virtual
+      chart: spring_helm_chart_front_app_chart
+      version: 1.0.'${run_number}'

@@ -1,0 +1,155 @@
+pipelines:
+  - name: suv_114_back_app_gradle_pipeline
+    configuration:
+      environmentVariables:
+        readOnly:
+          appVersion: 1.0.${run_number}
+    steps:
+      - name: build_app_gradle_backend
+        type: GradleBuild
+        configuration: 
+          gradleCommand: clean artifactoryPublish -b build.gradle
+          sourceLocation: SU-114-From-Git-To-Kubernetes/back/src
+          configFileLocation: .  
+          configFileName: gradle-art-config  
+          inputResources:
+            - name: source_code
+          outputResources:
+            - name: back_app_build_info            
+          integrations:
+            - name: artifactory
+        execution:
+          onSuccess:
+            - add_pipeline_variables appVersion="${appVersion}"
+
+      - name: publish_backend_buildinfo
+        type: PublishBuildInfo
+        configuration:
+          inputSteps:
+            - name: build_app_gradle_backend
+          outputResources:
+            - name: back_app_build_info
+
+      - name: xray_scan_gradle_back_app
+        type: XrayScan
+        configuration:
+          affinityGroup: together
+          failOnScan: false
+          inputSteps:
+            - name: publish_backend_buildinfo
+          inputResources:
+            - name: back_app_build_info
+
+      - name: promote_build_info_gradle_back_app
+        type: PromoteBuild
+        configuration:
+          targetRepository: su-114-gradle-prod-local
+          includeDependencies: false
+          status: SANDBOX_OK
+          comment: Unit testing and Xray scan passed succesfully
+          copy: true
+          inputResources:
+            - name: back_app_build_info
+              trigger: true
+          inputSteps:
+            - name: xray_scan_gradle_back_app
+          outputResources:
+            - name: back_app_build_info_promoted_staging
+        execution:
+          onSuccess:
+            - write_output back_app_build_info_promoted_staging version=${appVersion}
+            - jfrog rt sp --build=${res_back_app_build_info_buildName}/${res_back_app_build_info_buildNumber} su-114-gradle-prod-local/ "app.version=${appVersion}"
+
+  - name: suv_114_backapp_docker_pipeline
+    configuration:
+      environmentVariables:
+        readOnly:
+          dockerFrameworkVersion: ${res_docker_framework_build_info_promoted_version}
+          dockerImageTagVersion: 1.0.${run_number}-${res_source_code_commitSha}
+    steps:
+      - name: build_docker_backapp
+        type: DockerBuild
+        configuration:
+          affinityGroup: swampup
+          dockerFileName: Dockerfile
+          dockerFileLocation: SU-114-From-Git-To-Kubernetes/back/
+          dockerImageName: ${int_server_name_value}.jfrog.io/su-114-docker-virtual/backapp
+          dockerImageTag: ${dockerImageTagVersion}
+          dockerOptions: --build-arg SERVER_NAME=${int_server_name_value} --build-arg DOCKER_FRAMEWORK_VERSION=${dockerFrameworkVersion}
+          inputResources:
+            - name: source_code
+            - name: back_app_build_info_promoted_staging
+            - name: docker_framework_build_info_promoted
+            - name: back_app_war_executable
+          integrations:
+            - name: artifactory
+            - name: docker
+            - name: server_name
+        execution:
+          onStart:
+            - add_pipeline_variables appVersion="${res_build_info_back_app_promoted_staging_version}"
+            - add_pipeline_variables triggerBuildInfoName="${res_build_info_back_app_promoted_staging_buildName}"
+            - add_pipeline_variables triggerBuildInfoNumber="${res_build_info_back_app_promoted_staging_buildNumber}"
+            - add_pipeline_variables myDockerTag="${dockerImageTagVersion}"
+
+      - name: publish_docker_backapp
+        type: DockerPush
+        configuration:
+          affinityGroup: swampup
+          targetRepository: su-114-docker-virtual
+          autoPublishBuildInfo: true
+          inputSteps:
+            - name: build_docker_backapp
+          integrations:
+            - name: artifactory
+          outputResources:
+            - name: build_info_docker_back_app
+
+      - name: xray_scan_docker_build_info_back_app
+        type: XrayScan
+        configuration:
+          affinityGroup: swampup
+          failOnScan: true
+          inputSteps:
+            - name: publish_docker_backapp
+          inputResources:
+            - name: build_info_docker_back_app
+
+      - name: promoting_docker_build_info_backapp
+        type: PromoteBuild
+        configuration:
+          affinityGroup: swampup
+          targetRepository: su-114-docker-prod-local
+          includeDependencies: false
+          status: "DOCKER_SCAN_OK"
+          comment: "Xray scan passed succesfully"
+          copy: "True"
+          integrations:
+            - name: artifactory
+          inputResources:
+            - name: build_info_docker_back_app
+              trigger: true
+          inputSteps:
+            - name: xray_scan_docker_build_info_back_app
+          outputResources:
+            - name: build_info_docker_back_app_promoted_staging
+        execution:
+          onSuccess:
+            - write_output build_info_docker_back_app_promoted_staging "backimage=\"backapp\""
+            - write_output build_info_docker_back_app_promoted_staging "backtag=${dockerImageTagVersion}"
+            - jfrog rt sp --build=${res_build_info_docker_back_app_buildName}/${res_build_info_docker_back_app_buildNumber} su-114-docker-prod-local/**/manifest.json "docker.tag=${dockerImageTagVersion}"
+
+      - name: publish_helm_chart
+        type: HelmPublish
+        configuration:
+          helmVersion: 3
+          lint: true
+          affinityGroup: swampup
+          inputResources:
+            - name: source_code
+          inputSteps:
+            - name: promoting_docker_build_info_backapp
+          outputResources:
+            - name: spring_helm_chart_back_app_resource
+          chartPath: SU-114-From-Git-To-Kubernetes/back/chart
+          flags: --app-version=${dockerImageTagVersion} --version 1.0.${run_number}

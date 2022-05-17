@@ -1,0 +1,10 @@
+version: 1
+type: gradle
+useWrapper: false
+resolver:
+  repo: su-114-gradle-virtual
+  serverID: artifactory
+deployer:
+  repo: su-114-gradle-virtual
+  serverID: artifactory
+  deployMavenDescriptors: true
