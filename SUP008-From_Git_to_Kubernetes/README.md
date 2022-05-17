@@ -1,5 +1,8 @@
 # From Git to Kubernetes: Cloud Native DevOps (Advanced) 
 
+![Screen Shot 2022-05-16 at 9 26 27 PM](https://user-images.githubusercontent.com/2287053/168728779-8348f1cc-74f6-4090-ac66-8a0f69ca2f6a.png)
+
+
 ### In this training session, you’ll learn best-practices when using the JFrog Platform to store and manage your Docker images and Kubernetes deployments from beginning to end, while also setting up a continuous build, test and deploy pipeline. We’ll cover best practices for managing and creating Docker registries and Helm repositories, testing and promotion of Docker containers, and taking your containers all the way to production using the JFrog Platform and Kubernetes together. While the use cases discussed will cover and utilize the entire JFrog Platform, the majority of the hands-on training will focus on JFrog Artifactory and CI tools working together.
 
 
