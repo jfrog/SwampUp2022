@@ -97,7 +97,7 @@
 
     --var - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
     
-    ``jf rt rc template-local.json --var “repo-name=sup016-npm-qa-local”``
+    ``jf rt rc template-local.json --var "repo-name=sup016-npm-qa-local"``
 
 <br />
 
