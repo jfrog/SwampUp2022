@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
 
 echo "Configuration name for CLI (unique name) : "
-read -r CLIName
-export CLI_NAME=${CLIName}
+read -r CLIConfigName
+export CLI_CONFIG_NAME=${CLIConfigName}
 
-jf config use $CLI_NAME
-echo "\nJfrog is accessible check : "
+jf config use $CLI_CONFIG_NAME
+echo "Jfrog is accessible check : "
 jf rt ping
 
 echo "START : Delete Watches : "
@@ -46,4 +46,4 @@ jf rt curl -XDELETE /api/repositories/s003-npm
 echo "\nComplete : Delete Repositories : "
 
 echo "Delete CLI Configuration : "
-jf config remove $CLI_NAME
+jf config remove $CLI_CONFIG_NAME
