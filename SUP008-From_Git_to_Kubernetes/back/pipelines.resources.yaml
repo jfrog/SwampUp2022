@@ -4,7 +4,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: github
-      path: talitz/SwampUp2021
+      path: talitz/SwampUp2022
       branches:
         include: main
 
