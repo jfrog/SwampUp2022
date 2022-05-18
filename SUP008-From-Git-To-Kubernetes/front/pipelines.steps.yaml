@@ -20,7 +20,7 @@ pipelines:
             - add_pipeline_variables appVersion="${appVersion}"
             - add_pipeline_variables subPath="${res_source_code_branchName}/${appVersion}"
             - mkdir -p $shared_workspace/npmBuildInputGitRepo
-            - cp -r $steplet_run_state_dir/npmBuildInputGitRepo/ $shared_workspace/npmBuildInputGitRepo/
+            - cp -r $steplet_run_state_dir/npmBuildInputGitRepo $shared_workspace
             - rm -rf $steplet_run_state_dir/npmBuildInputGitRepo/*
 
       - name: npm_package_frontend
@@ -58,7 +58,7 @@ pipelines:
         execution:
           onStart:
             - mkdir -p $steplet_run_state_dir/npmBuildInputGitRepo
-            - cp -r $shared_workspace/npmBuildInputGitRepo/ $steplet_run_state_dir/npmBuildInputGitRepo/
+            - cp -r $shared_workspace/npmBuildInputGitRepo $steplet_run_state_dir
 
       - name: publish_frontend_buildinfo
         type: PublishBuildInfo
