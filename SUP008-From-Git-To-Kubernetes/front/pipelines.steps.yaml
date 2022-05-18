@@ -4,7 +4,7 @@ pipelines:
       - name: build_npm_frontend
         type: NpmBuild
         configuration:
-          npmArgs: '--no-progress --no-audit'
+          npmArgs: '--no-audit'
           affinityGroup: together
           repositoryName: sup008-npm-virtual
           sourceLocation: SUP008-From-Git-To-Kubernetes/front/
