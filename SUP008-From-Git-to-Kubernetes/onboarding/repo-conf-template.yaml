@@ -1,44 +1,44 @@
 localRepositories:
-  su-114-generic-local:
+  sup008-generic-local:
     type: generic
     description: "generic prod"
     xray:
       enabled: true
-  su-114-gradle-dev-local:
+  sup008-gradle-dev-local:
     type: gradle
     description: "dev build"
     xray:
       enabled: true
-  su-114-gradle-prod-local:
+  sup008-gradle-prod-local:
       type: gradle
       description: "production deployment"
       xray:
         enabled: true
-  su-114-docker-dev-local:
+  sup008-docker-dev-local:
       type: docker
       repoLayout: simple-default
       description: "docker development repo"
       xray:
         enabled: true
-  su-114-docker-prod-local:
+  sup008-docker-prod-local:
       type: docker
       repoLayout: simple-default
       description: "production deployment"
       xray:
         enabled: true
-  su-114-npm-dev-local:
+  sup008-npm-dev-local:
     type: npm
     repoLayout: npm-default
     description: "npm local dev"
     xray:
       enabled: true
-  su-114-npm-prod-local:
+  sup008-npm-prod-local:
     type: npm
     repoLayout: npm-default
     description: "npm local prod"
     xray:
       enabled: true
-  su-114-helm-dev-local:
+  sup008-helm-dev-local:
       type: helm
       repoLayout: simple-default
       description: "helm local dev "
@@ -46,7 +46,7 @@ localRepositories:
         enabled: true
 
 remoteRepositories:
-  su-114-docker-remote:
+  sup008-docker-remote:
       type: docker
       url: https://registry-1.docker.io
       repoLayout: simple-default
@@ -54,19 +54,19 @@ remoteRepositories:
         enabled: true
       enableTokenAuthentication: true
       blockPushingSchema1: false
-  su-114-gradle-remote:
+  sup008-gradle-remote:
       type: gradle
       url: https://jcenter.bintray.com
       repoLayout: maven-2-default
       xray:
         enabled: true
-  su-114-npm-remote:
+  sup008-npm-remote:
     type: npm
     url: https://registry.npmjs.org
     repoLayout: npm-default
     xray:
       enabled: true
-  su-114-helm-remote:
+  sup008-helm-remote:
       type: helm
       url: https://storage.googleapis.com/kubernetes-charts
       repoLayout: simple-default
@@ -74,34 +74,34 @@ remoteRepositories:
         enabled: true
 
 virtualRepositories:
-  su-114-gradle-virtual:
+  sup008-gradle-virtual:
       type: gradle
       repositories:
-        - su-114-gradle-dev-local
-        - su-114-gradle-prod-local
-        - su-114-gradle-remote
+        - sup008-gradle-dev-local
+        - sup008-gradle-prod-local
+        - sup008-gradle-remote
       description: "gradle virtual repositories"
-      defaultDeploymentRepo: su-114-gradle-dev-local
-  su-114-docker-virtual:
+      defaultDeploymentRepo: sup008-gradle-dev-local
+  sup008-docker-virtual:
       type: docker
       repositories:
-        - su-114-docker-remote
-        - su-114-docker-dev-local
-        - su-114-docker-prod-local
+        - sup008-docker-remote
+        - sup008-docker-dev-local
+        - sup008-docker-prod-local
       description: "docker virtual"
-      defaultDeploymentRepo: su-114-docker-dev-local
-  su-114-helm-virtual:
+      defaultDeploymentRepo: sup008-docker-dev-local
+  sup008-helm-virtual:
       type: helm
       repositories:
-        - su-114-helm-dev-local
-        - su-114-helm-remote
+        - sup008-helm-dev-local
+        - sup008-helm-remote
       description: "helm virtual"
-      defaultDeploymentRepo: su-114-helm-dev-local
-  su-114-npm-virtual:
+      defaultDeploymentRepo: sup008-helm-dev-local
+  sup008-npm-virtual:
     type: npm
     repositories:
-      - su-114-npm-dev-local
-      - su-114-npm-prod-local
-      - su-114-npm-remote
+      - sup008-npm-dev-local
+      - sup008-npm-prod-local
+      - sup008-npm-remote
     description: "npm virtual"
-    defaultDeploymentRepo: su-114-npm-dev-local
+    defaultDeploymentRepo: sup008-npm-dev-local
