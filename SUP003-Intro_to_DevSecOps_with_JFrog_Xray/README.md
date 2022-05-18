@@ -1,5 +1,15 @@
 # SU-201 Intro to DevSecOps with JFrog Xray
 
+- [Add Docker PULL command here]
+- <docker pull soleng.jfrog.io/sup003-docker-virtual/lab-runner-init:1.0
+- [Add commands to Set up ENV variables]
+- [Add Docker run command here]
+- docker run --name my-project --rm --env  ARTIFACTORY_HOSTNAME="${ARTIFACTORY_HOSTNAME}" --env ARTIFACTORY_LOGIN="${ARTIFACTORY_LOGIN}" --env ARTIFACTORY_API_KEY="${ARTIFACTORY_API_KEY}" -it -v "/var/run/docker.sock:/var/run/docker.sock" soleng.jfrog.io/sup003-docker-virtual/lab-runner-init:1.0 /bin/bash
+- ALL COMMANDS FROM NOW WILL BE RUN ON THE DOCKER CONTAINER
+- Run scripts/setup.sh
+
+-------------------------------------
+#OLD 
 ### Prerequisites 
 
 - Fork [jfrog/SwampUp2021](https://github.com/jfrog/SwampUp2021) github repository. All content related to "SU-201-Introduction to DevSecOps with JFrog Xray" is under "**SU-201-Intro-to-JFrog-Xray/**".
