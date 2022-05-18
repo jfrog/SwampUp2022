@@ -1,0 +1,5 @@
+{
+    "buildName": "swampup22_s003_mvn_pipeline",
+    "deleteArtifacts": false,
+    "deleteAll": true
+}
