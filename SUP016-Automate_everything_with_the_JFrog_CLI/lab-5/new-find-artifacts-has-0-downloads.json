@@ -3,11 +3,11 @@
     {
       "aql" : {
         "items.find": {
+          "repo": {"$match": "sup016-npm*"},
           "$and": [
             {
-              "repo": {"$match": "*prod*"},
-              "stat.downloads":{"$eq":"1"},
-              "stat.downloaded":{"$last": "1y"}
+              "created": {"$before" : "2w" },
+              "stat.downloads":{"$eq": null }
             }
           ]
         }

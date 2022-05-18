@@ -111,7 +111,7 @@
 - Using spec with pattern
   - Run ``jf rt dl --spec=new-download-all-files-from-repo-match-property.json``
 - Using spec with aql
-  - Run ``jf rt dl --spec=NOTEREADY-new-download-all-files-from-repo-match-property-aql.json``
+  - Run ``jf rt dl --spec=new-download-all-files-from-repo-match-property-aql.json``
 
 #### DOWNLOAD ALL ARTIFACTS FROM REPOSITORY WITH MATCHING PROPERTY
 - Run ``jf rt dl --spec=new-download-all-files-from-repo-for-build.json``
@@ -131,27 +131,31 @@
 
 ### PROMOTE ARTIFACTS THAT HAS PROPERTY  
 
-### CLEAN OLD ARTIFACTS
+
+### CLEAN UP ARTIFACTS
+- Run for search `` jf rt s --spec=new-find-artifacts-has-0-downloads.json``
+- Run for delete ``jf rt del --spec=new-find-artifacts-has-0-downloads.json --dry-run``
 
 ### PROMOTION EXAMPLE 
 
 ### RELEASE DOMAIN EXAMPLE
 
-### ENTRY EXAMPLE
-
 ### DEPENDENCY EXAMPLE
-
-### ARCHIVE EXAMPLE
 
 ### RELEASE ARTIFACT EXAMPLE
 
-### 4-5 COMPLEX EXAMPLE 
+### FIND ARTIFACTS WITH GPL LICENSE
+- Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-find-artifact-with-GPL-license.json``
 
+### FIND ARTIFACTS WITH DEPTH FILTER like level
+- Run ``jf rt s --spec=new-find-artifacts-with-depth-filter.json``
 
+### FIND ARTIFACTS USING MULTIPLE FIELDS LIKE REPOSITORY WITH CERTAIN PROPERTY, BUILD
+- Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-find-artifacts-from-repo-build-matching-prop.json``
 
-### Builds - Find all Builds that have a dependency with a license that is not Apache
-jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d 'builds.find({"name":{"$eq":"sup016-npm"}})'
-
+### FIND ALL THE BUILDS WITH NAME
+- Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-find-builds-matching-name.json``
+- Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-find-builds-matching-name-most-recent-limit5.json``
 
 
 ## CHALLENGE - AQL [Optional]
