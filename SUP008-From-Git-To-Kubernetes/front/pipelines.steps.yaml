@@ -16,9 +16,12 @@ pipelines:
           onSuccess:
             - echo ${res_source_code_isGitTag}
             - appVersion=`if [[ ${res_source_code_isGitTag} == "True" ]]; then echo ${res_source_code_gitTagName}; else echo ${res_source_code_commitSha}; fi`
-            - echo $appVersion 
+            - echo $appVersion
             - add_pipeline_variables appVersion="${appVersion}"
-            - add_pipeline_variables subPath="${res_source_code_branchName}/${appVersion}"      
+            - add_pipeline_variables subPath="${res_source_code_branchName}/${appVersion}"
+            - mkdir -p $shared_workspace/npmBuildInputGitRepo
+            - cp -r $steplet_run_state_dir/npmBuildInputGitRepo $shared_workspace
+            - rm -rf $steplet_run_state_dir/npmBuildInputGitRepo/*
 
       - name: npm_package_frontend
         type: Bash
@@ -31,19 +34,15 @@ pipelines:
           integrations:
             - name: artifactory
         execution:
-          onStart:
-            - echo "Run Unit Testing ..." 
+          onExecute:
+            - cd $shared_workspace/npmBuildInputGitRepo/
+            - echo "Run Unit Testing ..."
             - if [ $OFFLINE_MODE == "true" ]; then echo "Offline mode turned on";fi
             - ls -la
-            - restore_run_files $build_npm_frontend_sourceStateName .
+            # - restore_run_files $build_npm_frontend_sourceStateName .
             - cd SUP008-From-Git-To-Kubernetes/front
             - ls -la
             - npm run build
-          onComplete:
-            - ls -la
-            - cd ..
-            - add_run_files . $build_npm_frontend_sourceStateName    
-            - ls -la
 
       - name: publish_frontend
         type: NpmPublish
@@ -55,7 +54,13 @@ pipelines:
           inputSteps:
             - name: npm_package_frontend
           integrations:
-            - name: artifactory 
+            - name: artifactory
+        execution:
+          onStart:
+            - mkdir -p $steplet_run_state_dir/npmBuildInputGitRepo
+            - cp -r $shared_workspace/npmBuildInputGitRepo $steplet_run_state_dir
+          onComplete:
+            - rm -rf $steplet_run_state_dir/npmBuildInputGitRepo
 
       - name: publish_frontend_buildinfo
         type: PublishBuildInfo
@@ -92,10 +97,10 @@ pipelines:
               trigger: true
           outputResources:
             - name: build_info_frontapp_promoted_staging
-        execution:  
+        execution:
           onStart:
-            - echo ${res_build_info_frontapp_buildName} 
-            - echo ${res_build_info_frontapp_buildNumber} 
+            - echo ${res_build_info_frontapp_buildName}
+            - echo ${res_build_info_frontapp_buildNumber}
             - echo ${appVersion}
           onSuccess:
             - write_output build_info_frontapp_promoted_staging myversion=${appVersion}
