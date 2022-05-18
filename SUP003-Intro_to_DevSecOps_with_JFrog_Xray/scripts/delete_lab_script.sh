@@ -1,8 +1,6 @@
 #!/usr/bin/env sh
 
-echo "Configuration name for CLI (unique name) : "
-read -r CLIConfigName
-export CLI_CONFIG_NAME=${CLIConfigName}
+export CLI_CONFIG_NAME="my-instance"
 
 jf config use $CLI_CONFIG_NAME
 echo "Jfrog is accessible check : "

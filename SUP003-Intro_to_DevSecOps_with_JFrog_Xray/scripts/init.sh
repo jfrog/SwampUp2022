@@ -1,13 +1,5 @@
 #!/usr/bin/env sh
 
-echo "Configuration name for CLI (unique name) : "
-read -r CLIConfigName
-export CLI_CONFIG_NAME=${CLIConfigName}
-
-jf config use $CLI_CONFIG_NAME
-echo "Jfrog is accessible check : "
-jf rt ping
-
 echo "START : Create local Repository in JFrog Artifactory"
 jf rt repo-create ./json/npm-local.json
 jf rt repo-create ./json/mvn-snapshot-local.json

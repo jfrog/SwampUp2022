@@ -11,8 +11,8 @@
             "actions": {
                 "webhooks": [],
                 "block_download": {
-                    "active": true,
-                    "unscanned": true
+                    "active": false,
+                    "unscanned": false
                 },
                 "block_release_bundle_distribution": false,
                 "fail_build": false,
@@ -29,8 +29,8 @@
             "actions": {
                 "webhooks": [],
                 "block_download": {
-                    "active": true,
-                    "unscanned": true
+                    "active": false,
+                    "unscanned": false
                 },
                 "block_release_bundle_distribution": false,
                 "fail_build": false,

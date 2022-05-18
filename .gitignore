@@ -1,16 +1,16 @@
 .idea/
 .DS_Store
-
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/maven-fixed-example/multi1/target/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/maven-fixed-example/multi2/target/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/maven-fixed-example/multi3/target/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/maven-fixed-example/classpath
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/maven-fixed-example/.jfrog/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/maven-vulnerable-example/multi1/target/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/maven-vulnerable-example/multi2/target/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/maven-vulnerable-example/multi3/target/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/maven-vulnerable-example/classpath
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/maven-vulnerable-example/.jfrog/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/npm-example/.jfrog/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/npm-example/node_modules/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/npm-example/ package-lock.json
+*.imi
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-fixed-example/multi1/target/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-fixed-example/multi2/target/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-fixed-example/multi3/target/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-fixed-example/classpath
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-fixed-example/.jfrog/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-vulnerable-example/multi1/target/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-vulnerable-example/multi2/target/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-vulnerable-example/multi3/target/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-vulnerable-example/classpath
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-vulnerable-example/.jfrog/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example/.jfrog/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example/node_modules/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example/ package-lock.json

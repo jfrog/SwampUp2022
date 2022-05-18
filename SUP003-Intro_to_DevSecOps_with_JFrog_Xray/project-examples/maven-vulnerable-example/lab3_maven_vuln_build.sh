@@ -12,9 +12,7 @@
 
 #cd ../../maven-vulnerable-example
 
-echo "Configuration name for CLI (unique name) : "
-read -r CLIConfigName
-export CLI_CONFIG_NAME=${CLIConfigName}
+export CLI_INSTANCE_ID="my-instance"
 
 jf config use $CLI_CONFIG_NAME
 echo "Jfrog is accessible check : "

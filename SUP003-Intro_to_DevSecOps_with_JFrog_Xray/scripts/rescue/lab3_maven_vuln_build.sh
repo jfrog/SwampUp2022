@@ -10,13 +10,15 @@
 # init process #
 #################
 
-cd ../../maven-vulnerable-example
+#echo "Configuration name for CLI (unique name) : "
+#read -r CLIConfigName
 
-echo "Configuration name for CLI (unique name) : "
-read -r CLIConfigName
-export CLI_CONFIG_NAME=${CLIConfigName}
+export CLI_INSTANCE_ID="my-instance"
 
-jf config use $CLI_CONFIG_NAME
+jf config use $CLI_INSTANCE_ID
+
+cd ../../project-examples/maven-vulnerable-example
+
 echo "Jfrog is accessible check : "
 jf rt ping
 
@@ -29,7 +31,7 @@ export BUILD_NUMBER=${RANDOM}
 
 #Run Maven Build
 
-jf mvn clean install --build-name=swampup22_s003_mvn_pipeline --build-number=$BUILD_NUMBER
+jf mvn clean install -Dmaven.test.skip=true -Dartifactory.publish.artifacts=true --build-name=swampup22_s003_mvn_pipeline --build-number=$BUILD_NUMBER
 
 #Collect Environment Variables
 
@@ -37,7 +39,7 @@ jf rt bce swampup22_s003_mvn_pipeline $BUILD_NUMBER
 
 #Collect GIT Variables
 
-jf rt bag swampup22_s003_mvn_pipeline $BUILD_NUMBER ../../.
+#jf rt bag swampup22_s003_mvn_pipeline $BUILD_NUMBER ../../.
 
 #Publish Build Info
 

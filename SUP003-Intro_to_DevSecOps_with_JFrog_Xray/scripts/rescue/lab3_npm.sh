@@ -9,13 +9,12 @@
 #################
 # init process #
 #################
-cd ../../npm-example
+cd ../../project-examples/npm-example
 
-echo "Configuration name for CLI (unique name) : "
-read -r CLIConfigName
-export CLI_CONFIG_NAME=${CLIConfigName}
+export CLI_INSTANCE_ID="my-instance"
 
-jf config use $CLI_CONFIG_NAME
+jf config use $CLI_INSTANCE_ID
+
 echo "Jfrog is accessible check : "
 jf rt ping
 
@@ -40,7 +39,7 @@ jf rt bce swampup22_s003_npm_pipeline $BUILD_NUMBER
 
 #Collect GIT Variables
 
-jf rt bag swampup22_s003_npm_pipeline $BUILD_NUMBER ../../.
+#jf rt bag swampup22_s003_npm_pipeline $BUILD_NUMBER ../../.
 
 #Publish Build Info
 

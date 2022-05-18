@@ -1,11 +1,5 @@
 #!/usr/bin/env sh
 
-echo "Configuration name for CLI (unique name) : "
-read -r CLIConfigName
-export CLI_CONFIG_NAME=${CLIConfigName}
-
-jf config use $CLI_CONFIG_NAME
-
 echo "START : Index Repositories for Xray : "
 jf xr curl -XPUT /api/v1/binMgr/1/repos -H "Content-Type: application/json" -d @../json/lab1-index-repos.json
 echo "\nCOMPLETE : Index Repositories for Xray"
