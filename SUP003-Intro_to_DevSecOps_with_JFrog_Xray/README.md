@@ -1,4 +1,4 @@
-# SU-201 Intro to DevSecOps with JFrog Xray
+# SUP003 - Intro to DevSecOps with JFrog Xray
 
 - [Add Docker PULL command here]
 - <docker pull soleng.jfrog.io/sup003-docker-virtual/lab-runner-init:1.0
