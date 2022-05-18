@@ -139,10 +139,13 @@
 ### PROMOTION EXAMPLE 
 
 ### RELEASE DOMAIN EXAMPLE
+- Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-release-domain-example.json``
 
 ### DEPENDENCY EXAMPLE
+- Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-dependency-example.json``
 
-### RELEASE ARTIFACT EXAMPLE
+### RELEASE ARTIFACT EXAMPLE [Optional]
+- Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-release-artifact-example.json``
 
 ### FIND ARTIFACTS WITH GPL LICENSE
 - Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-find-artifact-with-GPL-license.json``
@@ -159,3 +162,4 @@
 
 
 ## CHALLENGE - AQL [Optional]
+- 
