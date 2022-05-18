@@ -55,10 +55,10 @@ pipelines:
             - name: npm_package_frontend
           integrations:
             - name: artifactory
-          exeuction:
-            onStart:
-              - mkdir -p $steplet_run_state_dir/npmBuildInputGitRepo
-              - cp -r $shared_workspace/npmBuildInputGitRepo/ $steplet_run_state_dir/npmBuildInputGitRepo/
+        execution:
+          onStart:
+            - mkdir -p $steplet_run_state_dir/npmBuildInputGitRepo
+            - cp -r $shared_workspace/npmBuildInputGitRepo/ $steplet_run_state_dir/npmBuildInputGitRepo/
 
       - name: publish_frontend_buildinfo
         type: PublishBuildInfo
