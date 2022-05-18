@@ -1,5 +1,5 @@
 pipelines:
-  - name: suv_114_back_app_gradle_pipeline
+  - name: sup_008_back_app_gradle_pipeline
     configuration:
       environmentVariables:
         readOnly:
@@ -9,7 +9,7 @@ pipelines:
         type: GradleBuild
         configuration: 
           gradleCommand: clean artifactoryPublish -b build.gradle
-          sourceLocation: SU-114-From-Git-To-Kubernetes/back/src
+          sourceLocation: SUP008-From-Git-To-Kubernetes/back/src
           configFileLocation: .  
           configFileName: gradle-art-config  
           inputResources:
@@ -43,7 +43,7 @@ pipelines:
       - name: promote_build_info_gradle_back_app
         type: PromoteBuild
         configuration:
-          targetRepository: su-114-gradle-prod-local
+          targetRepository: sup008-gradle-prod-local
           includeDependencies: false
           status: SANDBOX_OK
           comment: Unit testing and Xray scan passed succesfully
@@ -58,9 +58,9 @@ pipelines:
         execution:
           onSuccess:
             - write_output back_app_build_info_promoted_staging version=${appVersion}
-            - jfrog rt sp --build=${res_back_app_build_info_buildName}/${res_back_app_build_info_buildNumber} su-114-gradle-prod-local/ "app.version=${appVersion}"
+            - jfrog rt sp --build=${res_back_app_build_info_buildName}/${res_back_app_build_info_buildNumber} sup008-gradle-prod-local/ "app.version=${appVersion}"
 
-  - name: suv_114_backapp_docker_pipeline
+  - name: sup_008_backapp_docker_pipeline
     configuration:
       environmentVariables:
         readOnly:
@@ -72,8 +72,8 @@ pipelines:
         configuration:
           affinityGroup: swampup
           dockerFileName: Dockerfile
-          dockerFileLocation: SU-114-From-Git-To-Kubernetes/back/
-          dockerImageName: ${int_server_name_value}.jfrog.io/su-114-docker-virtual/backapp
+          dockerFileLocation: SUP008-From-Git-To-Kubernetes/back/
+          dockerImageName: ${int_server_name_value}.jfrog.io/sup008-docker-virtual/backapp
           dockerImageTag: ${dockerImageTagVersion}
           dockerOptions: --build-arg SERVER_NAME=${int_server_name_value} --build-arg DOCKER_FRAMEWORK_VERSION=${dockerFrameworkVersion}
           inputResources:
@@ -96,7 +96,7 @@ pipelines:
         type: DockerPush
         configuration:
           affinityGroup: swampup
-          targetRepository: su-114-docker-virtual
+          targetRepository: SUP008-docker-virtual
           autoPublishBuildInfo: true
           inputSteps:
             - name: build_docker_backapp
@@ -119,7 +119,7 @@ pipelines:
         type: PromoteBuild
         configuration:
           affinityGroup: swampup
-          targetRepository: su-114-docker-prod-local
+          targetRepository: sup008-docker-prod-local
           includeDependencies: false
           status: "DOCKER_SCAN_OK"
           comment: "Xray scan passed succesfully"
@@ -137,7 +137,7 @@ pipelines:
           onSuccess:
             - write_output build_info_docker_back_app_promoted_staging "backimage=\"backapp\""
             - write_output build_info_docker_back_app_promoted_staging "backtag=${dockerImageTagVersion}"
-            - jfrog rt sp --build=${res_build_info_docker_back_app_buildName}/${res_build_info_docker_back_app_buildNumber} su-114-docker-prod-local/**/manifest.json "docker.tag=${dockerImageTagVersion}"
+            - jfrog rt sp --build=${res_build_info_docker_back_app_buildName}/${res_build_info_docker_back_app_buildNumber} sup008su-docker-prod-local/**/manifest.json "docker.tag=${dockerImageTagVersion}"
 
       - name: publish_helm_chart
         type: HelmPublish
@@ -151,5 +151,5 @@ pipelines:
             - name: promoting_docker_build_info_backapp
           outputResources:
             - name: spring_helm_chart_back_app_resource
-          chartPath: SU-114-From-Git-To-Kubernetes/back/chart
+          chartPath: SUP008-From-Git-To-Kubernetes/back/chart
           flags: --app-version=${dockerImageTagVersion} --version 1.0.${run_number}

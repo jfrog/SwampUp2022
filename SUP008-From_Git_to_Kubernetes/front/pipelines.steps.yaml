@@ -1,13 +1,13 @@
 pipelines:
-  - name: suv_114_frontapp_npm_pipeline
+  - name: sup_008_frontapp_npm_pipeline
     steps:
       - name: build_npm_frontend
         type: NpmBuild
         configuration:
           npmArgs: '--no-progress --no-audit'
           affinityGroup: together
-          repositoryName: su-114-npm-virtual
-          sourceLocation: SU-114-From-Git-To-Kubernetes/front/
+          repositoryName: sup008-npm-virtual
+          sourceLocation: SUP008-From-Git-To-Kubernetes/front/
           integrations:
             - name: artifactory
           inputResources:
@@ -36,7 +36,7 @@ pipelines:
             - if [ $OFFLINE_MODE == "true" ]; then echo "Offline mode turned on";fi
             - ls -la
             - restore_run_files $build_npm_frontend_sourceStateName .
-            - cd SU-114-From-Git-To-Kubernetes/front
+            - cd SUP008-From-Git-To-Kubernetes/front
             - ls -la
             - npm run build
           onComplete:
@@ -51,7 +51,7 @@ pipelines:
           affinityGroup: together
           environmentVariables:
             inputNpmBuildStepName: build_npm_frontend
-          repositoryName: su-114-npm-virtual
+          repositoryName: sup008-npm-virtual
           inputSteps:
             - name: npm_package_frontend
           integrations:
@@ -80,7 +80,7 @@ pipelines:
         type: PromoteBuild
         configuration:
           affinityGroup: together
-          targetRepository: su-114-npm-prod-local
+          targetRepository: sup008-npm-prod-local
           includeDependencies: false
           status: SANDBOX_OK
           comment: Unit testing and Xray scan passed succesfully
@@ -99,9 +99,9 @@ pipelines:
             - echo ${appVersion}
           onSuccess:
             - write_output build_info_frontapp_promoted_staging myversion=${appVersion}
-            - jfrog rt sp --build=${res_build_info_frontapp_buildName}/${res_build_info_frontapp_buildNumber} su-114-npm-prod-local/ "app.version=${appVersion}"
+            - jfrog rt sp --build=${res_build_info_frontapp_buildName}/${res_build_info_frontapp_buildNumber} sup008-npm-prod-local/ "app.version=${appVersion}"
 
-  - name: suv_114_frontapp_docker_pipeline
+  - name: sup_008_frontapp_docker_pipeline
     configuration:
       environmentVariables:
         readOnly:
@@ -112,8 +112,8 @@ pipelines:
         configuration:
           affinityGroup: swampupgrp
           dockerFileName: Dockerfile
-          dockerFileLocation: SU-114-From-Git-To-Kubernetes/front/
-          dockerImageName: ${int_server_name_value}.jfrog.io/su-114-docker-virtual/frontapp
+          dockerFileLocation: SUP008-From-Git-To-Kubernetes/front/
+          dockerImageName: ${int_server_name_value}.jfrog.io/su008-docker-virtual/frontapp
           dockerImageTag: ${dockerImageTagVersion}
           dockerOptions: --build-arg SERVER_NAME=${int_server_name_value}
           inputResources:
@@ -126,16 +126,16 @@ pipelines:
             - name: server_name
         execution:
           onStart:
-            - cp ${res_frontapp_exec_resourcePath}/front* ${res_source_code_resourcePath}/SU-114-From-Git-To-Kubernetes/front/
-            - cd ${res_source_code_resourcePath}/SU-114-From-Git-To-Kubernetes/front/
+            - cp ${res_frontapp_exec_resourcePath}/front* ${res_source_code_resourcePath}/SUP008-From-Git-To-Kubernetes/front/
+            - cd ${res_source_code_resourcePath}/SUP008-From-Git-To-Kubernetes/front/
             - tar xvf front*.tgz
-            - ls -l ${res_source_code_resourcePath}/SU-114-From-Git-To-Kubernetes/front/
+            - ls -l ${res_source_code_resourcePath}/SUP008-From-Git-To-Kubernetes/front/
 
       - name: publish_docker_frontapp
         type: DockerPush
         configuration:
           affinityGroup: swampupgrp
-          targetRepository: su-114-docker-virtual
+          targetRepository: sup008-docker-virtual
           autoPublishBuildInfo: true
           inputSteps:
             - name: build_docker_frontapp
@@ -158,7 +158,7 @@ pipelines:
         type: PromoteBuild
         configuration:
           affinityGroup: swampupgrp
-          targetRepository: su-114-docker-prod-local
+          targetRepository: sup008-docker-prod-local
           includeDependencies: false
           status: "DOCKER_SCAN_OK"
           comment: "Xray scan passed succesfully"
@@ -190,5 +190,5 @@ pipelines:
             - name: promote_docker_build_info_frontapp
           outputResources:
             - name: spring_helm_chart_front_app_resource
-          chartPath: SU-114-From-Git-To-Kubernetes/front/chart
+          chartPath: SUP008-From-Git-To-Kubernetes/front/chart
           flags: --app-version=${build_docker_frontapp_dockerImageTag} --version 1.0.${run_number}

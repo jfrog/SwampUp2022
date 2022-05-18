@@ -1,13 +1,13 @@
 pipelines:
-  - name: suv_114_docker_framework_pipeline
+  - name: sup_008_docker_framework_pipeline
     steps:
       - name: build_docker_framework
         type: DockerBuild
         configuration:
           affinityGroup: fmkGroup
-          dockerFileLocation: SU-114-From-Git-To-Kubernetes/framework/
+          dockerFileLocation: SUP008-From-Git-To-Kubernetes/framework/
           dockerFileName: Dockerfile
-          dockerImageName: ${int_server_name_value}.jfrog.io/su-114-docker-virtual/jfrog-docker-framework
+          dockerImageName: ${int_server_name_value}.jfrog.io/su008-docker-virtual/jfrog-docker-framework
           dockerImageTag: 1.0.${run_number}
           dockerOptions: --build-arg SERVER_NAME=${int_server_name_value}
           integrations:        
@@ -22,7 +22,7 @@ pipelines:
         type: DockerPush
         configuration:
           affinityGroup: fmkGroup
-          targetRepository: su-114-docker-virtual
+          targetRepository: sup008-docker-virtual
           autoPublishBuildInfo: true
           integrations:
             - name: artifactory
@@ -46,7 +46,7 @@ pipelines:
         type: PromoteBuild
         configuration:
           affinityGroup: fmkGroup
-          targetRepository: su-114-docker-prod-local
+          targetRepository: sup008-docker-prod-local
           status: "DOCKER_SCAN_OK"
           comment: "Xray scan passed succesfully"
           copy: "True"
