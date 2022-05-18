@@ -1,5 +1,5 @@
 ARG SERVER_NAME
-FROM $SERVER_NAME.jfrog.io/su-114-docker-virtual/openjdk:11-jdk
+FROM $SERVER_NAME.jfrog.io/sup008-docker-virtual/openjdk:11-jdk
 
 COPY target/apache-tomcat-8.0.32.tar.gz /home/exec/tomcat/apache-tomcat-8.0.32.tar.gz
 RUN cd /home/exec/ && tar -xvf /home/exec/tomcat/apache-tomcat-8.0.32.tar.gz

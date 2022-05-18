@@ -3,7 +3,7 @@ resources:
     type: FileSpec
     configuration:
       sourceArtifactory: artifactory
-      pattern:  su-114-generic-local/apache-tomcat-8.0.32.tar.gz
+      pattern:  sup008-generic-local/apache-tomcat-8.0.32.tar.gz
       target:   target/apache-tomcat-8.0.32.tar.gz
       flat:     true
 
@@ -11,12 +11,12 @@ resources:
     type: BuildInfo
     configuration:
       sourceArtifactory: artifactory
-      buildName: suv_114_docker_framework_pipeline
+      buildName: sup008_docker_framework_pipeline
       buildNumber: ${run_number}
   
   - name: docker_framework_build_info_promoted
     type: BuildInfo
     configuration:
       sourceArtifactory: artifactory
-      buildName: suv_114_docker_framework_pipeline
+      buildName: sup008_docker_framework_pipeline
       buildNumber: ${run_number}
