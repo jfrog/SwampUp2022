@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "mathjs": "7.5.1",
+    "qs": "6.8.0",
     "axios": "0.20.0",
     "body-parser": "^1.19.0",
     "debug": "^4.1.1",
