@@ -30,7 +30,7 @@ git push
 ```
 - Create the following Integrations (Administration Panel -> Pipelines -> Integrations -> Add an Integration), while using your SaaS instance values:
     - "github" integration (type: "GitHub") with [personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) from your github account:</br>
-    <img src="https://i.ibb.co/qkGd65z/Screen-Shot-2021-05-01-at-13-55-15.png" width="30%" height="30%"></br>
+    <img src="https://ibb.co/Fswy8v5" width="30%" height="30%"></br>
     - "artifactory" integration (type: "Artifactory"):</br>
     <img src="https://i.ibb.co/5nDV957/Screen-Shot-2021-05-01-at-13-54-51.png" width="40%" height="40%"></br>
     - "docker integration" (type: "Docker", used for accessing Artifactory as a Docker Registry):</br>
