@@ -7,17 +7,13 @@ SUP016-Automate_everything_with_the_JFrog_CLI/example-projects/npm-example/ pack
 
 
 *.imi
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-fixed-example/multi1/target/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-fixed-example/multi2/target/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-fixed-example/multi3/target/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-fixed-example/classpath
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-fixed-exampletarget/*
 SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-fixed-example/.jfrog/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-vulnerable-example/multi1/target/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-vulnerable-example/multi2/target/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-vulnerable-example/multi3/target/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-vulnerable-example/classpath
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-vulnerable-example/target/*
 SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-vulnerable-example/.jfrog/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example/.jfrog/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example/node_modules/*
-SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example/ package-lock.json
-
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example-fixed/.jfrog/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example-fixed/node_modules/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example-fixed/package-lock.json
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example-vuln/.jfrog/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example-vuln/node_modules/*
+SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example-vuln/package-lock.json

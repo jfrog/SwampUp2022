@@ -7,20 +7,20 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "mathjs": "7.5.1",
-    "qs": "6.8.0",
-    "axios": "0.20.0",
+    "axios": "^0.27.2",
     "body-parser": "^1.19.0",
     "debug": "^4.1.1",
     "express": "^4.12.1",
     "http-errors": "^1.7.2",
-    "lodash": "4.17.11",
+    "lodash": "^4.17.21",
+    "mathjs": "7.5.1",
     "morgan": "^1.10.0",
     "path": "^0.12.7",
     "pg": "^8.5.0",
-    "redis": "3.1.0",
+    "qs": "^6.10.3",
+    "redis": "^3.1.2",
     "send": "^0.16.2",
-    "socket.io": "2.3.0",
-    "url-parse": "1.4.7"
+    "socket.io": "^4.5.1",
+    "url-parse": "^1.5.10"
   }
 }
