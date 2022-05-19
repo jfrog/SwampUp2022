@@ -37,13 +37,13 @@ git push
     <img src="https://i.ibb.co/WzMhTDC/docker-integration.jpg" width="60%" height="50%"></br>
     - "generic integration" (type: "Generic"), where the value equals to your SaaS server name (for example, for sup008epsu01.jfrog.io the server name is sup008epsu01): </br>
     <img src="https://i.ibb.co/CzmrF3n/Screen-Shot-2021-05-01-at-13-55-26.png" width="50%" height="50%"></br>
-- Create a Pipeline Source based on the forked repository, with the following Pipeline Config File Filter: ```SUP008-From-Git-To-Kubernetes/(.*)pipelines(.*).yaml``` and branch ```main```:</br>
-- <img src="https://i.ibb.co/3mDKtnJ/pipeline-source-1.jpg" width="40%" height="40%"></br>
+- Create a Pipeline Source based on the forked repository and choose "From yaml", with the following Pipeline Config File Filter: ```SUP008-From-Git-To-Kubernetes/(.*)pipelines(.*).yaml``` and branch ```main```:</br>
+- <img src="https://i.ibb.co/3mDKtnJ/pipeline-source-1.jpg" width="60%" height="60%"></br>
 - <img src="https://i.ibb.co/XCv4gJp/pipeline-source.jpg" width="40%" height="40%"></br>
 - Make sure all pipelines were loaded under "My Pipelines":</br> 
-![alt text](https://i.ibb.co/G5PSk9Y/Loaded-pipelines.jpg)</br>
+![alt text](https://i.ibb.co/6FR9BSd/Loaded-new-pipelines.jpg)</br>
 - Run the "sup_008_on_boarding_environment" to populate all repositories for our demo.</br>
-<img src="https://i.ibb.co/X5QknZm/onboard-env-pipeline.jpg" width="50%" height="50%"></br>
+<img src="https://i.ibb.co/NjcnqKf/onboarding-pipeline.jpg" width="50%" height="50%"></br>
 The following repositories should be created (Go to "Artifactory" -> "Artifacts"):</br>
 <img src="https://i.ibb.co/kKnCmQT/Created-repos.jpg" width="25%" height="25%"></br>
 <b>* For any issues, please request assistance from the instructor and T.A's!</b>
