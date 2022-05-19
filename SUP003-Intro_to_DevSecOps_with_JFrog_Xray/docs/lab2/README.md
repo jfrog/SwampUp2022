@@ -13,8 +13,6 @@ A SAAS Instance of JFrog. This will be provided as part of your enrollment to th
 
    ![New Watch](images/2-2.gif)
 
-- Click **Save**.
-
 ### Step 2 - Show violations
 
 - Navigate to **Application** > **Security & Compliance** > **Watch Violations**. You will be able to see the watches that we have created in Step 1. Click on the swampup22_dev_watch watch. The Violations tab in a Watch is the central location for viewing the detected violations based on the policies and rules you have predefined on the Watch. You can view the list of the violations, search for violations according to filters, set ignore rules and edit the Watch in the Settings tab.
