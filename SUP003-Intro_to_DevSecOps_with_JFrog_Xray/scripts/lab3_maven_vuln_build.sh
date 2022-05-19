@@ -17,7 +17,7 @@ export CLI_INSTANCE_ID="my-instance"
 
 jf config use $CLI_INSTANCE_ID
 
-cd ../../project-examples/maven-vulnerable-example
+cd ../project-examples/maven-vulnerable-example
 
 echo "Jfrog is accessible check : "
 jf rt ping
