@@ -47,4 +47,4 @@ ADD README.md README.md
 # set permissions
 RUN chmod +x setupCLI.sh
 
-CMD setupCLI.sh
+CMD ["/bin/bash"]
