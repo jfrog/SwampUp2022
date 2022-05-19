@@ -3,7 +3,7 @@
 ## Prerequisites
 A SAAS Instance of JFrog. This will be provided as part of your enrollment to the Training class.
 
-### Step1 - Add the repositories to the Indexed Resources
+### Step1 - Add the Repositories and Builds to the Indexed Resources
 
 - Login to your saas instance **{{instance_name}}**.jfrog.io with  your admin credentials
 
@@ -34,13 +34,13 @@ A SAAS Instance of JFrog. This will be provided as part of your enrollment to th
   ![License Policy](images/1-5.gif)
 
 - Click on **New Rule** to add rule to **lic_policy**. Add two rules with **Criteria** and **Automatic Actions**. Click **Save** and Click **Create**.
-  * **Rule name**: allowed_lic_rule, Allowed Licenses: allowed_licenses": "Apache-1.0", "Apache-2.0", "MIT", "BSD", "BSD-1-Clause", "ANTLR-PD"
-  * **Rule name**: banned_lic_rule, Banned Licenses: "GPL-1.0", "GPL-2.0", "GPL-3.0", "gnuplot"
+  * **Rule name**: allowed_lic_rule, Criteria: **Allowed Licenses**: allowed_licenses": "Apache-1.0", "Apache-2.0", "MIT", "BSD", "BSD-1-Clause", "ANTLR-PD"
+  * **Rule name**: banned_lic_rule, Criteria: **Banned Licenses**: "GPL-1.0", "GPL-2.0", "GPL-3.0", "gnuplot"
   
   ![License Policy Rules](images/1-6.gif)
 
 - Click on **New Policy** and create our second **Security** policy called **"sec_critical_policy"**. Add the following Rules to the Policy
-  * **Rule name**: critical_cvss, Criteria: **CVSS Range**: 9-10, Additional Automatic Actions: Notify Deployer
+  * **Rule name**: critical_cvss, Criteria: **CVSS Range**: 9-10, **Additional Automatic Actions**: Notify Deployer
   * **Rule name**: critical, Criteria: **Minimum Severity**: Critical
   * **Rule name**: high, Criteria: **Minimum Severity**: High
  
