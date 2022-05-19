@@ -19,6 +19,6 @@ A SAAS Instance of JFrog. This will be provided as part of your enrollment to th
 
   ![New Watch](images/2-3.gif)
 
-- For **Ignore Violation**, Navigate to **Application** > **Security & Compliance** > **Watch Violation**. Open watch **"swampup-watch"** that we created in STEP 1. 
+- For **Ignore Violation**, Navigate to **Application** > **Security & Compliance** > **Watch Violation**. Open watch **"swampup2022_dev_watch"** that we created in STEP 1 and hover your mouse over the right side of a violation. 
 
   ![New Watch](images/2-4.gif)
