@@ -34,17 +34,17 @@ git push
     - "artifactory" integration (type: "Artifactory"):</br>
     <img src="https://i.ibb.co/jVMQ3Ky/arti-integration.jpg" width="40%" height="40%"></br>
     - "docker integration" (type: "Docker", used for accessing Artifactory as a Docker Registry):</br>
-    <img src="https://i.ibb.co/TqdyPSC/Screen-Shot-2021-05-01-at-13-55-05.png" width="30%" height="30%"></br>
+    <img src="https://i.ibb.co/WzMhTDC/docker-integration.jpg" width="30%" height="30%"></br>
     - "generic integration" (type: "Generic"), where the value equals to your SaaS server name (for example, for swampup203.jfrog.io the server name is swampup203): </br>
     <img src="https://i.ibb.co/CzmrF3n/Screen-Shot-2021-05-01-at-13-55-26.png" width="50%" height="50%"></br>
-- Create a Pipeline Source based on the forked repository, with the following Pipeline Config File Filter: ```SUP008-From_Git_to_Kubernetes/(.*)pipelines(.*).yaml``` and branch ```main```:</br>
-<img src="https://i.ibb.co/BrMcgw7/Screen-Shot-2021-05-01-at-13-55-40.png" width="40%" height="40%"></br>
+- Create a Pipeline Source based on the forked repository, with the following Pipeline Config File Filter: ```SUP008-From-Git-to-Kubernetes/(.*)pipelines(.*).yaml``` and branch ```main```:</br>
+<img src="https://i.ibb.co/XCv4gJp/pipeline-source.jpg" width="40%" height="40%"></br>
 - Make sure all pipelines were loaded under "My Pipelines":</br> 
-![alt text](https://i.ibb.co/mqMSDpd/Screen-Shot-2021-05-11-at-13-32-51.png)</br>
-- Run the "suv_114_on_boarding_environment" to populate all repositories for our demo.</br>
-<img src="https://i.ibb.co/vVrLwtP/Screen-Shot-2021-05-01-at-14-13-10.png" width="50%" height="50%"></br>
+![alt text](https://i.ibb.co/G5PSk9Y/Loaded-pipelines.jpg)</br>
+- Run the "sup_008_on_boarding_environment" to populate all repositories for our demo.</br>
+<img src="https://i.ibb.co/X5QknZm/onboard-env-pipeline.jpg" width="50%" height="50%"></br>
 The following repositories should be created (Go to "Artifactory" -> "Artifacts"):</br>
-<img src="https://i.ibb.co/qY4YK77/Screen-Shot-2021-05-16-at-19-48-58.png" width="25%" height="25%"></br>
+<img src="https://i.ibb.co/kKnCmQT/Created-repos.jpg" width="25%" height="25%"></br>
 <b>* For any issues, please request assistance from the instructor and T.A's!</b>
 
 ### <ins>Lab #2 - Understanding the Environment</ins>
