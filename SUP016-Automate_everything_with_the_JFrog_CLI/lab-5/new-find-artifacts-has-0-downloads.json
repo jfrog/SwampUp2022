@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "aql" : {
+        "items.find": {
+          "repo": {"$match": "sup016-npm*"},
+          "$and": [
+            {
+              "created": {"$before" : "2w" },
+              "stat.downloads":{"$eq": null }
+            }
+          ]
+        }
+      }
+    }]
+}

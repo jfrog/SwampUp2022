@@ -1,0 +1,20 @@
+{
+  "build": {
+    "include-patterns": "**",
+    "actions-groups": {
+      "developers": "read,write,annotate,delete,manage,managedXrayMeta",
+      "ops": "read",
+      "secops": "read,managedXrayMeta"
+    }
+  },
+  "name": "development",
+  "repo": {
+    "repositories": "ANY",
+    "include-patterns": "**",
+    "actions-groups": {
+      "developers": "read,write,annotate,delete,manage,distribute,managedXrayMeta",
+      "ops": "read",
+      "secops": "read,managedXrayMeta"
+    }
+  }
+}

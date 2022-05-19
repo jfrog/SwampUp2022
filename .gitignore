@@ -1,5 +1,11 @@
 .idea/
 .DS_Store
+
+
+SUP016-Automate_everything_with_the_JFrog_CLI/example-projects/npm-example/node_modules/*
+SUP016-Automate_everything_with_the_JFrog_CLI/example-projects/npm-example/ package-lock.json
+
+
 *.imi
 SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-fixed-example/multi1/target/*
 SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-fixed-example/multi2/target/*
@@ -14,3 +20,4 @@ SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/maven-vulnerable-exam
 SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example/.jfrog/*
 SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example/node_modules/*
 SUP003-Intro_to_DevSecOps_with_JFrog_Xray/project-examples/npm-example/ package-lock.json
+

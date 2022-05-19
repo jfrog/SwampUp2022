@@ -1,0 +1,74 @@
+{
+  "files": [
+    {
+      "aql": {
+        "items.find": {
+          "$and": [
+            {
+              "$or": [
+                {
+                  "repo": {
+                    "$eq": "sup016-npm-dev-local"
+                  }
+                },
+                {
+                  "repo": {
+                    "$eq": "sup016-docker-dev-local"
+                  }
+                },
+                {
+                  "repo": {
+                    "$eq": "sup016-maven-dev-local"
+                  }
+                },
+                {
+                  "repo": {
+                    "$eq": "swampup2022-npm-local"
+                  }
+                }
+              ]
+            },
+            {
+              "$or": [
+                {
+                  "$and": [
+                    {
+                      "artifact.module.build.name": {
+                        "$eq": "sup016-npm"
+                      }
+                    },
+                    {
+                      "artifact.module.build.number": {
+                        "$eq": "3.0.0"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$and": [
+                    {
+                      "artifact.module.build.name": {
+                        "$eq": "sup016-docker-app"
+                      }
+                    },
+                    {
+                      "artifact.module.build.number": {
+                        "$eq": "3"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "@ unit.test": "pass"
+                }
+              ]
+            }
+          ]
+
+        }
+      }
+    }
+  ]
+}
+
+

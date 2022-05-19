@@ -1,0 +1,11 @@
+{
+  "cronExp": "*/10 * * * * ?",
+  "enableEventReplication": "true",
+  "enabled": "true",
+  "repoKey": "${repo-name}",
+  "serverId": "${target-server-id}",
+  "targetRepoKey": "${target-repo-key}",
+  "syncDeletes": "true",
+  "syncProperties": "true",
+  "syncStatistics": "true"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Vuln-Report-On-Builds",
+  "resources": {
+    "builds": {
+      "names": [
+        "sup016-npm"
+      ],
+      "include_patterns": [],
+      "exclude_patterns": [],
+      "number_of_latest_versions": 5
+    }
+  },
+  "filters": {
+    "artifact": "",
+    "component": "",
+    "has_remediation": null,
+    "cvss_score": null,
+    "cve": "",
+    "issue_id": "",
+    "severities": [
+      "Critical",
+      "High"
+    ],
+    "published": {
+      "start": null,
+      "end": null
+    },
+    "scan_date": {
+      "start": null,
+      "end": null
+    }
+  }
+}

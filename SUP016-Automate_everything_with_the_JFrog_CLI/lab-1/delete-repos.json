@@ -1,0 +1,17 @@
+[
+  {"key":"sup016-docker-dev-local"},
+  {"key":"sup016-docker-qa-local"},
+  {"key":"sup016-docker-prod-local"},
+  {"key":"sup016-maven-dev-local"},
+  {"key":"sup016-maven-qa-local"},
+  {"key":"sup016-maven-prod-local"},
+  {"key":"sup016-npm-dev-local"},
+  {"key":"sup016-npm-qa-local"},
+  {"key":"sup016-npm-prod-local"},
+  {"key":"sup016-docker-remote"},
+  {"key":"sup016-maven-remote"},
+  {"key":"sup016-npm-remote"},
+  {"key":"sup016-docker-virtual"},
+  {"key":"sup016-maven-virtual"},
+  {"key":"sup016-npm-virtual"}
+]

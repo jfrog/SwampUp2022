@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "aql" : {
+        "items.find": {
+          "$and": [
+            {
+              "artifact.module.build.name": {
+                "$match": "npm_example_pipeline"
+              }
+            }
+          ]
+        }
+      }
+    }]
+}
