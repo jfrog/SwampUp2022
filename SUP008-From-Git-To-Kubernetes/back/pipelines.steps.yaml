@@ -96,7 +96,7 @@ pipelines:
         type: DockerPush
         configuration:
           affinityGroup: swampup
-          targetRepository: SUP008-docker-virtual
+          targetRepository: sup008-docker-virtual
           autoPublishBuildInfo: true
           inputSteps:
             - name: build_docker_backapp
