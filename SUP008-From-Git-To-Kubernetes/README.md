@@ -19,9 +19,9 @@
 
 
 - Run ```git clone https://github.com/<YOUR_GITHUB_USERNAME>/SwampUp2022.git``` against your forked repository.
-- Run ```cd SwampUp2022/SUP008-From_Git_to_Kubernetes``` which is our class's folder with all the relevant code.
+- Run ```cd SwampUp2022/SUP008-From-Git-to-Kubernetes``` which is our class's folder with all the relevant code.
 - Open the file "back/pipelines.resources.yaml" and change the configuration.path in the following snippet based on your github username:</br>
-![alt text](https://i.ibb.co/wyrLVNK/Screen-Shot-2021-05-01-at-14-28-11.png)</br>
+![alt text](https://i.ibb.co/88FVvL5/Update-Git.jpg)</br>
 - Commit the changes to your forked repository:
  ```
 git add .
@@ -30,12 +30,12 @@ git push
 ```
 - Create the following Integrations (Administration Panel -> Pipelines -> Integrations -> Add an Integration), while using your SaaS instance values:
     - "github" integration (type: "GitHub") with [personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) from your github account:</br>
-    <img src="https://i.ibb.co/qkGd65z/Screen-Shot-2021-05-01-at-13-55-15.png" width="30%" height="30%"></br>
+    <img src="https://i.ibb.co/qkGd65z/Screen-Shot-2021-05-01-at-13-55-15.png" width="50%" height="50%"></br>
     - "artifactory" integration (type: "Artifactory"):</br>
-    <img src="https://i.ibb.co/jVMQ3Ky/arti-integration.jpg" width="40%" height="40%"></br>
+    <img src="https://i.ibb.co/jVMQ3Ky/arti-integration.jpg" width="60%" height="500%"></br>
     - "docker integration" (type: "Docker", used for accessing Artifactory as a Docker Registry):</br>
     <img src="https://i.ibb.co/WzMhTDC/docker-integration.jpg" width="30%" height="30%"></br>
-    - "generic integration" (type: "Generic"), where the value equals to your SaaS server name (for example, for swampup203.jfrog.io the server name is swampup203): </br>
+    - "generic integration" (type: "Generic"), where the value equals to your SaaS server name (for example, for sup008epsu01.jfrog.io the server name is sup008epsu01): </br>
     <img src="https://i.ibb.co/CzmrF3n/Screen-Shot-2021-05-01-at-13-55-26.png" width="50%" height="50%"></br>
 - Create a Pipeline Source based on the forked repository, with the following Pipeline Config File Filter: ```SUP008-From-Git-to-Kubernetes/(.*)pipelines(.*).yaml``` and branch ```main```:</br>
 <img src="https://i.ibb.co/XCv4gJp/pipeline-source.jpg" width="40%" height="40%"></br>
