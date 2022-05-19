@@ -14,7 +14,7 @@ export CLI_INSTANCE_ID="my-instance"
 
 jf config use $CLI_INSTANCE_ID
 
-cd ../../project-examples/maven-fixed-example
+cd ../project-examples/maven-fixed-example
 
 echo "Jfrog is accessible check : "
 jf rt ping
