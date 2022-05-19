@@ -5,16 +5,13 @@ A SAAS Instance of JFrog. This will be provided as part of your enrollment to th
 
 ### Step 1 - Create Watches
 
--  Click om the Watch tab and create a new watch name “swampup22_dev_watch”. Add the repositories by clicking on the **Add Repositories** button and add the sec_policy and lic_policy that we just created by clicking on the **Manage Policies** button
+-  Click on the Watch tab and create a new watch name “swampup22_dev_watch”. Add the repositories by clicking on the **Add Repositories** button and add the sec_policy and lic_policy that we just created by clicking on the **Manage Policies** button
 
    ![New Watch](images/2-1.gif)
 
 -  Click om the Watch tab and create a new watch name “swampup22_secops_watch”. Add the repositories by clicking on the **Add Repositories** button and add the sec_critical_policy that we just created by clicking on the **Manage Policies** button
 
    ![New Watch](images/2-2.gif)
-   
--  Add the repositories to by clicking on the **Add Repositories** plus button and add the policy that we just created by clicking on the **Manage Policies** button 
-   <img src="/SU-201-Intro-to-JFrog-Xray/Lab2/images/2.png" alt="mame the repo" style="height: 100px; width:100px;"/>
 
 - Click **Save**.
 
