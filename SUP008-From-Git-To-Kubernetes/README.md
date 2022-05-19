@@ -61,7 +61,7 @@ Complete/answer the following tasks/questions:
 
 - Index all builds from Xray's Administration Panel (Xray -> Settings -> Builds):Click Manage Builds</br>
 <img src="https://i.ibb.co/tsBF179/Manage-build.jpg" width="55%" height="55%"></br>
-<img src="img src="https://i.ibb.co/j5W5RBQ/xray-indexing.jpg" width="55%" height="55%"></br>
+<img src="https://i.ibb.co/j5W5RBQ/xray-indexing.jpg" width="55%" height="55%"></br>
 - View the security issues and license discovered by Xray for every individual build.
 - Add one Security and one License Policies: [Creating a Policy](https://www.jfrog.com/confluence/display/JFROG/Creating+Xray+Policies+and+Rules#CreatingXrayPoliciesandRules-CreatingaPolicy).
 - Add a watch per application (one watch for the backend; one watch for the frontend) and assign the policies you have created to these watches: [Configure Xray Watches](https://www.jfrog.com/confluence/display/JFROG/Configuring+Xray+Watches).
