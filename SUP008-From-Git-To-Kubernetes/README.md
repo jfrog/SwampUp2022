@@ -32,13 +32,14 @@ git push
     - "github" integration (type: "GitHub") with [personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) from your github account:</br>
     <img src="https://i.ibb.co/qkGd65z/Screen-Shot-2021-05-01-at-13-55-15.png" width="50%" height="50%"></br>
     - "artifactory" integration (type: "Artifactory"):</br>
-    <img src="https://i.ibb.co/jVMQ3Ky/arti-integration.jpg" width="60%" height="500%"></br>
+    <img src="https://i.ibb.co/jVMQ3Ky/arti-integration.jpg" width="60%" height="50%"></br>
     - "docker integration" (type: "Docker", used for accessing Artifactory as a Docker Registry):</br>
-    <img src="https://i.ibb.co/WzMhTDC/docker-integration.jpg" width="30%" height="30%"></br>
+    <img src="https://i.ibb.co/WzMhTDC/docker-integration.jpg" width="60%" height="50%"></br>
     - "generic integration" (type: "Generic"), where the value equals to your SaaS server name (for example, for sup008epsu01.jfrog.io the server name is sup008epsu01): </br>
     <img src="https://i.ibb.co/CzmrF3n/Screen-Shot-2021-05-01-at-13-55-26.png" width="50%" height="50%"></br>
-- Create a Pipeline Source based on the forked repository, with the following Pipeline Config File Filter: ```SUP008-From-Git-to-Kubernetes/(.*)pipelines(.*).yaml``` and branch ```main```:</br>
-<img src="https://i.ibb.co/XCv4gJp/pipeline-source.jpg" width="40%" height="40%"></br>
+- Create a Pipeline Source based on the forked repository, with the following Pipeline Config File Filter: ```SUP008-From-Git-To-Kubernetes/(.*)pipelines(.*).yaml``` and branch ```main```:</br>
+- <img src="https://i.ibb.co/3mDKtnJ/pipeline-source-1.jpg" width="40%" height="40%"></br>
+- <img src="https://i.ibb.co/XCv4gJp/pipeline-source.jpg" width="40%" height="40%"></br>
 - Make sure all pipelines were loaded under "My Pipelines":</br> 
 ![alt text](https://i.ibb.co/G5PSk9Y/Loaded-pipelines.jpg)</br>
 - Run the "sup_008_on_boarding_environment" to populate all repositories for our demo.</br>
