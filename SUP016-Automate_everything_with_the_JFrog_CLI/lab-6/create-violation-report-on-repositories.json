@@ -3,7 +3,10 @@
   "resources": {
     "repositories": [
       {
-        "name": "sup016-npm-dev-local"
+        "name": "sup016-npm-dev-local",
+        "name": "sup016-maven-dev-local",
+        "name": "jfrog-npm-main-local",
+        "name": "jfrog-maven-main-local"
       }
     ]
   },
