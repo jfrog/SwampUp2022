@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri May 20 00:04:36 PDT 2022
+plexus-utils-3.0.5.jar>artifactory-release=
+plexus-utils-3.0.5.pom>artifactory-release=
