@@ -140,11 +140,12 @@
 ## Properties
 ### Set Properties 
 #### Maven
-``jf rt set-props "sup016-maven-qa-local/org/jfrog/test/" "unit.test=pass;integration.test=null;"``
+- Run
+  ``jf rt set-props "sup016-maven-qa-local/org/jfrog/test/" "unit.test=pass;integration.test=null;"``
 
-or
+  or
 
-``jf rt sp "sup016-maven-qa-local/org/jfrog/test/" "unit.test=pass;integration.test=null;"``
+  ``jf rt sp "sup016-maven-qa-local/org/jfrog/test/" "unit.test=pass;integration.test=null;"``
 
 #### NPM
 - Run 

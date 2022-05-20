@@ -113,7 +113,7 @@
   ``jf rt s --spec=find-artifacts-match-naming-pattern-filespec.json --build=sup016-maven/1.0.0``
 
 
-## UPLOAD MAVEN AND NPM ARTIFACTS 
+## UPLOAD MAVEN AND NPM ARTIFACTS [Must]
 - Run ``cd sample-date/maven``
   - ``jf rt u "./hello-world-api/*" "jfrog-maven-main-local/"``
   - For bulk uploads, ``jf rt u "./*" "jfrog-maven-main-local/" --threads 10``
@@ -124,12 +124,14 @@
   - For bulk uploads, ``jf rt u "./*" "jfrog-npm-main-local/" --threads 10``
     - NOTE: we are using 10 threads here
 
-
+## SET PROPERTIES ON ARTIFACTS [Must]
+- Run ``sh set-properties-on-artifacts.sh``
+  - NOTE: we have set few properties as part of [lab-3](https://github.com/jfrog/SwampUp2022/tree/main/SUP016-Automate_everything_with_the_JFrog_CLI/lab-3#set-properties). These are some additional properties.
 
 ## DOWNLOAD ALL ARTIFACTS FROM REPOSITORY 
 - Run ``jf rt dl --spec=new-download-all-files-from-repo.json``
   - Pass option to increase thread count to 10. `--threads=10`
-
+  
 
 ## DOWNLOAD ALL ARTIFACTS FROM REPOSITORY WITH MATCHING PROPERTY
 - Using spec with pattern

@@ -38,22 +38,18 @@
                 {
                   "$and": [
                     {
-                      "artifact.module.build.name": {
-                        "$eq": "sup016-npm"
-                      }
+                      "@unit.test": "pass"
                     },
                     {
-                      "artifact.module.build.number": {
-                        "$eq": "1.0.0"
-                      }
+                      "@integration.test": "pass"
+                    },
+                    {
+                      "@release.version": "2.0.0"
+                    },
+                    {
+                      "@qa.code.quality.new_bugs": "0"
                     }
                   ]
-                },
-                {
-                  "@unit.test": "pass"
-                },
-                {
-                  "@npm.version": "1.53.0"
                 }
               ]
             }
