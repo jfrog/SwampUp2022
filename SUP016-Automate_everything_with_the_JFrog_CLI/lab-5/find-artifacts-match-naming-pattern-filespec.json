@@ -2,7 +2,14 @@
   "files": [{
     "aql": {
       "items.find": {
-        "name": { "$match": "*frog*" }
+        "$or" : [
+          {
+            "name": { "$match": "*npm*" }
+          },
+          {
+            "name": {"$match": "*multi*"}
+          }
+        ]
       }
     }
   }]

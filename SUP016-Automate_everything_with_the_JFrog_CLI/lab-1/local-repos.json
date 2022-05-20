@@ -7,5 +7,7 @@
   {"key":"sup016-maven-prod-local","packageType":"maven","rclass":"local","repoLayoutRef":"maven-2-default", "xrayIndex":"true"},
   {"key":"sup016-npm-dev-local","packageType":"npm","rclass":"local","repoLayoutRef":"npm-default", "xrayIndex":"true"},
   {"key":"sup016-npm-qa-local","packageType":"npm","rclass":"local","repoLayoutRef":"npm-default", "xrayIndex":"true"},
-  {"key":"sup016-npm-prod-local","packageType":"npm","rclass":"local","repoLayoutRef":"npm-default", "xrayIndex":"true"}
+  {"key":"jfrog-npm-main-local","packageType":"npm","rclass":"local","repoLayoutRef":"npm-default", "xrayIndex":"true"},
+  {"key":"jfrog-maven-main-local","packageType":"maven","rclass":"local","repoLayoutRef":"maven-2-default", "xrayIndex":"true"},
+  {"key":"jfrog-docker-main-local","packageType":"docker","rclass":"local","repoLayoutRef":"simple-default", "xrayIndex":"true"}
 ]

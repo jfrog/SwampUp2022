@@ -3,6 +3,8 @@
 ### Prerequisites
 - JFrog CLI is installed on your machine by running `jf -v`
 
+
+
 ### SETUP JFROG CLI WITH MAIN JPD
 - Checkout all ``jf`` configs ``jf config show``
 

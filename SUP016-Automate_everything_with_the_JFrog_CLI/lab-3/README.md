@@ -6,7 +6,10 @@
 - Lab-2 - Role-Based Access Control
 
 ## BUILDING AND DEPLOYING
+- One of the Package Manager Integration we can use,
+
 #### MAVEN - Package Manager Integration
+- `cd lab-3/example-project/maven-example`
 - To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.) 
   - Run ``jf mvnc``
     - Resolve dependencies from Artifactory? (y/n) [y]? `y`
@@ -18,11 +21,10 @@
     - Set repository for release artifacts deployment (press Tab for options): `sup016-maven-virtual`
     - Set repository for snapshot artifacts deployment (press Tab for options): `sup016-maven-virtual`
     - Would you like to filter out some of the deployed artifacts? (y/n) [n]? `n`
-- Navigate to ``~/SwampUp2022/SUP016-Automate_everything_with_the_JFrog_CLI/example-projects/maven-example``
-- Run ``jf rt mvn clean install -f pom.xml --build-name sup016-maven --build-number 1.0.0
-  ``
+- Run ``jf rt mvn clean install -f pom.xml --build-name sup016-maven --build-number 1.0.0``
 
 #### NPM - Package Manager Integration
+- `cd lab-3/example-project/npm-example`
 - To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.)
   - Run ``jf npmc``
   - Resolve dependencies from Artifactory? (y/n) [y]? `y`
@@ -31,7 +33,6 @@
   - Deploy project artifacts to Artifactory? (y/n) [y]? `y`
   - Set Artifactory server ID [SUP016]: ↵
   - Set repository for artifacts deployment (press Tab for options): `sup016-npm-virtual`
-- Navigate to ``~/SwampUp2022/SUP016-Automate_everything_with_the_JFrog_CLI/example-projects/npm-example``
 - Run ``jf npm install --build-name sup016-npm --build-number 1.0.0``
 - Run ``jf npm publish --build-name sup016-npm --build-number 1.0.0`` - Publish build Artifact to repository
 
@@ -65,14 +66,14 @@
 #### Maven
 - Run 
 
-  ``jf rt build-add-git sup016-maven 1.0.0 checkout-dir`` - (.git path[Optional] - Path to a directory containing the .git directory. If not specific, the .git directory is assumed to be in the current directory or in one of the parent directories.)
+  ``jf rt build-add-git sup016-maven 1.0.0`` - (.git path[Optional] - Path to a directory containing the .git directory. If not specific, the .git directory is assumed to be in the current directory or in one of the parent directories.)
 
   or
 
-  ``jf rt bag sup016-maven 1.0.0 checkout-dir``  
+  ``jf rt bag sup016-maven 1.0.0``  
 
 #### NPM
-- Run ``jf rt bag sup016-npm 1.0.0``  - - (.git path[Optional] - Path to a directory containing the .git directory. If not specific, the .git directory is assumed to be in the current directory or in one of the parent directories.)
+- Run ``jf rt bag sup016-npm 1.0.0``  - (.git path[Optional] - Path to a directory containing the .git directory. If not specific, the .git directory is assumed to be in the current directory or in one of the parent directories.)
 
 <br />
 <br />
@@ -138,19 +139,39 @@
 
 ## Properties
 ### Set Properties 
+#### Maven
+``jf rt set-props "sup016-maven-qa-local/org/jfrog/test/" "unit.test=pass;integration.test=null;"``
+
+or
+
+``jf rt sp "sup016-maven-qa-local/org/jfrog/test/" "unit.test=pass;integration.test=null;"``
+
+#### NPM
 - Run 
 
-  ``jf rt set-props "sup016-npm-dev-local/npm-example/-/npm-example-1.1.4.tgz" "unit.test=pass;integration.test=null;"``
+  ``jf rt set-props "sup016-npm-dev-local/npm-example/-/npm-example-1.1.5.tgz" "unit.test=pass;integration.test=null;"``
 
   or
 
-  ``jf rt sp "sup016-npm-dev-local/npm-example/-/npm-example-1.1.4.tgz" "unit.test=pass;integration.test=null;"``
+  ``jf rt sp "sup016-npm-dev-local/npm-example/-/npm-example-1.1.5.tgz" "unit.test=pass;integration.test=null;"``
 
 <br />
 <br />
 
-## SETTING UP A CI PIPELINE
+
+## RUN SCRIPT
+- Run `sh lab_3_rescue.sh`
+
+
+## SETTING UP A CI PIPELINE [Optional]
 - Run `jf ci-setup`
+  - The ci-setup command allows setting up a basic CI pipeline with the JFrog Platform, while automatically configuring the JFrog Platform to serve the pipeline. It is an interactive command, which prompts you with a series for questions, such as your source control details, your build tool, build command and your CI provider. The command then uses this information to do following:
+    - Create the repositories in JFrog Artifactory, to be used by the pipeline to resolve dependencies.
+    - Configure JFrog Xray to scan the build.
+    - Generate a basic CI pipeline, which builds and scans your code.
+  - You can use the generated CI pipeline as a working starting point and then expand it as needed. 
+  - Supported CI providers - Jenkins, JFrog Pipeline and Github Action
+    - example projects [here](https://github.com/jfrog/SwampUp2022/tree/main/SUP016-Automate_everything_with_the_JFrog_CLI/ci-example)
 
 <br />
 <br />

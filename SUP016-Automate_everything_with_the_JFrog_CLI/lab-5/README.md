@@ -51,8 +51,9 @@
 
 <br/>
 
-## SEARCH FOR ARTIFACT MATCHING NAME PATTERN - AQL USING FILE SPEC
+## SEARCH FOR ARTIFACT MATCHING NAME PATTERN - AQL USING FILESPEC
 - Run `jf rt s --spec=find-artifacts-match-naming-pattern-filespec.json`
+  - Reference to [Filespec schema](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-FileSpecSchemas)
 
 <br/>
 
@@ -102,6 +103,8 @@
   | More  | [here](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-DownloadingFiles) |
 
 
+#### SEARCH FOR ARTIFACTS BELONGS TO A BUILD
+- Run ``jf rt s --spec=find-artifacts-match-naming-pattern-filespec.json --build=sup016-maven``
 
 #### DOWNLOAD ALL ARTIFACTS FROM REPOSITORY 
 - Run ``jf rt dl --spec=new-download-all-files-from-repo.json``
