@@ -1,7 +1,7 @@
 {
   "files": [
     {
-      "pattern": "swampup2022-npm-main/*",
+      "pattern": "jfrog-npm-main-local/*",
       "target": "local-copy/"
     }
   ]

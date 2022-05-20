@@ -1,0 +1,25 @@
+{
+  "files": [
+    {
+      "aql": {
+        "items.find": {
+          "repo": {"$match":"sup016-maven*"},
+          "name": {"$match":"multi*"},
+          "type": "file",
+          "$or": [
+            {
+              "$and": [
+                {
+                  "created": { "$before":"7d" }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "sortBy":["modified"],
+      "sortOrder":"desc",
+      "limit": 2
+    }
+  ]
+}

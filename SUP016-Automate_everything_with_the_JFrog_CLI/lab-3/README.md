@@ -21,7 +21,7 @@
     - Set repository for release artifacts deployment (press Tab for options): `sup016-maven-virtual`
     - Set repository for snapshot artifacts deployment (press Tab for options): `sup016-maven-virtual`
     - Would you like to filter out some of the deployed artifacts? (y/n) [n]? `n`
-- Run ``jf rt mvn clean install -f pom.xml --build-name sup016-maven --build-number 1.0.0``
+- Run ``jf mvn clean install -f ./pom.xml --build-name sup016-maven --build-number 1.0.0``
 
 #### NPM - Package Manager Integration
 - `cd lab-3/example-project/npm-example`

@@ -1,0 +1,10 @@
+version: 1
+type: maven
+resolver:
+  serverId: maharship3
+  snapshotRepo: sup016-maven-virtual
+  releaseRepo: sup016-maven-virtual
+deployer:
+  serverId: maharship3
+  snapshotRepo: sup016-maven-virtual
+  releaseRepo: sup016-maven-virtual

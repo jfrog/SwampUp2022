@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "aql" : {
+        "items.find": {
+          "repo": {"$match": "*local*"},
+          "$and": [
+            {
+              "created": {"$last" : "2w" },
+              "stat.downloads":{"$eq": null }
+            }
+          ]
+        }
+      }
+    }]
+}
