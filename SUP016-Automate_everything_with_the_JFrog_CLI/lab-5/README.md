@@ -112,6 +112,7 @@
 
   ``jf rt s --spec=find-artifacts-match-naming-pattern-filespec.json --build=sup016-maven/1.0.0``
 
+<br/>
 
 ## UPLOAD MAVEN AND NPM ARTIFACTS [Must]
 - Run ``cd sample-date/maven``
@@ -124,14 +125,19 @@
   - For bulk uploads, ``jf rt u "./*" "jfrog-npm-main-local/" --threads 10``
     - NOTE: we are using 10 threads here
 
+<br/>
+
 ## SET PROPERTIES ON ARTIFACTS [Must]
 - Run ``sh set-properties-on-artifacts.sh``
   - NOTE: we have set few properties as part of [lab-3](https://github.com/jfrog/SwampUp2022/tree/main/SUP016-Automate_everything_with_the_JFrog_CLI/lab-3#set-properties). These are some additional properties.
 
+<br/>
+
 ## DOWNLOAD ALL ARTIFACTS FROM REPOSITORY 
 - Run ``jf rt dl --spec=new-download-all-files-from-repo.json``
   - Pass option to increase thread count to 10. `--threads=10`
-  
+
+<br/>
 
 ## DOWNLOAD ALL ARTIFACTS FROM REPOSITORY WITH MATCHING PROPERTY
 - Using spec with pattern
@@ -139,11 +145,13 @@
 - Using spec with aql
   - Run ``jf rt dl --spec=new-download-all-files-from-repo-match-property-aql.json``
 
+<br/>
 
 ## DOWNLOAD ALL ARTIFACTS FROM REPOSITORY WITH MATCHING PROPERTY
 - Run ``new-download-all-files-for-build.json``
     - In spec file, if we pass `"build": "sup016-npm"` then it will download the artifact produce by latest build
 
+<br/>
 
 ## COPY/MOVE ARTIFACTS THAT HAS PROPERTY
 - For Copy,
@@ -151,50 +159,60 @@
 - For Move [**Post Session**]
   - ``jf rt mv --spec=new-copy-all-files-from-repo-match-property-aql.json``
 
+<br/>
 
 ## FIND ARTIFACTS WHICH ARE LARGER THAN 50MB
 - Run ``jf rt s --spec=new-find-artifacts-larger-then-50MB.json``
 
+<br/>
 
 ## FIND ARTIFACTS WHICH ARE IN LOCAL REPOSITORIES AND HAS 0 DOWNLOAD IN LAST 2 WEEKS
 - Run ``jf rt s --spec=new-find-artifacts-has-0-downloads-in-last-2-weeks.json``
-    
+
+<br/>
 
 ## CLEAN UP ARTIFACTS
 - Run for delete ``jf rt del --spec=new-find-artifacts-has-0-downloads-in-last-2-weeks.json --dry-run``
   - **NOTE**: Please run with ``--dry-run``, as we need those artifacts for following tasks
 
+<br/>
 
 ## FIND ARTIFACTS WITH GPL LICENSE
 - Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-find-artifact-with-GPL-license.json``
 
+<br/>
 
 ## DEPENDENCY EXAMPLE
 - Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-dependency-example.json``
 
+<br/>
 
 ## FIND ARTIFACTS ENDS WITH .tgz FROM ALL LOCAL REPOSITORIES WITH DEPTH FILTER like level=1 or 2
 - Run ``jf rt s --spec=new-find-artifacts-with-depth-filter.json``
 
+<br/>
 
 ## FIND ARTIFACTS USING MULTIPLE FIELDS LIKE REPOSITORY WITH CERTAIN PROPERTY, BUILD
 - Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-find-artifacts-from-repo-build-matching-prop.json``
 
+<br/>
 
 ## FIND ALL THE BUILDS WITH NAME
 - Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-find-builds-matching-name.json``
 - Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-find-builds-matching-name-most-recent-limit5.json``
 
+<br/>
 
 ## RELEASE DOMAIN EXAMPLE [Post Session - as it requires Release Artifact]
 - Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-release-domain-example.json``
 
+<br/>
 
 ## RELEASE ARTIFACT EXAMPLE [Optional - we will run this after completion of lab-7]
 - Run ``jf rt curl -XPOST /api/search/aql -H 'Content-Type: text/plain' -d @new-release-artifact-example.json``
 
-
-
+<br/>
+<br/>
 
 ## CHALLENGE - AQL [Optional]
 - Find all the artifacts that has more than 5 downloads from repositories
