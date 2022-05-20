@@ -10,13 +10,13 @@
 - Lab 6 - Xray
 
 ### CREATE RELEASE BUNDLE
-- Run ``jf ds rbc --spec={{file_path}} {{release_bundle_name}} {{release_bundle_version}}``  
+- Run ``jf ds rbc --spec=rb-spec.json rb_swamp 1.0.0 --desc="release candidate"``  
 
 ### SIGN RELEASE BUNDLE
-- Run ``jf ds rbs {{release_bundle_name}} {{release_bundle_version}}``
+- Run ``jf ds rbs rb_swamp 1.0.0``
 
 ### DISTRIBUTE RELEASE BUNDLE
-- Run ``jf ds rbd --dist-rules={{file_path}} {{release_bundle_name}} {{release_bundle_version}}``
+- Run ``jf ds rbd --dist-rules=dist-rules.json rb_swamp 1.0.0``
 
 
 ### CHALLENGE - Release Bundle [Optional]
