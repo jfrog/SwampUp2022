@@ -172,6 +172,8 @@ or
   - You can use the generated CI pipeline as a working starting point and then expand it as needed. 
   - Supported CI providers - Jenkins, JFrog Pipeline and Github Action
     - example projects [here](https://github.com/jfrog/SwampUp2022/tree/main/SUP016-Automate_everything_with_the_JFrog_CLI/ci-example)
+    
+[Demo](https://youtu.be/JvEmihsjxjQ)
 
 <br />
 <br />
