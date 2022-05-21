@@ -13,20 +13,24 @@
 - All content related today's training is under "**SUP016-Automate everything with the JFrog CLI/**".
 
 
-### Run Labs
-**Option 1** 
+<br/>
+
+## .env config
+- Our directory `SwampUp2022/SUP016-Automate_everything_with_the_JFrog_CLI` has .env file where we can define environment variables.
+  - Mandatory - JFROG_EDGE, ADMIN_USER, ADMIN_PASSWORD, JFROG_PLATFORM
+  - Optional - ACCESS_TOKEN
+
+<br/>
+
+## Run Labs
+### Option 1
 - We will be using IDE (any with terminal) or terminal/CMD as part of our labs so please download and install one if you do not have one on your workstation.
 - Download [JFrog CLI](https://jfrog.com/getcli/) based on our machine.
 - Setup MAVEN or NPM and Docker Client. 
   - so we can run commands like `mvn install`, `npm install` or `docker pull image:tag`
 
-**Option 2**
-### .env config 
-- Our directory `SwampUp2022/SUP016-Automate_everything_with_the_JFrog_CLI` has .env file where we can define environment variables.
-  - Mandatory - JFROG_EDGE, ADMIN_USER, ADMIN_PASSWORD, JFROG_PLATFORM
-  - Optional - ACCESS_TOKEN
-
-### Using Docker image :
+### Option 2
+**Using Docker image** :
 - Please cd to the SwampUp2022 folder and  run the following docker command:
 ```
 source SUP016-Automate_everything_with_the_JFrog_CLI/.env
