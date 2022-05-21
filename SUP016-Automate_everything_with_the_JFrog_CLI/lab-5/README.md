@@ -78,6 +78,17 @@
 
 <br/>
 
+## SEARCH ARTIFACTS MATCHING NAME PATTERN THAT BELONGS TO A BUILD
+- Run
+
+  ``jf rt s --spec=find-artifacts-match-naming-pattern-filespec.json --build=sup016-maven``
+
+  or
+
+  ``jf rt s --spec=find-artifacts-match-naming-pattern-filespec.json --build=sup016-maven/1.0.0``
+
+<br/>
+
 #### DOWNLOAD / UPLOAD / COPY / MOVE / DELETE
 - For Download ``jf rt download [COMMAND OPTION]`` or ``jf rt dl [COMMAND OPTION]``
 - For Upload ``jf rt upload [COMMAND OPTION]`` or ``jf rt u [COMMAND OPTION]``
@@ -103,14 +114,6 @@
   | More  | [here](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-DownloadingFiles) |
 
 
-## SEARCH ARTIFACTS MATCHING NAME PATTERN THAT BELONGS TO A BUILD
-- Run
-
-  ``jf rt s --spec=find-artifacts-match-naming-pattern-filespec.json --build=sup016-maven``
-
-  or
-
-  ``jf rt s --spec=find-artifacts-match-naming-pattern-filespec.json --build=sup016-maven/1.0.0``
 
 <br/>
 
