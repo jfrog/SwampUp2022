@@ -7,15 +7,13 @@ echo "Jfrog is accessible check : "
 jf rt ping
 
 echo "START : Delete Watches : "
-jf xr curl -XDELETE /api/v2/watches/swampup22_dev_watch
-jf xr curl -XDELETE /api/v2/watches/swampup22_secops_watch
+jf xr curl -XDELETE /api/v2/watches/Prod-Watch
 echo "\nComplete : Delete Watches : "
 
 
 echo "START : Delete Policies : "
-jf xr curl -XDELETE api/v2/policies/lic_policy
-jf xr curl -XDELETE api/v2/policies/sec_policy
-jf xr curl -XDELETE api/v2/policies/sec_critical_policy
+jf xr curl -XDELETE api/v2/policies/Prod-License-Policy
+jf xr curl -XDELETE api/v2/policies/Prod-Security-Policy
 echo "\nComplete : Delete Policies : "
 
 
