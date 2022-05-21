@@ -62,7 +62,7 @@
 <br />
 
 
-## RUN SCRIPT [Mandatory]
+## RUN SCRIPT 
 - Run ``sh lab_4_rescue.sh``
 
 ## CHALLENGE - Replications [Optional]
