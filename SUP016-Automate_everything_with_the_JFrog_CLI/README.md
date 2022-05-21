@@ -15,8 +15,8 @@
 
 <br/>
 
-## .env config
-- Our directory `SwampUp2022/SUP016-Automate_everything_with_the_JFrog_CLI` has .env file where we can define environment variables.
+## .env config [Must]
+- Our directory `SwampUp2022/SUP016-Automate_everything_with_the_JFrog_CLI` has `.env` file where we need define environment variables.
   - Mandatory - JFROG_EDGE, ADMIN_USER, ADMIN_PASSWORD, JFROG_PLATFORM
   - Optional - ACCESS_TOKEN
 
