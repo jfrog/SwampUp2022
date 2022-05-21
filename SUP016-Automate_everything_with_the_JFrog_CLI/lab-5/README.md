@@ -65,7 +65,7 @@
 
 <br/>
 
-#### SEARCH
+## SEARCH
 - ``jf rt search [COMMAND OPTION]`` or ``jf rt s [COMMAND OPTION]``
 
   | Command Option  | Description |
