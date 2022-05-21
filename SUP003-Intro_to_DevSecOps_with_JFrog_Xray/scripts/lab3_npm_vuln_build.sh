@@ -9,7 +9,7 @@
 #################
 # init process #
 #################
-cd ../project-examples/npm-example-vuln
+cd ../project-examples/npm-vulnerable-example
 
 export CLI_INSTANCE_ID="my-instance"
 

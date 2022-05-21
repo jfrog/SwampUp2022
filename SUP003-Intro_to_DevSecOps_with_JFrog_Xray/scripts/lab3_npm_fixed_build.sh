@@ -9,7 +9,7 @@
 #################
 # init process #
 #################
-cd ../project-examples/npm-example-fixed
+cd ../project-examples/npm-fixed-example
 
 export CLI_INSTANCE_ID="my-instance"
 
