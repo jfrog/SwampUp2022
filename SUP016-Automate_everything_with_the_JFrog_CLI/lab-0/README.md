@@ -28,3 +28,9 @@
 
 ## SETUP JFROG CLI WITH MAIN EDGE NODE
 - ``jf config add SUP016-edge --artifactory-url=https://$JFROG_EDGE/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false``
+
+
+## CHALLENGE  [Optional]
+- Export JFrog CLI config ``jf c export SUP016``
+  - it generates the `TOKEN`
+- Import on other system ``jf c import $TOKEN``
