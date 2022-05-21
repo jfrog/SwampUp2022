@@ -35,7 +35,7 @@
 <br />
 
 ## CREATE OPERATIONAL RISK POLICY
-- Run `` jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @operational-risk-policy.json``
+- Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @operational-risk-policy.json``
 - Confirm Operational Risk Policy named with ``operational-risk-policy`` is created
 
 <br />
