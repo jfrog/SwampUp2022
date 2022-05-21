@@ -78,7 +78,7 @@
 
 <br/>
 
-## SEARCH ARTIFACTS MATCHING NAME PATTERN THAT BELONGS TO A BUILD
+### SEARCH ARTIFACTS MATCHING NAME PATTERN THAT BELONGS TO A BUILD
 - Run
 
   ``jf rt s --spec=find-artifacts-match-naming-pattern-filespec.json --build=sup016-maven``
@@ -89,7 +89,7 @@
 
 <br/>
 
-#### DOWNLOAD / UPLOAD / COPY / MOVE / DELETE
+## DOWNLOAD / UPLOAD / COPY / MOVE / DELETE
 - For Download ``jf rt download [COMMAND OPTION]`` or ``jf rt dl [COMMAND OPTION]``
 - For Upload ``jf rt upload [COMMAND OPTION]`` or ``jf rt u [COMMAND OPTION]``
 - For Copy ``jf rt copy [COMMAND OPTION]`` or ``jf rt cp [COMMAND OPTION]``
