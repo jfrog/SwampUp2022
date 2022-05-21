@@ -68,3 +68,7 @@
 ## CHALLENGE - Replications [Optional]
 - Setup Push based replication between two instances. 
   - NOTE: target serverId requires JFrog CLI config with username/password  - In lab-0, we used access token. Instead of that we need to use username/password.
+
+
+**Blog**
+[Replication: Using Artifactory to Manage Binaries Across Multi-Site Topologies](https://jfrog.com/whitepaper/replication-using-artifactory-to-manage-binaries-across-multi-site-topologies/) 

@@ -80,11 +80,13 @@
 
 
 ## PUBLISH BUILD-INFO
-#### Maven build publish
+#### Maven publish build-info
 - Run ``jf rt bp sup016-maven 1.0.0``
 
-#### NPM build publish
+#### NPM publish build-info
 - Run ``jf rt bp sup016-npm 1.0.0``
+
+NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-PublishingBuild-Info) 
 
 <br />
 <br />
@@ -97,6 +99,7 @@
 #### NPM
 - Run ``jf rt bpr sup016-npm 1.0.0 sup016-npm-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=qa"``
 
+NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-PromotingaBuild)
 
 <br />
 <br />
@@ -147,6 +150,8 @@
 
   ``jf rt sp "sup016-maven-qa-local/org/jfrog/test/" "unit.test=pass;integration.test=null;"``
 
+NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-SettingPropertiesonFiles)
+
 #### NPM
 - Run 
 
@@ -163,9 +168,11 @@
 ## RUN SCRIPT
 - Run `sh lab_3_rescue.sh`
 
+<br />
+<br />
 
-## SETTING UP A CI PIPELINE [Optional]
-- Run `jf ci-setup`
+## SETTING UP A CI PIPELINE [Optional - MUST for POST SESSION]
+- Run `jf ci-setup`, **auto generate yml or jenkins file with CLI Steps**  
   - The ci-setup command allows setting up a basic CI pipeline with the JFrog Platform, while automatically configuring the JFrog Platform to serve the pipeline. It is an interactive command, which prompts you with a series for questions, such as your source control details, your build tool, build command and your CI provider. The command then uses this information to do following:
     - Create the repositories in JFrog Artifactory, to be used by the pipeline to resolve dependencies.
     - Configure JFrog Xray to scan the build.
@@ -173,8 +180,7 @@
   - You can use the generated CI pipeline as a working starting point and then expand it as needed. 
   - Supported CI providers - Jenkins, JFrog Pipeline and Github Action
     - example projects [here](https://github.com/jfrog/SwampUp2022/tree/main/SUP016-Automate_everything_with_the_JFrog_CLI/ci-example)
-    
-[Demo](https://youtu.be/JvEmihsjxjQ)
+    - **[Demo](https://youtu.be/JvEmihsjxjQ)**
 
 <br />
 <br />
