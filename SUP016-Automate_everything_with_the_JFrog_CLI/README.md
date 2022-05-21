@@ -31,7 +31,7 @@
 
 ### Option 2
 **Using Docker image** :
-- Please cd to the SwampUp2022 folder and  run the following docker command:
+- Please `cd SwampUp2022` folder and run the following docker command:
 ```
 source SUP016-Automate_everything_with_the_JFrog_CLI/.env
 
