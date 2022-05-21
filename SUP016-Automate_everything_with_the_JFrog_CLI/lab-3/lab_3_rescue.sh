@@ -12,7 +12,7 @@ jf rt bp sup016-maven 2.0.0
 cd ../npm-example
 
 # Config NPM
-jf npmc --server-id-resolve rtsaas --server-id-deploy rtsaas --repo-resolve sup016-npm-virtual --repo-deploy sup016-npm-virtual
+jf npmc --server-id-resolve SUP016 --server-id-deploy rtsaas --repo-resolve sup016-npm-virtual --repo-deploy sup016-npm-virtual
 
 # Build NPM Project
 jf npm install --build-name sup016-npm --build-number 2.0.0
