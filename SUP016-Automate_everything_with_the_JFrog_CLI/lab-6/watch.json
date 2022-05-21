@@ -25,6 +25,10 @@
         {
             "name": "gpl-blacklisting",
             "type": "license"
+        },
+        {
+            "name": "gpl-blacklisting",
+            "type": "license"
         }
     ],
     "watch_recipients":[]

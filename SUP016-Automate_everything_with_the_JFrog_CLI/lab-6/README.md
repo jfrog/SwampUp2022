@@ -23,13 +23,20 @@
 - Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @prod-security-policy.json``
   - With Severity - CRITICAL, HIGH, MEDIUM, LOW with different action items
 - Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @dev-security-policy.json``
-- Confirm Security Policy named with ``prod-security-policy`` and ``dev-security-policy`` are created
+- Run `` jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @operational-risk-policy.json``
+- Confirm Security Policy named with ``prod-security-policy`` and ``dev-security-policy``  are created
 
 <br />
 
 ## CREATE LICENSE POLICY
 - Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @license-policy.json``
 - Confirm License Policy named with ``gpl-blacklisting`` is created
+
+<br />
+
+## CREATE OPERATIONAL RISK POLICY
+- Run `` jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @operational-risk-policy.json``
+- Confirm Operational Risk Policy named with ``operational-risk-policy`` is created
 
 <br />
 
@@ -49,6 +56,8 @@
 
 - Run ``jf audit --repo-path "sup016-npm-dev-local"`` to audit the project at the current directory using the policies defined for the `sup016-npm-dev-local` path in Artifactory.
 
+NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Xray#CLIforJFrogXray-ScanningProjectDependencies) 
+
 <br />
 
 ## SCAN BUILDS 
@@ -57,12 +66,16 @@
   
     `[🚨 Error] One or more of the violations found are set to fail builds that include them`
 
+NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Xray#CLIforJFrogXray-ScanningPublishedBuilds)
+
 <br />
 
 ## ON-DEMAND SCAN
 ### SCAN FILE ON LOCAL FILE SYSTEM
 - Run ``jf s "/{{file_path}}/*.tgz" --watches "sup016-xray-watch"``
 - View Scan in UI - `Application >> Security & Compliance >> On-Demand Scanning`
+
+NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Xray#CLIforJFrogXray-On-DemandBinaryScan)
 
 ### SCAN DOCKER CONTAINER ON THE LOCAL FILE SYSTEM
 - Run ``docker images``
@@ -72,6 +85,7 @@
       - ``docker login <your_instance>.jfrog.io``
       - ``docker pull <your_instance>.jfrog.io/swampup2022-docker-main/<DOCKER_IMAGE>:<DOCKER_TAG>``
 
+NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Xray#CLIforJFrogXray-ScanningDockerContainersontheLocalFileSystem)
 
 <br />
 
