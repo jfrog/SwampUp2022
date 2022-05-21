@@ -16,6 +16,7 @@
 
 ### DISTRIBUTE RELEASE BUNDLE
 - Run ``jf ds rbd --dist-rules=dist-rules.json rb_swamp 1.0.0``
+  - we need to update ``dist-rules.json`` with our own edge. Example `sup016epssu01`
 
 
 ### CHALLENGE - Release Bundle [Optional]
