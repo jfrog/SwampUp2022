@@ -20,13 +20,24 @@
 - Setup MAVEN or NPM and Docker Client. 
   - so we can run commands like `mvn install`, `npm install` or `docker pull image:tag`
 
-**Option 2**  
-- Docker image
-
-
-
-
+**Option 2**
 ### .env config 
 - Our directory `SwampUp2022/SUP016-Automate_everything_with_the_JFrog_CLI` has .env file where we can define environment variables.
-  - Mandatory - JFROG_EDGE, ADMIN_USER, ADMIN_PASSWORD
-  - Optional - 
+  - Mandatory - JFROG_EDGE, ADMIN_USER, ADMIN_PASSWORD, JFROG_PLATFORM
+  - Optional - ACCESS_TOKEN
+
+### Using Docker image :
+- Please cd to the SwampUp2022 folder and  run the following docker command:
+```
+source SUP016-Automate_everything_with_the_JFrog_CLI/.env
+
+docker run --rm --name my-project -it -v /var/run/docker.sock:/var/run/docker.sock  --env  JFROG_PLATFORM="${JFROG_PLATFORM}" --env ADMIN_USER="${ADMIN_USER}" --env ADMIN_PASSWORD="${ADMIN_PASSWORD}" --env JFROG_EDGE="${JFROG_EDGE}" --env JFROG_CLI_LOG_LEVEL="${JFROG_CLI_LOG_LEVEL}" --env JFROG_CLI_TRANSITIVE_DOWNLOAD_EXPERIMENTAL="${JFROG_CLI_TRANSITIVE_DOWNLOAD_EXPERIMENTAL}" --env JFROG_CLI_TRANSITIVE_DOWNLOAD_EXPERIMENTAL="${JFROG_CLI_TRANSITIVE_DOWNLOAD_EXPERIMENTAL}" -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven soleng.jfrog.io/swampup2022-docker-local/docker20.10.16-npm18.1-maven3.8.5-jf2.16.4:11-jdk-alpine /bin/bash
+```
+- Then from within the docker container run:
+```
+jf config add SUP016 --user "${ADMIN_USER}" --password "${ADMIN_PASSWORD}" --artifactory-url https://${JFROG_PLATFORM}/artifactory --xray-url https://${JFROG_PLATFORM}/xray/ --interactive=false
+
+jf config add SUP016-edge --artifactory-url=https://${JFROG_EDGE}/artifactory --user "${ADMIN_USER}" --password "${ADMIN_PASSWORD}" --interactive=false
+
+cd SUP016-Automate_everything_with_the_JFrog_CLI
+```
