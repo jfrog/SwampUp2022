@@ -183,4 +183,5 @@
 - Add new property to sub-folder inside the artifact - HINT: We need that property to be tagged to each and every single file of the Artifact recursively. 
 - Update the ``integration.test`` to ``pass`` or ``fail`` 
 - NEED to be tested - Fetch all the artifacts under repository that does not have properties `"unit.test=pass;integration.test=pass;"`
-
+- [Discard](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-DiscardingOldBuildsfromArtifactory) 60 days Old builds from Artifactory
+  - HINT: ``jf rt build-discard`` or ``jf rt bdi``
