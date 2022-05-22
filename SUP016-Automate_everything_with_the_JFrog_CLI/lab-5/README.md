@@ -118,12 +118,12 @@
 <br/>
 
 ## UPLOAD MAVEN AND NPM ARTIFACTS [Must]
-- Run ``cd sample-date/maven``
+- Run ``cd sample-data/maven``
   - ``jf rt u "./hello-world-api/*" "jfrog-maven-main-local/"``
   - For bulk uploads, ``jf rt u "./*" "jfrog-maven-main-local/" --threads 10``
     - NOTE: we are using 10 threads here
 
-- Run ``cd sample-date/npm``
+- Run ``cd sample-data/npm``
   - ``jf rt u "./hello-world-ui/*" "jfrog-npm-main-local/"``
   - For bulk uploads, ``jf rt u "./*" "jfrog-npm-main-local/" --threads 10``
     - NOTE: we are using 10 threads here
