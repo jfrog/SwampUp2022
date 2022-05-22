@@ -57,10 +57,11 @@
   - Insert the permission target name > `development`
   
   - You can type ":x" at any time to save and exit. 
-  - Select the permission target section to configure (press Tab for options): `repo`
-    Insert the section's repositories value.
-    - You can specify the name "ANY" to apply to all repositories, "ANY REMOTE" for all remote repositories or "ANY LOCAL" for all local repositories:
-    - The value should be a comma separated list > `{{list_of_repos}}`
+  - Select the permission target section to configure (press Tab for options): `repo` <br/>
+      Insert the section's repositories value. <br/>
+      You can specify the name "ANY" to apply to all repositories, "ANY REMOTE" for all remote repositories or "ANY LOCAL" for all local repositories:
+  
+    - The value should be a comma separated list > `sup016-docker-dev-local,sup016-maven-dev-local,sup016-npm-dev-local`
     - Insert a value for include-patterns: ↵
     - The value should be a comma separated list (press enter for default) [**]: ↵
     - Insert value for exclude-patterns: ↵
@@ -70,6 +71,7 @@
     - Configure actions for groups? [yes]: `yes`
     - Insert group name (press enter to finish) > `developers`
     - Select permission value for developers (press tab for options or enter to finish) > `read`
+    - Select permission value for developers (press tab for options or enter to finish) > `write`
     - Select permission value for developers (press tab for options or enter to finish) > ↵
     - Insert group name (press enter to finish) > `secops`
     - Select permission value for secops (press tab for options or enter to finish) > `managedXrayMeta`
@@ -111,10 +113,6 @@
 
 <br />
 
-### Create JFrog Project [Optional]
-`curl -XPOST -H "Authorization: Bearer {{access_token}}"  -H 'Content-Type:application/json' https://{{host}}/access/api/v1/projects  -T ./create-project.json`
-
-<br />
 
 ### Delete User (Internal) - [POST SESSION TASK]
 - Run 

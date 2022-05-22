@@ -1,0 +1,17 @@
+{
+  "files": [
+    {
+      "aql": {
+        "items.find": {
+          "$and": [
+            {
+              "created_by":{"$match":"maharship"}
+            },
+            {
+              "size": { "$lt": "1" }
+            }
+          ]
+        }
+      }
+    }]
+}

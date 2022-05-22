@@ -5,10 +5,13 @@
         "items.find": {
           "$and": [
             {
-              "repo": "swampup2022-npm-main"
+              "repo": "jfrog-npm-main-local"
             },
             {
-                "@npm.name": { "$match":  "frogsui"}
+              "@npm.name": { "$eq":  "frogsui"}
+            },
+            {
+              "@npm.version": { "$eq":  "0.3.0-11"}
             }
           ]
         }

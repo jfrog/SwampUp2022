@@ -3,7 +3,8 @@
   "resources": {
     "builds": {
       "names": [
-        "sup016-npm"
+        "sup016-npm",
+        "sup016-maven"
       ],
       "include_patterns": [],
       "exclude_patterns": [],

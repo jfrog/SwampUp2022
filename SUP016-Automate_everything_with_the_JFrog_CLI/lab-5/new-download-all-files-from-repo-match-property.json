@@ -1,9 +1,9 @@
 {
   "files": [
     {
-      "pattern": "swampup2022-npm-main/*",
+      "pattern": "sup016-npm-dev-local/*",
       "target": "local-copy/",
-      "props": "sup016.qa.ready=true"
+      "props": "unit.test=pass"
     }
   ]
 }

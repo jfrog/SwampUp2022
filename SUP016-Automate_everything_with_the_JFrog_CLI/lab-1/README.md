@@ -55,7 +55,7 @@
         }
         ```
 - Virtual Repository Template
-    - run ``jf rt repo-template template-remote.json``
+    - run ``jf rt repo-template template-virtual.json``
       - Select the template type (press Tab for options): `create`
       - Insert the repository key > `sup016-npm-virtual`
       - Select the repository class (press Tab for options): `virtual`
@@ -68,6 +68,8 @@
       - Insert the value for repositories > `sup016-npm-dev-local,sup016-npm-qa-local,sup016-npm-prod-local,sup016-npm-remote`
       - Select the next configuration key (press Tab for options): `externalDependenciesRemoteRepo`
       - Insert the value for externalDependenciesRemoteRepo > `sup016-npm-remote`
+      - Select the next configuration key (press Tab for options): `defaultDeploymentRepo`
+      - Insert the value for defaultDeploymentRepo > `sup016-npm-dev-local`
       - Select the next configuration key (press Tab for options): `:x`
       - Validate template `template-remote.json` is created successfully. ``ls -la``
       - View template
@@ -99,9 +101,12 @@
     
     ``jf rt rc template-local.json --var "repo-name=sup016-npm-qa-local"``
 
+- We are going to run this for local and remote repository. For virtual please skip this step and proceed with next step.
+
 <br />
 
-### Prerequisites for future labs - CREATE ALL REPOSITORIES
+
+## RUN SCRIPT - Prerequisites for future labs that CREATES ALL REPOSITORIES 
 - Run `sh lab1_rescue.sh` and it will create all local, remote, virtual repositories.
 
 

@@ -5,8 +5,8 @@
         "items.find": {
           "$and": [
             {
-              "repo": {"$match": "*prod*"},
-              "stat.downloads":{"$gt":"100"}
+              "repo": {"$match": "*local*"},
+              "stat.downloads":{"$gt":"5"}
             }
           ]
         }
