@@ -14,7 +14,9 @@
 - Pull the lab-runner docker image from JFrog by running **pull-docker.sh**. This exeecutes the command below.
   
   ```
-  <docker pull soleng.jfrog.io/sup003-docker-virtual/lab-runner-init
+  
+  docker pull soleng.jfrog.io/sup003-docker-virtual/lab-runner-init
+  
   
   ```
 
@@ -23,6 +25,7 @@
   ```
   
   docker run --name sup003 --rm --env ARTIFACTORY_HOSTNAME="${ARTIFACTORY_HOSTNAME}" --env ARTIFACTORY_LOGIN="${ARTIFACTORY_LOGIN}" --env ARTIFACTORY_API_KEY="${ARTIFACTORY_API_KEY}" -it -v "/var/run/docker.sock:/var/run/docker.sock" soleng.jfrog.io/sup003-docker-virtual/lab-runner-init /bin/bash
+  
 
   ```
   
@@ -37,6 +40,7 @@
     jf config add "${CLI_INSTANCE_ID}" --user "${ARTIFACTORY_LOGIN}" --password "${ARTIFACTORY_API_KEY}" --artifactory-url https://${ARTIFACTORY_HOSTNAME}.jfrog.io/artifactory --xray-url https://${ARTIFACTORY_HOSTNAME}.jfrog.io/xray/ --interactive=false
 
     jf config use "${CLI_INSTANCE_ID}"
+    
 
     ```
     
