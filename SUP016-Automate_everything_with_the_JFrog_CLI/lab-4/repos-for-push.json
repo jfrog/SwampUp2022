@@ -1,0 +1,5 @@
+[
+  {"key":"swampup2022-docker-dev-local","targetServerId":"${{target_server_id}}","targetRepoKey":"swampup20221-docker-dev-local"},
+  {"key":"swampup2022-maven-dev-local","targetServerId":"${{target_server_id}}","targetRepoKey":"swampup20221-maven-dev-local"},
+  {"key":"swampup2022-npm-dev-local","targetServerId":"${{target_server_id}}","targetRepoKey":"swampup20221-npm-dev-local"}
+]

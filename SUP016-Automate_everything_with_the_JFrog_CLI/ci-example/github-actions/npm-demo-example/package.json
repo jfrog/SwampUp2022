@@ -1,0 +1,30 @@
+{
+  "name": "npm-example",
+  "version": "1.1.9",
+  "description": "Node.js sample project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "npm rebuild"
+  },
+  "dependencies": {
+    "axios": "0.20.0",
+    "body-parser": "^1.19.0",
+    "debug": "^4.1.1",
+    "express": "^4.12.1",
+    "http-errors": "^1.7.2",
+    "is-svg": "2.1.0",
+    "lodash": "4.17.21",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "pg": "^8.5.0",
+    "redis": "3.1.0",
+    "send": "^0.16.2",
+    "socket.io": "2.3.0",
+    "url-parse": "1.4.7",
+    "mathjs": "6.6.5"
+  },
+  "publishConfig": {
+    "registry": "https://swampup201.jfrog.io/artifactory/api/npm/su201-npm/"
+  }
+}

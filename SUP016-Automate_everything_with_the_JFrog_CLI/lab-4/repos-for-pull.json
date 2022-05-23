@@ -1,0 +1,5 @@
+[
+  {"key":"swampup2022-docker-main","url":"https://soleng.jfrog.io/artifactory/swampup2022-docker-local"},
+  {"key":"swampup2022-maven-main","url":"https://soleng.jfrog.io/artifactory/swampup2022-maven-local"},
+  {"key":"swampup2022-npm-main","url":"https://soleng.jfrog.io/artifactory/swampup2022-npm-local"}
+]

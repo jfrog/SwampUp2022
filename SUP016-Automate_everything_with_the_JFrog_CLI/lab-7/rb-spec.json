@@ -1,0 +1,63 @@
+{
+  "files": [
+    {
+      "aql": {
+        "items.find": {
+          "$and": [
+            {
+              "$or": [
+                {
+                  "repo": {
+                    "$eq": "sup016-npm-dev-local"
+                  }
+                },
+                {
+                  "repo": {
+                    "$eq": "sup016-docker-dev-local"
+                  }
+                },
+                {
+                  "repo": {
+                    "$eq": "sup016-maven-dev-local"
+                  }
+                },
+                {
+                  "repo": {
+                    "$eq": "jfrog-npm-main-local"
+                  }
+                },
+                {
+                  "repo": {
+                    "$eq": "jfrog-maven-main-local"
+                  }
+                }
+              ]
+            },
+            {
+              "$or": [
+                {
+                  "$and": [
+                    {
+                      "@unit.test": "pass"
+                    },
+                    {
+                      "@integration.test": "pass"
+                    },
+                    {
+                      "@release.version": "2.0.0"
+                    },
+                    {
+                      "@qa.code.quality.new_bugs": "0"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+
+

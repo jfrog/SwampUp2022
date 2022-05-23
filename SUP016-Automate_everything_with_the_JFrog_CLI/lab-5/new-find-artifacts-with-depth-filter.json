@@ -1,0 +1,17 @@
+{
+  "files": [
+    {
+      "aql": {
+        "items.find": {
+          "$and": [
+            {
+              "name": { "$match" :  "*.tgz"}
+            },
+            {
+              "depth": "1"
+            }
+          ]
+        }
+      }
+    }]
+}

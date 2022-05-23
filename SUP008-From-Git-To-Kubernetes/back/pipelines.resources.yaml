@@ -1,0 +1,61 @@
+resources:
+  #Gradle Application
+  - name: source_code
+    type: GitRepo
+    configuration:
+      gitProvider: github
+      path: shivaraman83/SwampUp2022
+      branches:
+        include: main
+
+  - name: back_app_build_info
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: artifactory
+      buildName: sup008_back_app_gradle_pipeline
+      buildNumber: ${run_number}
+  
+  - name: back_app_build_info_promoted_staging
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: artifactory
+      buildName: sup008_back_app_gradle_pipeline
+      buildNumber: '${run_number}'
+  
+  - name: build_info_back_app_promoted_to_prod
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: artifactory
+      buildName: sup008_back_app_gradle_pipeline
+      buildNumber: '${run_number}'
+
+#Dockerize Gradle Application
+  - name: back_app_war_executable
+    type: FileSpec
+    configuration:
+      sourceArtifactory: artifactory
+      pattern: 'sup008-gradle-prod-local/*/webservice-*.war'
+      target: war/webservice.war
+      flat: true
+
+  - name: build_info_docker_back_app
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: artifactory
+      buildName: sup008_backapp_docker_pipeline
+      buildNumber: '${run_number}'
+
+  - name: build_info_docker_back_app_promoted_staging
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: artifactory
+      buildName: sup008_back_app_docker
+      buildNumber: '${run_number}'
+
+  - name: spring_helm_chart_back_app_resource
+    type: HelmChart
+    configuration:
+      sourceArtifactory: artifactory
+      repository: sup008-helm-virtual
+      chart: spring_helm_chart_back_app_chart
+      version: 1.0.'${run_number}'

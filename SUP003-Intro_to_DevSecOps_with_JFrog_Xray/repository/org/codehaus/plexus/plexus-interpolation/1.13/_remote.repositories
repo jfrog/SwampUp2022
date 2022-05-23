@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri May 20 00:03:58 PDT 2022
+plexus-interpolation-1.13.jar>artifactory-release=
+plexus-interpolation-1.13.pom>artifactory-release=

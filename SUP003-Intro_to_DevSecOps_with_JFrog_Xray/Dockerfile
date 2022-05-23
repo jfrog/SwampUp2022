@@ -43,8 +43,9 @@ ADD scripts/setupCLI.sh setupCLI.sh
 ADD scripts scripts
 ADD docs docs
 ADD README.md README.md
+ADD repository /root/.m2/repository
 
 # set permissions
 RUN chmod +x setupCLI.sh
 
-CMD setupCLI.sh
+CMD ["/bin/bash"]

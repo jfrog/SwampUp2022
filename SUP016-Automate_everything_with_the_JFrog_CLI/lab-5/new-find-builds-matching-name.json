@@ -1,0 +1,1 @@
+builds.find({"name": { "$match": "*npm*" }}).include("name", "number")
