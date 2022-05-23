@@ -55,6 +55,27 @@ CD to the root project directory
 ```console
 export CI=false
 ```
+Create a local remote and virtual repository in artifactory. 
+
+```console
+jf rt curl --location --request PUT "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/repositories/teamA-pypi-dev-local" --header "X-JFrog-Art-Api: ${ARTIFACTORY_API_KEY}" --header 'Content-Type: application/json' --data-raw '{
+"rclass": "local",
+"packageType": "pypi"
+}'
+
+jf rt curl --location --request PUT "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/repositories/teamA-pypi-remote" --header "X-JFrog-Art-Api: ${ARTIFACTORY_API_KEY}" --header 'Content-Type: application/json' --data-raw '{
+"rclass": "remote",
+"packageType": "pypi",
+"url" : "http:host:port/some-repo",
+"externalDependenciesEnabled" : false
+}'
+
+jf rt curl --location --request PUT "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/repositories/teamA-pypi-virtual" --header "X-JFrog-Art-Api: ${ARTIFACTORY_API_KEY}" --header 'Content-Type: application/json' --data-raw '{
+"rclass": "virtual",
+"packageType": "pypi",
+"externalDependenciesEnabled" : false
+}'
+```
 
 Configure the project's resolution repository. You shoud set the virtual repository you created.
 
