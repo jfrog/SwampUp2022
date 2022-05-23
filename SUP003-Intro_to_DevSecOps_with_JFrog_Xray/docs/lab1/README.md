@@ -17,34 +17,33 @@ A SAAS Instance of JFrog. This will be provided as part of your enrollment to th
 
 ### Step2 - Create a policy 
 
-- Navigate to the **Administration** Module, expand the **Xray** menu at the bottom and click on **Watches & Policies** menu item. Click on **Create a Policy** and let's create our first **Security** policy called **"sec_policy"**
+- Navigate to the **Administration** Module, expand the **Xray** menu at the bottom and click on **Watches & Policies** menu item. Click on **Create a Policy** and let's create our first **Security** policy called **"Prod-Security-Policy"**
   
   ![Security Policy](images/1-3.gif)
 
-- Click on **New Rule** to add rules to **sec_policy**. Add the following rules with **Criteria** and additional **Automatic Actions**. A default Automatic Action of Generate Violation is enabled for every Rule. Click **Save** and Click **Create**.
-  * **Rule name**: critical, Criteria: **Minimum Severity**: Critical, Additional Automatic Actions: Notify Deployer
-  * **Rule name**: high, Criteria: **Minimum Severity**: High
-  * **Rule name**: medium, Criteria: **Minimum Severity**: Medium
-  * **Rule name**: low, Criteria: **Minimum Severity**: Low
+- Click on **New Rule** to add rules to **Prod-Security-Policy**. Add the following rule with **Criteria** and **Automatic Actions**. A default Automatic Action of Generate Violation is enabled for every Rule. Click **Save** and Click **Create**.
+  * **Rule name**: high
+  * **Criteria**: Minimum Severity: High
+  * **Automatic Actions**: 
+    * Notify Deployer
+    * Block Download 
+    * Fail Build
   
   ![Security Policy Rules](images/1-4.gif)
 
-- Click on **New Policy**. Let's create a **License** policy with **"lic_policy"** name.
+- Click on **New Policy**. Let's create a **License** policy with **"Prod-License-Policy"** name.
  
   ![License Policy](images/1-5.gif)
 
-- Click on **New Rule** to add rule to **lic_policy**. Add two rules with **Criteria** and **Automatic Actions**. Click **Save** and Click **Create**.
-  * **Rule name**: allowed_lic_rule, Criteria: **Allowed Licenses**: allowed_licenses": "Apache-1.0", "Apache-2.0", "MIT", "BSD", "BSD-1-Clause", "ANTLR-PD"
-  * **Rule name**: banned_lic_rule, Criteria: **Banned Licenses**: "GPL-1.0", "GPL-2.0", "GPL-3.0", "gnuplot"
+- Click on **New Rule** to add rule to **Prod-License-Policy**. Add a Rule for banned licenses with **Criteria** and **Automatic Actions** below. Click **Save** and Click **Create**.
+  * **Rule name**: banned
+  * **Criteria**: Banned Licenses: "BSD 2-Clause", GPL-3.0"
+  * **Automatic Actions**:
+    * Notify Deployer
+    * Block Download
+    * Fail Build
   
   ![License Policy Rules](images/1-6.gif)
-
-- Click on **New Policy** and create our second **Security** policy called **"sec_critical_policy"**. Add the following Rules to the Policy
-  * **Rule name**: critical_cvss, Criteria: **CVSS Range**: 9-10, **Additional Automatic Actions**: Notify Deployer
-  * **Rule name**: critical, Criteria: **Minimum Severity**: Critical
-  * **Rule name**: high, Criteria: **Minimum Severity**: High
- 
-  ![Security Policy and Rules](images/1-7.gif)
   
 **NOTE:** You may have noticed that Fields under **Criteria** are different for **License Policy** and for **Security Policy**.  
 

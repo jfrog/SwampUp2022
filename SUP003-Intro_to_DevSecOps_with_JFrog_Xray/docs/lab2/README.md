@@ -5,13 +5,9 @@ A SAAS Instance of JFrog. This will be provided as part of your enrollment to th
 
 ### Step 1 - Create Watches
 
--  Click on the Watch tab and create a new watch name “swampup22_dev_watch”. Add the repositories by clicking on the **Add Repositories** button and add the sec_policy and lic_policy that we just created by clicking on the **Manage Policies** button
+-  Click on the Watch tab and create a new watch name “Prod-Watch”. Under Manage Resources, add the repositories with prefix **s003** by clicking on the **Add Repositories** button and add the two builds swampup22_s003_mvn_pipeline and swampup22_s003_npm_pipeline by clicking on the **Add Builds** button. Add the Prod-Security-Policy and Prod-License-Policy that we just created by clicking on the **Manage Policies** button.
 
    ![New Watch](images/2-1.gif)
-
--  Click om the Watch tab and create a new watch name “swampup22_secops_watch”. Add the repositories by clicking on the **Add Repositories** button and add the sec_critical_policy that we just created by clicking on the **Manage Policies** button
-
-   ![New Watch](images/2-2.gif)
 
 ### Step 2 - Show violations
 
