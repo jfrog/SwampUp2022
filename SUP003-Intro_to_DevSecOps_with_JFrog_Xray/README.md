@@ -42,5 +42,3 @@
     ```
     
   - init.sh. This script creates the local, remote and virtual repositories in your Artifactory instance.
-
--
