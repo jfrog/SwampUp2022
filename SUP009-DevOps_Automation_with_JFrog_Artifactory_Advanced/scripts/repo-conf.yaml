@@ -1,0 +1,113 @@
+localRepositories:
+  gradle-prod-local:
+      type: gradle
+      description: "production deployment"
+      xray:
+        enabled: true
+  gradle-staging-local:
+      type: gradle
+      description: "staging build"
+      xray:
+        enabled: true
+  gradle-dev-local:
+      type: gradle
+      description: "dev build"
+      xray:
+        enabled: true
+  tomcat-local:
+      type: generic
+      description: "approved copy"
+      repoLayout: simple-default
+      xray:
+        enabled: true
+  docker-dev-local:
+      type: docker
+      repoLayout: simple-default
+      description: "docker development repo"
+      xray:
+        enabled: true
+  docker-prod-local:
+      type: docker
+      repoLayout: simple-default
+      description: "production deployment"
+      xray:
+        enabled: true
+  docker-staging-local:
+      type: docker
+      repoLayout: simple-default
+      description: "staging deployment"
+      xray:
+        enabled: true
+  libs-release-local:
+      type: maven
+      repoLayout: maven-2-default
+      description: "maven release libraries"
+      xray:
+        enabled: true
+  helm-local:
+      type: helm
+      repoLayout: simple-default
+      description: "helm local "
+      xray:
+        enabled: true
+  generic-local:
+      type: generic
+      repoLayout: simple-default
+      description: "generic local"
+      xray:
+        enabled: true
+remoteRepositories:
+  docker-remote:
+      type: docker
+      url: https://registry-1.docker.io
+      repoLayout: simple-default
+      xray:
+        enabled: true
+      enableTokenAuthentication: true
+  jcenter:
+      type: gradle
+      url: https://jcenter.bintray.com
+      repoLayout: maven-2-default
+      xray:
+        enabled: true
+  helm-remote:
+      type: helm
+      url: https://storage.googleapis.com/kubernetes-charts
+      repoLayout: simple-default
+      xray:
+        enabled: true
+virtualRepositories:
+  gradle-release:
+      type: gradle
+      repositories:
+        - gradle-dev-local
+        - gradle-staging-local
+        - gradle-prod-local
+        - jcenter
+      description: "gradle virtual repositories"
+      defaultDeploymentRepo: gradle-dev-local
+  docker-virtual:
+      type: docker
+      repositories:
+        - docker-remote
+        - docker-dev-local
+        - docker-staging-local
+        - docker-prod-local
+      description: "docker virtual"
+      defaultDeploymentRepo: docker-dev-local
+  libs-release:
+      type: maven
+      repositories:
+        - gradle-dev-local
+        - gradle-staging-local
+        - gradle-prod-local
+        - jcenter
+      description: "gradle libraries virtual"
+      defaultDeploymentRepo: gradle-dev-local
+  helm-virtual:
+      type: helm
+      repositories:
+        - helm-local
+        - helm-remote
+      description: "helm virtual"
+      defaultDeploymentRepo: helm-local

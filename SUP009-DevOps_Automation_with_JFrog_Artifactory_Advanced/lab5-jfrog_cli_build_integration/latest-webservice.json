@@ -1,0 +1,10 @@
+{
+  "files": [
+    {
+      "pattern": "app-gradle-virtual/*/webservice*.war",
+      "target": "war/webservice.war",
+      "flat": "true",
+      "build": "gradle-su-115"
+    }
+  ]
+}
