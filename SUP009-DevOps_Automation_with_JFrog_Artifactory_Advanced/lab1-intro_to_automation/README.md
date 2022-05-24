@@ -18,15 +18,17 @@
 
 - On Linux/Mac OS, please use
 ```bash
-export ARTIFACTORY_HOSTNAME="my-instance.jfrog.io"
-export ARTIFACTORY_LOGIN="foo@bar.com"
+export ARTIFACTORY_HOSTNAME="sup009entsuxx.jfrog.io"
+export ARTIFACTORY_LOGIN="taletsup009entsuxx@jfrog.com"
+export ARTIFACTORY_PASSWORD="SwampUp2022!"
 export ARTIFACTORY_API_KEY="MY_API_KEY"
 ```
 
 - On Windows OS, please use
 ```bash
-set ARTIFACTORY_HOSTNAME="my-instance.jfrog.io"
-set ARTIFACTORY_LOGIN="foo@bar.com"
+set ARTIFACTORY_HOSTNAME="sup009entsuxx.jfrog.io"
+set ARTIFACTORY_LOGIN="taletsup009entsuxx@jfrog.com"
+set ARTIFACTORY_PASSWORD="SwampUp2022!"
 set ARTIFACTORY_API_KEY="MY_API_KEY"
 ```
 ![setting environemnt variables](https://i.imgur.com/BastCGE.gif)
