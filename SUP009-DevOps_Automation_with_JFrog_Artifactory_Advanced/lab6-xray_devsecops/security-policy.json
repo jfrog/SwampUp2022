@@ -1,0 +1,34 @@
+{
+    "name":"highRisk",
+    "type":"security",
+    "description":"block high risk vulnerabilities",
+    "rules":[{
+            "name":"high",
+            "priority":1,
+            "criteria":{
+                "min_severity":"High"
+                },
+            "actions":{
+                "fail_build":true,
+                "block_download":{
+                        "unscanned":false,"active":true
+                        }
+                    }
+            },
+            {
+                "name":"medium",
+                "priority":2,
+                "criteria":
+                {
+                    "min_severity":"Medium"
+                },
+                "actions":{
+                    "fail_build":false,
+                    "block_download":{
+                        "unscanned":false,
+                        "active":false
+                        }
+                }
+            }
+        ]
+}
