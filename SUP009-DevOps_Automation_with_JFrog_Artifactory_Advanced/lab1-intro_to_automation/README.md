@@ -82,7 +82,7 @@ curl --location --request PUT "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/s
 --header 'Content-Type: application/json' \
 --data-raw '{
 	"email" : "davids@jfrog.com",
-    "password": "SwampUp2022"
+    "password": "SwampUp2022!"
 }'
 ```
 
