@@ -57,6 +57,13 @@
   │ No license compliance violations were found │
   └─────────────────────────────────────────────┘
 
+- See violations in the Artifactory UI. Navigate to **Application** > **Security & Compliance** > **Watch Violations**. You will be able to see the watches that we have created in Step 1. Click on the swampup22_dev_watch watch. The Violations tab in a Watch is the central location for viewing the detected violations based on the policies and rules you have predefined on the Watch. You can view the list of the violations, search for violations according to filters, set ignore rules and edit the Watch in the Settings tab.
+
+  ![New Watch](images/3-1.gif)
+
+- **Ignore Violation** by navigating to **Application** > **Security & Compliance** > **Watch Violation**. Open watch **"swampup2022_dev_watch"** that we created in STEP 1 and hover your mouse over the right side of a violation.
+
+  ![New Watch](images/3-2.gif)
 
 ### Part 2 - Configure and run the same maven build but this time with an update version of the dependency that doesn't have the vulnerability and you should see a successful build.
 
