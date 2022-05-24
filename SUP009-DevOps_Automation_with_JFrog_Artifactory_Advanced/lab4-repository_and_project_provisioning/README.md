@@ -5,16 +5,19 @@
 This example demonstrates how to create repository and project with RESTful API.
 
 # Configure CLI in the main JPD
+```console
 jf config add swampup115 --artifactory-url=https://$JFROG_PLATFORM/artifactory --dist-url=https://$JFROG_PLATFORM/distribution --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
-
-# Configure CLI in the Artifactory Edge
-# jfrog config add swampup115-edge --artifactory-url=https://$JFROG_EDGE/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
+```
 
 # Check existing configuration
+```console
 jf rt c show
+```
 
 # Make it default
+```console
 jf config use swampup115
+```
 
 # Create all repositories in the main Artifactory JPD
 ```console
