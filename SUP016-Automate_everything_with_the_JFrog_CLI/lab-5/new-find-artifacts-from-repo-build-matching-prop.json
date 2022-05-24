@@ -1,0 +1,44 @@
+items.find({
+  "$or": [
+    {
+      "$and": [
+        {
+          "repo": {
+            "$match": "swampup2022*"
+          },
+          "@sup016.qa.ready": {
+            "$eq": "true"
+          }
+        }
+      ]
+    },
+    {
+      "$or": [
+        {
+          "$and": [
+            {
+              "artifact.module.build.name": {
+                "$eq": "sup016-npm"
+              }
+            },
+            {
+              "artifact.module.build.number": {
+                "$eq": "1.0.0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$or": [
+        {
+          "@sup016.ga.version": "6.3.8"
+        },
+        {
+          "@sup016.zen.dep": "true"
+        }
+      ]
+    }
+  ]
+}).include("sha256","updated","modified_by","created","id","original_md5","depth","actual_sha1","property.value","modified","property.key","actual_md5","created_by","type","name","repo","original_sha1","size","path")

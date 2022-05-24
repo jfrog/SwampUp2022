@@ -1,0 +1,21 @@
+{
+  "releaseBundle": {
+    "include-patterns": [
+      "**"
+    ],
+    "exclude-patterns": [],
+    "repositories": [
+      "release-bundles"
+    ],
+    "actions": {
+      "groups": {
+        "delivery-team": [
+          "read",
+          "write",
+          "distribute",
+          "annotate"
+        ]
+      }
+    }
+  }
+}

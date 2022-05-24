@@ -1,0 +1,21 @@
+{
+  "files": [
+    {
+      "aql": {
+        "items.find": {
+          "$and": [
+            {
+              "repo": "jfrog-npm-main-local"
+            },
+            {
+              "@npm.name": { "$eq":  "frogsui"}
+            },
+            {
+              "@npm.version": { "$eq":  "0.3.0-11"}
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

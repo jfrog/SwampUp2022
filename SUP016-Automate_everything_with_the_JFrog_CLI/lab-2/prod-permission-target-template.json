@@ -1,0 +1,28 @@
+{
+  "build": {
+    "include-patterns": "**",
+    "actions-groups": {
+      "developers": "read",
+      "ops": "read,write,annotate,delete,manage",
+      "secops": "read,managedXrayMeta"
+    }
+  },
+  "name": "production",
+  "releaseBundle": {
+    "include-patterns": "**",
+    "actions-groups": {
+      "developers": "read",
+      "ops": "manage,distribute,read,write,annotate,delete",
+      "secops": "managedXrayMeta,read"
+    }
+  },
+  "repo": {
+    "repositories": "ANY",
+    "include-patterns": "**",
+    "actions-groups": {
+      "developers": "read",
+      "ops": "read,write,annotate,delete,manage,distribute",
+      "secops": "read,managedXrayMeta"
+    }
+  }
+}

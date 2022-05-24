@@ -1,0 +1,14 @@
+{
+  "display_name": "sup016-training",
+  "description": "Swampup 2022 - SUP016 Automate Everything using JFrog CLI",
+  "admin_privileges": {
+    "manage_members": true,
+    "manage_resources": true,
+    "manage_security_assets": true,
+    "index_resources": true,
+    "allow_ignore_rules": true
+  },
+  "storage_quota_bytes": 1073741824,
+  "project_key": "sup016"
+}
+

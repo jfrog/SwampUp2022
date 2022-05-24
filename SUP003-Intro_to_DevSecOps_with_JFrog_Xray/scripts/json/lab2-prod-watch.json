@@ -1,0 +1,35 @@
+{
+    "general_data": {
+        "name": "Prod-Watch",
+        "description": "This is a watch created for Production Repos and Builds",
+        "active": true
+    },
+    "project_resources": {
+        "resources": [
+            {
+                "type": "all-repos"
+            },
+            {
+                "type": "build",
+                "bin_mgr_id": "default",
+                "name": "swampup22_s003_mvn_pipeline"
+            },
+            {
+                "type": "build",
+                "bin_mgr_id": "default",
+                "name": "swampup22_s003_npm_pipeline"
+            }
+        ]
+    },
+    "assigned_policies": [
+        {
+            "name": "Prod-Security-Policy",
+            "type": "security"
+        },
+        {
+            "name": "Prod-License-Policy",
+            "type": "license"
+        }
+    ],
+   "watch_recipients":[]
+}

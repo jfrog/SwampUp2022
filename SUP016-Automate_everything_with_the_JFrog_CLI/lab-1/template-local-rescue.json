@@ -1,0 +1,7 @@
+{
+  "key": "${repo-name}",
+  "packageType": "${package-type}",
+  "rclass": "${repo-type}",
+  "repoLayoutRef": "${repo-layout}",
+  "xrayIndex": "${xray-enable}"
+}

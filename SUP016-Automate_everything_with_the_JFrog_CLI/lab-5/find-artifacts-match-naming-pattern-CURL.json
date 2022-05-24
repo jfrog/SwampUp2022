@@ -1,0 +1,1 @@
+items.find({"$or" : [{"name": { "$match": "*npm*" }},{"name": {"$match": "*multi*"}}]})

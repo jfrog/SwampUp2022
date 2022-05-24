@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri May 20 00:16:44 PDT 2022
+log4j-core-2.14.1.jar>artifactory-release=
+log4j-core-2.14.1.pom>artifactory-release=

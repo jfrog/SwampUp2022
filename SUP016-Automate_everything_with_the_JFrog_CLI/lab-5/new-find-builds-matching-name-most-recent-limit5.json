@@ -1,0 +1,1 @@
+builds.find({ "$and": [{"name": { "$match": "*npm*" }},{"created" : {"$last" : "10d"}}]}).limit(5)

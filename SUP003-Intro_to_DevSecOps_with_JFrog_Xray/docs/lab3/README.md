@@ -1,90 +1,72 @@
-# Lab3 - IDE Integration, JFrog Pipelines, REST API and JFrog CLI example
+# Lab3 - Run a maven vulnerable build first causing the build to fail due to security and license violations raised by Xray. Follow that up by running a vuln free and license compliant maven build that should succeed.
 
-## Prerequisites
-A SAAS Instance of JFrog. This will be provided as part of your enrollment to the Training class. JFrog CLI installed that you can easily download [here](https://jfrog.com/getcli/).
+### Part 1 - Configure and run a maven vulnerable build using lab3_maven_vuln_build.sh. Xray scan and security violations that it generates should cause this build to fail. The sequence of steps in this script are outlined below.
 
-### Part 1 - IDE Integration
-
-- As we discuss on our session Xray is able to find vulnerabilities that discovered in production systems at runtime also through integration to CI systems like [Jenkins CI](https://www.jfrog.com/confluence/display/JFROG/Jenkins+Artifactory+Plug-in) and [TeamCity](https://www.jfrog.com/confluence/display/JFROG/TeamCity+Artifactory+Plug-in) at build time. 
-
-- The IDE integration completes the CI/CD process, by bringing Xray's issue discovery one step earlier, to development time (shift left approach).
-- Lets download and configure JFrog plugin from Marketplace into your IDE. Current support includes:
-    1. [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-vscode-extension) - scanning your Maven, Python, Go and npm project dependencies
-    2. [IntelliJ IDEA, WebStorm and GoLand](https://www.jfrog.com/confluence/display/JFROG/JFrog+IntelliJ+IDEA+Plugin) - scanning your Maven, Gradle, Go and npm project dependencies
-    3. [Eclipse](https://www.jfrog.com/confluence/display/JFROG/JFrog+Eclipse+IDE+Plugin) - scanning your Maven, Gradle and npm project dependencies
-    4. [Visual Studio](https://www.jfrog.com/confluence/display/JFROG/JFrog+Visual+Studio+Extension) - scanning your NuGet project dependencies
-
-- Please add below snippet into **npm-example/package.json** under dependencies if you are using "npm-example" project
+-  Generate maven build configuration using **jf mvn-config**. This configures the Resolution repository for snapshot and release dependencies and Deployment repository for snapshot and release artifacts.
 
     ```
-    "mathjs": "6.6.5",
-    "jquery": "2.2.4"
-    ```
-
-- Please add below snippet into **maven-example/pom.xml** under dependencies if you are using "maven-example" project
+    jf mvnc --repo-resolve-snapshots s003-libs-snapshot --repo-resolve-releases s003-libs-release --repo-deploy-snapshots s003-libs-snapshot --repo-deploy-releases s003-libs-release
 
     ```
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>2.9.5</version>
-    </dependency>
-    ```
 
-- Here is an example from Visual Studio code
-    <img src="/SU-201-Intro-to-JFrog-Xray/Lab3/images/1.gif" alt="Visual Studio Code" style="height: 100px; width:100px;"/>
-
-- Save, commit these changes and push to remote main. 
-
-
-### Part 2 - JFrog Pipelines integrtaion
-
-- Open to **SU-201-Intro-to-JFrog-Xray/pipelines.yml** in your IDE. 
-- Make sure that you have updated line 8 **path: JFrog/SwampUp2021** with **path: your_git_user"/SwampUp2021**
-- Save and commit this change to remote main
-- If you prefer to use npm project then, update line 53 **failOnScan: false** to **failOnScan: true** 
-- If you prefer to use maven project then, update line 79 **failOnScan: false** to **failOnScan: true**
-- If you would like to use both then feel free to update both line 53 & line 79
-- Save and commit this change to remote main
-
-You can also use XrayScan as a seperate step in your pipeline as below,
-- JFrog Pipelines provide us the avility to add a step that will triggers [JFrog Xray](https://www.jfrog.com/confluence/display/JFROG/JFrog+Xray) scan for security vulnerabilities and license compliance if there was a watch created that covers the selected build,
-
-    <img src="/SU-201-Intro-to-JFrog-Xray/Lab3/images/2.png" alt=" JFrog Pipelines integrtaion" style="height: 100px; width:100px;"/>
-
-
-*******************************************************************************************************
-**NOTE: Part 3 and 4 are optional**
-*******************************************************************************************************
-
-### Part 3 - REST API
-
-- Xray REST API endpoints can be invoked in any of the standard ways to invoke a RESTful API. In this example we will use a simple cURL command example:
-
-- The Platform REST URL is constructed of: 
+-  Run Maven Build using **jf mvn clean install** 
 
     ```
-    <JFrog URL>\/\<Service Context>api/\<API-Version>
-    ```
-
-- To get tge Xray [server version](https://www.jfrog.com/confluence/display/JFROG/Xray+REST+API#XrayRESTAPI-GetVersion) use the following commnad:
-
-    <img src="/SU-201-Intro-to-JFrog-Xray/Lab3/images/3.png" alt="Xray REST API" style="height: 100px; width:100px;"/>
-
-
-
-### Part 4 - JFrog CLI
-
--  After downloading and installing the JFrog CLI you may want to run the [JFrog Platform Configuration connand](https://www.jfrog.com/confluence/display/CLI/JFrog+CLI#JFrogCLI-JFrogPlatformConfiguration)  
-
--  When used with JFrog Xray, JFrog CLI uses the following syntax:
+    jf mvn clean install -Dmaven.test.skip=true -Dartifactory.publish.artifacts=true --build-name=swampup22_s003_mvn_pipeline --build-number=$BUILD_NUMBER
 
     ```
-    $ jfrog xr command-name arguments options
-    ```
 
-- To run the version curl via JFrog CLI we will use the following command
+- Collect Environment Variables using **jf rt build-collect-env**. Environment variables can be excluded using the build-publish command.
 
     ```
-    $ jfrog xr curl -XGET /api/v1/system/version
+    jf rt bce swampup22_s003_mvn_pipeline $BUILD_NUMBER
+
     ```
+
+- Publish Build Info using **jf rt build-publish**
+    
+  ```
+  
+  jf rt bp --build-url JFrog-CLI swampup22_s003_mvn_pipeline $BUILD_NUMBER
+  
+  ```
+  
+- Scan a published build-info with Xray using **jf build-scan**
+
+  ```
+
+  jf bs swampup22_s003_mvn_pipeline $BUILD_NUMBER
+  
+  ```
+  
+- Xray should fail the build with the following raised security violations
+  ┌──────────┬─────────────────────┬──────────┬───────┬──────────┬─────────────────────┬───────────┬────────────────┐
+  │ SEVERITY │ IMPACTED            │ IMPACTED │ TYPE  │ FIXED    │ COMPONENT           │ COMPONENT │ CVE            │
+  │          │ PACKAGE             │ PACKAGE  │       │ VERSIONS │                     │ VERSION   │                │
+  │          │                     │ VERSION  │       │          │                     │           │                │
+  ├──────────┼─────────────────────┼──────────┼───────┼──────────┼─────────────────────┼───────────┼────────────────┤
+  │ 🔥High   │ org.apache.logging. │ 2.14.1   │ Maven │ [2.12.2] │ org.apache.logging. │ 2.14.1    │ CVE-2021-44228 │
+  │          │ log4j:log4j-core    │          │       │ [2.15.0] │ log4j:log4j-core    │           │                │
+  │          │                     │          │       │ [2.3.1]  │                     │           │                │
+  ├──────────┼─────────────────────┼──────────┼───────┼──────────┼─────────────────────┼───────────┼────────────────┤
+  │ 🎃Medium │ org.apache.logging. │ 2.14.1   │ Maven │ [2.12.2] │ org.apache.logging. │ 2.14.1    │ CVE-2021-45046 │
+  │          │ log4j:log4j-core    │          │       │ [2.16.0] │ log4j:log4j-core    │           │                │
+  │          │                     │          │       │ [2.3.1]  │                     │           │                │
+  └──────────┴─────────────────────┴──────────┴───────┴──────────┴─────────────────────┴───────────┴────────────────┘
+  ┌─────────────────────────────────────────────┐
+  │ No license compliance violations were found │
+  └─────────────────────────────────────────────┘
+
+
+### Part 2 - Configure and run the same maven build but this time with an update version of the dependency that doesn't have the vulnerability and you should see a successful build.
+
+- Follow the same sequence of steps as above to run a successful build this time.
+
+- This time the build should succeed with the following message
+
+┌───────────────────────────────────┐
+│ No security violations were found │
+└───────────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│ No license compliance violations were found │
+└─────────────────────────────────────────────┘

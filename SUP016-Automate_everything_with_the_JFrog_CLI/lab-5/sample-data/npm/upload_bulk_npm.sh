@@ -1,0 +1,1 @@
+jf rt u "./*" "jfrog-npm-main-local/" --threads 10

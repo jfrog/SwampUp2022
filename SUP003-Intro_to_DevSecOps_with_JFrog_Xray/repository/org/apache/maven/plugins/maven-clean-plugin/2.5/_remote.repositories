@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri May 20 00:03:40 PDT 2022
+maven-clean-plugin-2.5.pom>central=
+maven-clean-plugin-2.5.jar>artifactory-release=
+maven-clean-plugin-2.5.pom>artifactory-release=

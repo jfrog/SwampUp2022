@@ -1,0 +1,9 @@
+{
+  "files": [
+    {
+      "pattern": "sup016-npm-dev-local/*",
+      "target": "local-copy/",
+      "props": "unit.test=pass"
+    }
+  ]
+}

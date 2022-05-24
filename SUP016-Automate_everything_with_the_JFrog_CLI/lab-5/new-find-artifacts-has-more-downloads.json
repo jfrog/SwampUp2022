@@ -1,0 +1,15 @@
+{
+  "files": [
+    {
+      "aql" : {
+        "items.find": {
+          "$and": [
+            {
+              "repo": {"$match": "*local*"},
+              "stat.downloads":{"$gt":"5"}
+            }
+          ]
+        }
+      }
+    }]
+}

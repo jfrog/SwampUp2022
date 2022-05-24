@@ -1,23 +1,19 @@
 #!/usr/bin/env sh
 
-echo "Configuration name for CLI (unique name) : "
-read -r CLIConfigName
-export CLI_CONFIG_NAME=${CLIConfigName}
+export CLI_CONFIG_NAME="my-instance"
 
 jf config use $CLI_CONFIG_NAME
 echo "Jfrog is accessible check : "
 jf rt ping
 
 echo "START : Delete Watches : "
-jf xr curl -XDELETE /api/v2/watches/swampup22_dev_watch
-jf xr curl -XDELETE /api/v2/watches/swampup22_secops_watch
+jf xr curl -XDELETE /api/v2/watches/Prod-Watch
 echo "\nComplete : Delete Watches : "
 
 
 echo "START : Delete Policies : "
-jf xr curl -XDELETE api/v2/policies/lic_policy
-jf xr curl -XDELETE api/v2/policies/sec_policy
-jf xr curl -XDELETE api/v2/policies/sec_critical_policy
+jf xr curl -XDELETE api/v2/policies/Prod-License-Policy
+jf xr curl -XDELETE api/v2/policies/Prod-Security-Policy
 echo "\nComplete : Delete Policies : "
 
 
