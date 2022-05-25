@@ -150,8 +150,8 @@
 
 <br/>
 
-## DOWNLOAD ALL ARTIFACTS FROM REPOSITORY WITH MATCHING PROPERTY
-- Run ``new-download-all-files-for-build.json``
+## DOWNLOAD ALL ARTIFACTS FROM REPOSITORY WITH MATCHING PROPERTY FOR BUILD
+- Run ``jf rt dl new-download-all-files-for-build.json``
     - In spec file, if we pass `"build": "sup016-npm"` then it will download the artifact produce by latest build
 
 <br/>
