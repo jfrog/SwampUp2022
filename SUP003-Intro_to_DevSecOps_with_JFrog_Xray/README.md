@@ -10,6 +10,7 @@
 
    ```
 
+
 - Run the docker image using **run-docker.sh**. This executes the command below and opens an interactive terminal into the container. 
 
   ```
