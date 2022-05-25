@@ -23,7 +23,6 @@
 - Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @prod-security-policy.json``
   - With Severity - CRITICAL, HIGH, MEDIUM, LOW with different action items
 - Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @dev-security-policy.json``
-- Run `` jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @operational-risk-policy.json``
 - Confirm Security Policy named with ``prod-security-policy`` and ``dev-security-policy``  are created
 
 <br />
