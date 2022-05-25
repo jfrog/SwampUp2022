@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri May 20 00:03:58 PDT 2022
+maven-filtering-1.1.jar>artifactory-release=
+maven-filtering-1.1.pom>artifactory-release=

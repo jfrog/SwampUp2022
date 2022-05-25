@@ -1,0 +1,6 @@
+{
+    "key": "s003-libs-release-local",
+    "rclass": "local",
+    "packageType": "maven",
+    "description": "The local MAVEN repository"
+}
