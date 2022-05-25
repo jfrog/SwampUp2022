@@ -1,7 +1,9 @@
 # swampup2022-SUP-009-DevOps Automation with JFrog Artifactory(Advanced) 
 # Lab1 - Intro to Automation Tools
 
-
+```bash
+cd lab1-intro_to_automation
+```
 
 ## 1.1 Validate the environment variables before proceeding REST API
 
@@ -18,7 +20,7 @@ The Platform REST URL is constructed of:
 http://myjfrog.acme.org/artifactory/
 ```
 
-### Using your Artifactory server hostname and port
+### 1.2 Using your Artifactory server hostname and port
 ```bash
 http://ARTIFACTORY_SERVER_HOSTNAME:8081/artifactory/
 ```
@@ -135,5 +137,6 @@ We are going to turn off the interactive prompts and progress bar by setting the
 ```bash
 export CI=true 
 jf c add ${ARTIFACTORY_HOSTNAME} --url "https://${ARTIFACTORY_HOSTNAME}" --access-token ${ARTIFACTORY_ACCESS_TOKEN}
+jf config show
 jf rt ping
 ```
