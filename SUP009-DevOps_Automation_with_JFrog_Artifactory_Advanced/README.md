@@ -8,7 +8,32 @@ git - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 git clone https://github.com/jfrog/SwampUp2022.git
 
 ```
-## Setting up your .env file
+
+
+## 0.1 Obtain Access token
+Let's create an access token using the following documentation [How to generate an access token?](https://jfrog.com/knowledge-base/how-to-generate-an-access-token-video/#:~:text=So%20once%20you're%20logged,option%20to%20generate%20admin%20tokens.)
+
+
+## 0.2 Set Environemnt Variables
+- On Linux/Mac OS, please use
+```bash
+export ARTIFACTORY_HOSTNAME="sup009entsuxx.jfrog.io"
+export ARTIFACTORY_LOGIN="taletsup009entsuxx@jfrog.com"
+export ARTIFACTORY_PASSWORD="SwampUp2022!"
+export ARTIFACTORY_ACCESS_TOKEN="xxxxxxxx"
+```
+
+- On Windows OS, please use
+```bash
+set ARTIFACTORY_HOSTNAME="sup009entsuxx.jfrog.io"
+set ARTIFACTORY_LOGIN="taletsup009entsuxx@jfrog.com"
+set ARTIFACTORY_PASSWORD="SwampUp2022!"
+set ARTIFACTORY_ACCESS_TOKEN="xxxxxxxxxx"
+```
+![setting environemnt variables](https://i.imgur.com/BastCGE.gif)
+
+
+## 0.3 Setting up your .env file
 ```bash
 cd SwampUp2022/SUP009-DevOps_Automation_with_JFrog_Artifactory_Advanced/
 vi .env
@@ -28,10 +53,9 @@ export ARTIFACTORY_LOGIN="taletsup009entsuxx@jfrog.com"
 
 # admin password (check your testbed details with your TA)
 export ARTIFACTORY_PASSWORD="SwampUp2022!"
-#Please generate API KEY and enter it below - Lab 1.1
-export ARTIFACTORY_API_KEY="xxxxx"
-# Service admin token - Lab 1.5 
-export token="xxxx"
+
+# Service admin token - see instructions on Lab 1.5 
+export ARTIFACTORY_ACCESS TOEKN="xxxxx"
 
 
 # App name
@@ -49,3 +73,4 @@ export BUILD_NUMBER=1
 source .env
 
 ```
+## Proceed to the Lab-1-Intro_to_automation sub-folder now 

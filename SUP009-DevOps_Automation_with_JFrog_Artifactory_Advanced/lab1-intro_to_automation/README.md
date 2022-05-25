@@ -2,37 +2,10 @@
 # Lab1 - Intro to Automation Tools
 
 
-## 1.1 Obtain API Key 
-- Login to Artifactory using the provided details through email
-- Generate an Artifactory [API Key](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-APIKey) for the User account
-- Save the API KEY
-- Please follow the recording below for the step by step walkthrough of the process
 
-![geenrate API key](https://i.imgur.com/ElFGv6b.gif)
+## 1.1 Validate the environment variables before proceeding REST API
 
-## 1.2 Configure environment variables for REST API
-
-- Open a terminal
-- Set environemnt variables to store Artifactory server and authentication details 
-- See instructions for Windows OS and Linux/Mac OS below
-
-- On Linux/Mac OS, please use
-```bash
-export ARTIFACTORY_HOSTNAME="sup009entsuxx.jfrog.io"
-export ARTIFACTORY_LOGIN="taletsup009entsuxx@jfrog.com"
-export ARTIFACTORY_PASSWORD="SwampUp2022!"
-export ARTIFACTORY_API_KEY="MY_API_KEY"
-```
-
-- On Windows OS, please use
-```bash
-set ARTIFACTORY_HOSTNAME="sup009entsuxx.jfrog.io"
-set ARTIFACTORY_LOGIN="taletsup009entsuxx@jfrog.com"
-set ARTIFACTORY_PASSWORD="SwampUp2022!"
-set ARTIFACTORY_API_KEY="MY_API_KEY"
-```
-![setting environemnt variables](https://i.imgur.com/BastCGE.gif)
-
+- Make sure to follow instructions in the previous section and validate the environemnt variables before proceeding
 
 Base URL
 The Platform REST URL is constructed of: 
@@ -57,7 +30,7 @@ Please review the following examples on how to use REST API and JFrog CLI for [D
 - This endpoint needs a [Repository Configuration JSON](https://www.jfrog.com/confluence/display/JFROG/Repository+Configuration+JSON) file as an input
 
 ```bash
-curl --location --request PUT "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/repositories/teamA-alpine-dev-local" --header "X-JFrog-Art-Api: ${ARTIFACTORY_API_KEY}" --header 'Content-Type: application/json' --data-raw '{
+curl --location --request PUT "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/repositories/teamA-alpine-dev-local" --header "Authorization: Bearer ${ARTIFACTORY_ACCESS_TOKEN}" --header 'Content-Type: application/json' --data-raw '{
 "rclass": "local",
 "packageType": "alpine",
 "description": "A Test Alpine Repository"
@@ -67,7 +40,7 @@ You can also use a repository-config.json file to provide the configuration
 
 ```bash
 curl --location --request PUT "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/repositories/teamB-alpine-dev-local" \
---header "X-JFrog-Art-Api: ${ARTIFACTORY_API_KEY}" \
+--header "Authorization: Bearer ${ARTIFACTORY_ACCESS_TOKEN}" \
 --header 'Content-Type: application/json' \
 -T repository-config.json
 ```
@@ -78,7 +51,7 @@ curl --location --request PUT "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/r
 
 ```bash
 curl --location --request PUT "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/security/users/davids" \
---header "X-JFrog-Art-Api: ${ARTIFACTORY_API_KEY}" \
+--header "Authorization: Bearer ${ARTIFACTORY_ACCESS_TOKEN}" \
 --header 'Content-Type: application/json' \
 --data-raw '{
 	"email" : "davids@jfrog.com",
@@ -89,17 +62,14 @@ curl --location --request PUT "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/s
 Verify if the User got created using the endpoint [Get Users](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetUsers)
 ```bash
 curl --location --request GET "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/security/users" \
---header "X-JFrog-Art-Api: ${ARTIFACTORY_API_KEY}"
+--header "Authorization: Bearer ${ARTIFACTORY_ACCESS_TOKEN}"
 
 ```
 ## 1.5 Create a new Project using REST API 
 We are going to create a new Project using the [Create or Replace User API endpoint](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-AddaNewProject)
 
-This API needs Bearer token for Authorization as noted in the API docuemntation. Let's create an access token using the following documentation [How to generate an access token?](https://jfrog.com/knowledge-base/how-to-generate-an-access-token-video/#:~:text=So%20once%20you're%20logged,option%20to%20generate%20admin%20tokens.)
+This API needs Bearer token for Authorization as noted in the API docuemntation. 
 
-```bash
-export ARTIFACTORY_ACCESS_TOKEN="xxxxxxxxxxxxxxxxxxxxxx"
-```
 FYI, JFrog Projects uses access API endpoint  
 <JFrog Base URL>/access/api
 #For example:
