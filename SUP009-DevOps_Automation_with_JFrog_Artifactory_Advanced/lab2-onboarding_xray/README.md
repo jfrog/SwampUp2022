@@ -1,6 +1,9 @@
 # swampup2022-SUP-009-DevOps Automation with JFrog Artifactory(Advanced) 
 # Lab2 - Onboarding Xray tool
 
+```bash
+cd $SCRIPT_DIR/lab2-onboarding_xray
+```
 [Xray REST API Main Document](https://www.jfrog.com/confluence/display/JFROG/Xray+REST+API)
 
 The Platform REST URL is constructed of: 
@@ -23,7 +26,7 @@ http://ARTIFACTORY_SERVER_HOSTNAME:8082/xray/api/v1
 
 ```bash
 curl --location --request POST "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/repositories/teamA-alpine-dev-local" \
---header "X-JFrog-Art-Api: ${ARTIFACTORY_API_KEY}" \
+--header "Authorization: Bearer ${ARTIFACTORY_ACCESS_TOKEN}" \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "xrayIndex": "true"
@@ -35,7 +38,7 @@ curl --location --request POST "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/
 
 ```bash
 curl --location --request GET "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/repositories/teamA-alpine-dev-local" \
---header "X-JFrog-Art-Api: ${ARTIFACTORY_API_KEY}"
+--header "Authorization: Bearer ${ARTIFACTORY_ACCESS_TOKEN}"
 ```
 - Xray sepcific repository configuration can be retrieved using [Get Repositories Configurations Xray API endpoint](https://www.jfrog.com/confluence/display/JFROG/Xray+REST+API#XrayRESTAPI-GetRepositoriesConfigurations)
 ```bash
