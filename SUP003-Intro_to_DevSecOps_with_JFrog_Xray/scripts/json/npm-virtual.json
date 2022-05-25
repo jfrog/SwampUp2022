@@ -1,7 +1,0 @@
-{
-    "key" : "s003-npm",
-    "rclass" : "virtual",
-    "packageType" : "npm",
-    "repositories" : "s003-npm-local,s003-npm-remote",
-    "defaultDeploymentRepo" : "s003-npm-local"
-}

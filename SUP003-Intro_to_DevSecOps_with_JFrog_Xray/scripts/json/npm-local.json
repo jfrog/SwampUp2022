@@ -1,6 +1,0 @@
-{
-    "key": "s003-npm-local",
-    "rclass": "local",
-    "packageType": "npm",
-    "description": "The local NPM repository"
-}

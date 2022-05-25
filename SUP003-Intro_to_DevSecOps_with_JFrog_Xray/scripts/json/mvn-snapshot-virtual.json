@@ -1,7 +1,0 @@
-{
-    "key" : "s003-libs-snapshot",
-    "rclass" : "virtual",
-    "packageType" : "maven",
-    "repositories" : "s003-libs-snapshot-local,s003-maven-jcenter",
-    "defaultDeploymentRepo" : "s003-libs-snapshot-local"
-}
