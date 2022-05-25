@@ -11,10 +11,13 @@ mvn clean
 echo "\n\nCleaning npm-fixed-example build"
 cd ../npm-fixed-example
 rm -rf node_modules
+rm -rf .jfrog
 rm -f package-lock.json
 
 
 echo "\n\nCleaning npm-fixed-vulnerable build"
 cd ../npm-vulnerable-example
 rm -rf node_modules
+rm -rf .jfrog
 rm -f package-lock.json
+
