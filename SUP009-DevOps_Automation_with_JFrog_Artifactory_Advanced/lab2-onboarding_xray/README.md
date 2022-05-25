@@ -53,6 +53,8 @@ Most REST API calls need to be authenticated using your user and password or usi
 PRE-REQUISITE: Please make sure that docker daemon and client are running in your system 
 
 ```bash
+service docker start
+docker pull nginx
 jf docker scan nginx:latest
 ```
 
@@ -62,6 +64,7 @@ jf docker scan nginx:latest
 ```bash
 #Clone source code
 git clone https://github.com/shayki5/npm-demo.git
+cd npm-demo
 #Initialize jf project to store system configuration
 jf project init
 #Install NPM project 

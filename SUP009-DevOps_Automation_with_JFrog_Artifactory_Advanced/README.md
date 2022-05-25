@@ -2,6 +2,9 @@
 
 # pre-requisites 
 git - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+docker - https://docs.docker.com/engine/install/
+npm - https://nodejs.org/en/download/
+
 
 ## Clone the git repository 
 ```bash
