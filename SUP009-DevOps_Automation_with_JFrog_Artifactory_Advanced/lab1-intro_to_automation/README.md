@@ -2,7 +2,7 @@
 # Lab1 - Intro to Automation Tools
 
 ```bash
-cd lab1-intro_to_automation
+cd cd $SCRIPT_DIR/lab1-intro_to_automation
 ```
 
 ## 1.1 Validate the environment variables before proceeding REST API
