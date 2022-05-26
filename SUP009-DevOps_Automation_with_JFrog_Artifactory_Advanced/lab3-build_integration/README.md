@@ -53,7 +53,7 @@ Output JFrog CLI version:
 CD to the root project directory
 
 ```console
-export CI=false
+cd $SCRIPT_DIR/lab3-build_integration/pip-example
 ```
 
 Configure the project's resolution repository. You shoud set the virtual repository you created.
