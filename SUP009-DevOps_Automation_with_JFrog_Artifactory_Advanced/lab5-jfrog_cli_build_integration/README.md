@@ -52,7 +52,7 @@ jf rt s 'app-gradle-virtual/*/webservice*.war' --props="build.name=gradle-su-115
 
 ### Find the gradle build dependencies
 ```console
-jf rt s --spec="${SCRIPT_DIR}/lab-2/filespec-aql-dependency-search-gradle.json" --spec-vars="build-name=gradle-su-115;build-number=$BUILD_NUMBER"
+jf rt s --spec="${SCRIPT_DIR}/lab5-jfrog_cli_build_integration/filespec-aql-dependency-search-gradle.json" --spec-vars="build-name=gradle-su-115;build-number=$BUILD_NUMBER"
 ```
 
 ### Test run and promote
