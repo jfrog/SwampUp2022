@@ -43,7 +43,7 @@ jf rt ptu $SCRIPT_DIR/lab4-repository_and_project_provisioning/dev-permission-ta
 
 ### Create project
 ```console
-curl -XPOST -H "Authorization: Bearer ${token}" -H 'Content-Type:application/json' https://$ARTIFACTORY_HOSTNAME/access/api/v1/projects -T ./lab-1/su115-project.json
+curl -XPOST -H "Authorization: Bearer ${ARTIFACTORY_ACCESS_TOKEN}" -H 'Content-Type:application/json' https://$ARTIFACTORY_HOSTNAME/access/api/v1/projects -T  $SCRIPT_DIR/lab4-repository_and_project_provisioning/su115-project.json
 ```
 
 ### Sharing repositories in a project
