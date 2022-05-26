@@ -2,16 +2,16 @@
 
 - Set the following Environment variables
 
-  -- On Linux/Mac OS, please use
+  On Linux/Mac OS, please use
 
- ```
- export ARTIFACTORY_HOSTNAME="my-instance.jfrog.io"
- export ARTIFACTORY_LOGIN="foo@bar.com"
- export ARTIFACTORY_API_KEY="MY_API_KEY"
+  ```
+  export ARTIFACTORY_HOSTNAME="my-instance.jfrog.io"
+  export ARTIFACTORY_LOGIN="foo@bar.com"
+  export ARTIFACTORY_API_KEY="MY_API_KEY"
  
- ```
+  ```
 
-  -- On Windows OS, please use
+  On Windows OS, please use
 
   ```
   set ARTIFACTORY_HOSTNAME="my-instance.jfrog.io"
