@@ -88,6 +88,6 @@ source .env
 ```
 source SUP016-Automate_everything_with_the_JFrog_CLI/.env
 
-docker run --rm --name my-project -it -v /var/run/docker.sock:/var/run/docker.sock  --env  JFROG_PLATFORM="${ARTIFACTORY_HOSTNAME}" --env ADMIN_USER="${ARTIFACTORY_LOGIN}" --env ADMIN_PASSWORD="${ARTIFACTORY_PASSWORD}" --env JFROG_EDGE="${ARTIFACTORY_HOSTNAME}" --env JFROG_CLI_LOG_LEVEL="${JFROG_CLI_LOG_LEVEL}" --env JFROG_CLI_TRANSITIVE_DOWNLOAD_EXPERIMENTAL="${JFROG_CLI_TRANSITIVE_DOWNLOAD_EXPERIMENTAL}" --env JFROG_CLI_TRANSITIVE_DOWNLOAD_EXPERIMENTAL="${JFROG_CLI_TRANSITIVE_DOWNLOAD_EXPERIMENTAL}" -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven soleng.jfrog.io/swampup2022-docker-local/docker20.10.16-npm18.1-maven3.8.5-jf2.16.4:11-jdk-alpine /bin/bash
+docker run --rm --name my-project -it -v /var/run/docker.sock:/var/run/docker.sock soleng.jfrog.io/swampup2022-docker-local/docker20.10.16-npm18.1-maven3.8.5-jf2.16.4:11-jdk-alpine /bin/bash
 ```
 ## Proceed to the Lab-1-Intro_to_automation sub-folder now 
