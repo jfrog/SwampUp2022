@@ -60,7 +60,7 @@ export ARTIFACTORY_LOGIN="taletsup009entsuxx@jfrog.com"
 export ARTIFACTORY_PASSWORD="SwampUp2022!"
 
 # Service admin token - see instructions on Lab 1.5 
-export ARTIFACTORY_ACCESS TOEKN="xxxxx"
+export ARTIFACTORY_ACCESS_TOKEN="xxxxx"
 
 
 # App name
