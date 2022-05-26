@@ -138,5 +138,6 @@ We are going to turn off the interactive prompts and progress bar by setting the
 export CI=true 
 jf c add ${ARTIFACTORY_HOSTNAME} --url "https://${ARTIFACTORY_HOSTNAME}" --access-token ${ARTIFACTORY_ACCESS_TOKEN}
 jf config show
+jf c use ${ARTIFACTORY_HOSTNAME}
 jf rt ping
 ```
