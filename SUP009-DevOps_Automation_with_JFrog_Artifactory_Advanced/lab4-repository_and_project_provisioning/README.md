@@ -57,7 +57,7 @@ $SCRIPT_DIR/lab4-repository_and_project_provisioning/sharing-repositories.sh
 
 ### 2) Creating custom roles
 ```console
-curl -XPOST -H "Authorization: Bearer ${token}" -H 'Content-Type:application/json' https://$ARTIFACTORY_HOSTNAME/access/api/v1/projects/su115/roles -T ./lab4-repository_and_project_provisioning/infosec-role-create.json
+curl -XPOST -H "Authorization: Bearer ${ARTIFACTORY_ACCESS_TOKEN}" -H 'Content-Type:application/json' https://$ARTIFACTORY_HOSTNAME/access/api/v1/projects/su115/roles -T ./lab4-repository_and_project_provisioning/infosec-role-create.json
 ```
 
 ### 3) Tagging repositories (Dev , PROD)
