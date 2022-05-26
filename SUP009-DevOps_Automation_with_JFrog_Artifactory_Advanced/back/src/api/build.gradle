@@ -1,0 +1,16 @@
+configurations {
+    spi
+}
+
+dependencies {
+    implementation project(':shared')
+    implementation module("commons-lang:commons-lang:2.6") {
+        dependency("commons-io:commons-io:2.11.0")
+    }
+    implementation 'org.apache.wicket:wicket:9.9.1'
+    implementation 'commons-httpclient:commons-httpclient:3.1'
+
+}
+
+// Just a smoke test that using this option does not lead to any exception
+compileJava.options.compilerArgs = ['-Xlint:unchecked']

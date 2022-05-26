@@ -1,0 +1,40 @@
+localRepositories:
+  app-gradle-prod-local: null
+  app-gradle-rc-local: null
+  app-gradle-dev-local: null 
+  app-docker-dev-local: null
+  app-docker-prod-local: null
+  app-docker-rc-local: null
+  app-helm-dev-local: null
+  app-helm-rc-local: null
+remoteRepositories:
+  app-docker-remote: null
+  app-gradle-remote: null
+  app-helm-remote: null
+virtualRepositories:
+  app-gradle-virtual:
+      type: gradle
+      repositories:
+        - app-gradle-dev-local
+        - app-gradle-rc-local
+        - app-gradle-prod-local
+        - app-gradle-remote
+      description: "gradle virtual repositories"
+      defaultDeploymentRepo: app-gradle-dev-local
+  app-docker-virtual:
+      type: docker
+      repositories:
+        - app-docker-remote
+        - app-docker-dev-local
+        - app-docker-rc-local
+        - app-docker-prod-local
+      description: "docker virtual"
+      defaultDeploymentRepo: app-docker-dev-local
+  app-helm-virtual:
+      type: helm
+      repositories:
+        - app-helm-dev-local
+        - app-helm-prod-local
+        - app-helm-remote
+      description: "helm virtual"
+      defaultDeploymentRepo: app-helm-dev-local

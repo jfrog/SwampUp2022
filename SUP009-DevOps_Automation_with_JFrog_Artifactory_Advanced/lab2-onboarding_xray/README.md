@@ -1,6 +1,9 @@
 # swampup2022-SUP-009-DevOps Automation with JFrog Artifactory(Advanced) 
 # Lab2 - Onboarding Xray tool
 
+```bash
+cd $SCRIPT_DIR/lab2-onboarding_xray
+```
 [Xray REST API Main Document](https://www.jfrog.com/confluence/display/JFROG/Xray+REST+API)
 
 The Platform REST URL is constructed of: 
@@ -23,7 +26,7 @@ http://ARTIFACTORY_SERVER_HOSTNAME:8082/xray/api/v1
 
 ```bash
 curl --location --request POST "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/repositories/teamA-alpine-dev-local" \
---header "X-JFrog-Art-Api: ${ARTIFACTORY_API_KEY}" \
+--header "Authorization: Bearer ${ARTIFACTORY_ACCESS_TOKEN}" \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "xrayIndex": "true"
@@ -35,7 +38,7 @@ curl --location --request POST "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/
 
 ```bash
 curl --location --request GET "https://${ARTIFACTORY_HOSTNAME}/artifactory/api/repositories/teamA-alpine-dev-local" \
---header "X-JFrog-Art-Api: ${ARTIFACTORY_API_KEY}"
+--header "Authorization: Bearer ${ARTIFACTORY_ACCESS_TOKEN}"
 ```
 - Xray sepcific repository configuration can be retrieved using [Get Repositories Configurations Xray API endpoint](https://www.jfrog.com/confluence/display/JFROG/Xray+REST+API#XrayRESTAPI-GetRepositoriesConfigurations)
 ```bash
@@ -50,6 +53,8 @@ Most REST API calls need to be authenticated using your user and password or usi
 PRE-REQUISITE: Please make sure that docker daemon and client are running in your system 
 
 ```bash
+service docker start
+docker pull nginx
 jf docker scan nginx:latest
 ```
 
@@ -59,6 +64,7 @@ jf docker scan nginx:latest
 ```bash
 #Clone source code
 git clone https://github.com/shayki5/npm-demo.git
+cd npm-demo
 #Initialize jf project to store system configuration
 jf project init
 #Install NPM project 

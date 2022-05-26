@@ -1,0 +1,23 @@
+{
+    "name":"gpl-blacklisting",
+    "type":"license",
+    "description":"block GPL",
+    "rules":[{
+            "name":"high",
+            "priority":1,
+            "criteria":{
+                "banned_licenses": [
+                    "GPL-3.0",
+                    "GPL-2.0"
+                ],
+                "allow_unknown": true
+                },
+            "actions":{
+                "fail_build":true,
+                "block_download":{
+                        "unscanned":false,"active":true
+                        }
+                    }
+            }
+        ]
+}
