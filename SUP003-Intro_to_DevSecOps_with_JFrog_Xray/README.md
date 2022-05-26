@@ -11,14 +11,6 @@
    ```
 
 
-- Pull the lab-runner docker image from JFrog by running **pull-docker.sh**. This exeecutes the command below.
-  
-  ```
-  
-  docker pull soleng.jfrog.io/sup003-docker-virtual/lab-runner-init
-  
-  ```
-
 - Run the docker image using **run-docker.sh**. This executes the command below and opens an interactive terminal into the container. 
 
   ```
