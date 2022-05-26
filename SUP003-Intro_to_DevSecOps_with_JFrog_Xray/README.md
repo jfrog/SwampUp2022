@@ -5,7 +5,7 @@
   On Linux/Mac OS, please use
 
   ```
-  export ARTIFACTORY_HOSTNAME="my-instance.jfrog.io"
+  export ARTIFACTORY_HOSTNAME="my-instance"
   export ARTIFACTORY_LOGIN="foo@bar.com"
   export ARTIFACTORY_API_KEY="MY_API_KEY"
  
@@ -14,7 +14,7 @@
   On Windows OS, please use
 
   ```
-  set ARTIFACTORY_HOSTNAME="my-instance.jfrog.io"
+  set ARTIFACTORY_HOSTNAME="my-instance"
   set ARTIFACTORY_LOGIN="foo@bar.com"
   set ARTIFACTORY_API_KEY="MY_API_KEY"
   
