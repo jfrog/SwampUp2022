@@ -4,6 +4,8 @@
 git - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 docker - https://docs.docker.com/engine/install/
 npm - https://nodejs.org/en/download/
+pip - https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/
+
 
 
 ## Clone the git repository 
