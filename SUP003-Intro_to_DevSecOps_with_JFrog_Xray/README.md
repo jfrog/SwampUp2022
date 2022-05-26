@@ -1,15 +1,24 @@
 # SUP003 - Intro to DevSecOps with JFrog Xray
 
 - Set the following Environment variables
+
+  -- On Linux/Mac OS, please use
+
+ ```
+ export ARTIFACTORY_HOSTNAME="my-instance.jfrog.io"
+ export ARTIFACTORY_LOGIN="foo@bar.com"
+ export ARTIFACTORY_API_KEY="MY_API_KEY"
+ 
+ ```
+
+  -- On Windows OS, please use
+
+  ```
+  set ARTIFACTORY_HOSTNAME="my-instance.jfrog.io"
+  set ARTIFACTORY_LOGIN="foo@bar.com"
+  set ARTIFACTORY_API_KEY="MY_API_KEY"
   
   ```
-  
-  export ARTIFACTORY_HOSTNAME=$INSTANCE_NAME
-  export ARTIFACTORY_LOGIN=$USERNAME
-  export ARTIFACTORY_API_KEY=$API_KEY
-
-   ```
-
 
 - Run the docker image using **run-docker.sh**. This executes the command below and opens an interactive terminal into the container. 
 
