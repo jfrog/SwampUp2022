@@ -19,6 +19,7 @@ This example demonstrates how to build a Python Pip project with Artifactory, wh
 * The virtual repository should include the remote repository.
 * The virtual repository should have the local repository set as the *Default Deployment Repository*.
 Hint - Uisng the quick Setup option, let us create a set of PyPi repositories which will be used in this lab
+
 !(image)[http://g.recordit.co/ksdqfcgQar.gif]
 
 4. Make sure **wheel** and **setuptools** are installed. You can use the [Installing Packages Documentation](https://packaging.python.org/tutorials/installing-packages/).
