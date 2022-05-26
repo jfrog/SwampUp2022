@@ -18,7 +18,7 @@ http://myart.jfrog.io/xray/api/v1
 
 ### Using your Artifactory server hostname and the Artifactory router port
 ```bash
-http://ARTIFACTORY_SERVER_HOSTNAME:8081/xray/api/v1
+http://ARTIFACTORY_SERVER_HOSTNAME:8082/xray/api/v1
 ```
 
 ## 2.1 Indexing repos using Update Repository Configuration API 
