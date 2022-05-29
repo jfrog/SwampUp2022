@@ -23,16 +23,16 @@ Let's create an access token using the following documentation [How to generate 
 - On Linux/Mac OS, please use
 ```bash
 export ARTIFACTORY_HOSTNAME="sup009entsuxx.jfrog.io"
-export ARTIFACTORY_LOGIN="taletsup009entsuxx@jfrog.com"
-export ARTIFACTORY_PASSWORD="SwampUp2022!"
+export ARTIFACTORY_LOGIN="USER_NAME"
+export ARTIFACTORY_PASSWORD="PASSWORD"
 export ARTIFACTORY_ACCESS_TOKEN="xxxxxxxx"
 ```
 
 - On Windows OS, please use
 ```bash
 set ARTIFACTORY_HOSTNAME="sup009entsuxx.jfrog.io"
-set ARTIFACTORY_LOGIN="taletsup009entsuxx@jfrog.com"
-set ARTIFACTORY_PASSWORD="SwampUp2022!"
+set ARTIFACTORY_LOGIN="USER_NAME"
+set ARTIFACTORY_PASSWORD="PASSWORD"
 set ARTIFACTORY_ACCESS_TOKEN="xxxxxxxxxx"
 ```
 ![setting environemnt variables](https://i.imgur.com/BastCGE.gif)
@@ -54,10 +54,10 @@ export SCRIPT_DIR=$(pwd)
 # Please ask the Trainer or TAs for your assigned JFrog Cloud testbed
 export ARTIFACTORY_HOSTNAME="sup009entsuxx.jfrog.io"
 # admin user
-export ARTIFACTORY_LOGIN="taletsup009entsuxx@jfrog.com"
+export ARTIFACTORY_LOGIN="USER_NAME"
 
 # admin password (check your testbed details with your TA)
-export ARTIFACTORY_PASSWORD="SwampUp2022!"
+export ARTIFACTORY_PASSWORD="PASSWORD"
 
 # Service admin token - see instructions on Lab 1.5 
 export ARTIFACTORY_ACCESS_TOKEN="xxxxx"
