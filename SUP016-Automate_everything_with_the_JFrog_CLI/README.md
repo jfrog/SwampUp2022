@@ -1,5 +1,19 @@
 # SUP016-Automate everything with the JFrog CLI
 
+### Agenda
+- Lab 0 - Configure JFrog CLI
+- LAB 1 - Repository Provisioning
+- LAB 2 - Role-Based Access Control
+- LAB 3 - Build Integration and Properties
+  - `jf ci-setup` auto generate `yml` or `jenkins` file with CLI Steps
+- LAB 4 - Configure Replication
+- LAB 5 - Artifactory Query Language
+  - Search, Upload, Download, Cleanup, etc
+- LAB 6 - Xray
+- LAB 7 - Distribution
+- LAB 8 - JFROG CLI Plugin
+
+
 ### Prerequisites
 
 - Generate a Github personnal [access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token). <br/>
