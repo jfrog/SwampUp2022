@@ -1,0 +1,15 @@
+{
+    "spec": {
+        "queries": [
+            {
+                "aql": "items.find({\"$and\": [{\"$or\": [{\"repo\": {\"$eq\": \"sup002-swampup-maven-dev-local\"}}]}]})",
+                "query_name": "dynamic-demo-aql"
+            }
+        ]
+    },
+ "distribution_rules": [
+    {
+      "site_name": "*edge*"
+    }
+  ]
+}
