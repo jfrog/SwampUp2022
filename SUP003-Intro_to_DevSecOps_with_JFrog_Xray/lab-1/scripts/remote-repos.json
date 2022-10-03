@@ -1,0 +1,5 @@
+[
+  {"key":"s003-docker-remote","packageType":"docker","rclass":"remote","url":"https://registry-1.docker.io/","repoLayoutRef":"simple-default", "xrayIndex":"false"},
+  {"key":"s003-maven-remote","packageType":"maven","rclass":"remote","url":"https://repo.maven.apache.org/maven2/","repoLayoutRef":"maven-2-default", "xrayIndex":"false"},
+  {"key":"s003-npm-remote","packageType":"npm","rclass":"remote","url":"https://registry.npmjs.org","repoLayoutRef":"npm-default", "xrayIndex":"false"}
+]
