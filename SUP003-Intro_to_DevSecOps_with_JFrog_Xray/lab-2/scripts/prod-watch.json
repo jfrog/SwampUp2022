@@ -1,0 +1,34 @@
+{
+    "general_data": {
+        "name": "prod-watch",
+        "description": "This is a watch created for Production Repos and Builds",
+        "active": true
+    },
+    "project_resources": {
+        "resources": [
+            {
+              "type": "all-repos",
+              "bin_mgr_id": "default",
+              "include_patterns": [],
+              "exclude_patterns": []
+            },
+            {
+              "type": "all-builds",
+              "bin_mgr_id": "default",
+              "include_patterns": [],
+              "exclude_patterns": []
+            }
+        ]
+    },
+    "assigned_policies": [
+        {
+            "name": "prod-security-policy",
+            "type": "security"
+        },
+        {
+            "name": "prod-license-policy",
+            "type": "license"
+        }
+    ],
+   "watch_recipients":[]
+}

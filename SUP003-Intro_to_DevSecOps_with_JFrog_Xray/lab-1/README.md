@@ -76,7 +76,7 @@
 
 <br/>
 
-## CREATE A LICENSE POLICY
+## CREATE LICENSE POLICY
 ### CREATE A LICENSE POLICY using UI
 - Click on **New Policy**. Let's create a **License** policy with **"prod-license-policy"** name.
  
