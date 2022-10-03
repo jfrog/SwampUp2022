@@ -1,0 +1,6 @@
+{
+    "key": "sup002-swampup-npm-dev-local",
+    "rclass": "local",
+    "packageType": "npm",
+    "description": "The local MAVEN repository"
+}
