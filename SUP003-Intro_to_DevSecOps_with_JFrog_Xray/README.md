@@ -25,10 +25,10 @@
 <br/>
 
 ## .env config [Must]
-- Our directory `SwampUp2022/SUP003-Intro_to_DevSecOps_with_JFrog_Xray` has `.env` / `env.bat` file where we need define environment variables.
-  - Mandatory - ADMIN_USER, ADMIN_PASSWORD, JFROG_PLATFORM, JFROG_EDGE
+- Our directory `SwampUp2022/SUP003-Intro_to_DevSecOps_with_JFrog_Xray` has `.env` or `env.bat` file where we need define environment variables.
+  - Mandatory - JFROG_PLATFORM, ADMIN_USER, ADMIN_PASSWORD, JFROG_EDGE
   - Optional - ACCESS_TOKEN
-- For linux machine - `source .env` and for windows - `call env.bat`
+- For linux machine - `source .env` or for windows - `call env.bat`
 
 <br/>
 
