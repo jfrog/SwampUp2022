@@ -2,8 +2,8 @@
 
 ### Prerequisites
 - JFrog CLI is installed on your machine by running `jf -v`
-
-
+  - if not installed then Download [JFrog CLI](https://jfrog.com/getcli/) based on our machine.
+  
 
 ## Option 1 - SETUP JFROG CLI WITH MAIN JPD
 - Checkout all ``jf`` configs ``jf config show``

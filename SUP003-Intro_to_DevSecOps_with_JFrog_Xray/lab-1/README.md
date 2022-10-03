@@ -2,6 +2,7 @@
 
 ## Prerequisites
 - A SAAS Instance of JFrog Platform. This will be provided as part of your enrollment to the Training class.
+- JFrog CLI is installed on your machine by running `jf -v`
 
 <br/>
 
@@ -93,6 +94,14 @@
 ### CREATE A LICENSE POLICY
 - Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @/scripts/prod-license-policy.json``
 - Confirm License Policy named with ``prod-license-policy`` is created
+
+<br/>
+<br/>
+<br/>
+
+
+## SETUP JFROG CLI
+- Configure JFrog CLI [Lab-0](https://github.com/jfrog/SwampUp2022/tree/main/SUP003-Intro_to_DevSecOps_with_JFrog_Xray/lab-0#lab-0---configure-jfrog-cli)
 
 <br/>
 <br/>
