@@ -1,4 +1,17 @@
-# Lab1 - Get familiar with JFrog Platform and Xray
+# Lab1 - Indexing Resources and Create Policy
+- Prerequisites
+- Index Repositories using UI 
+- Index Repositories using Automation
+- Index Builds using UI
+- Index Builds using Automation
+- Create Security Policy using UI
+- Create Security Policy using Automation
+- Create License Policy using UI
+- Create License Policy using Automation
+- Setup JFrog CLI
+- Challenge 
+
+<br/>
 
 ## Prerequisites
 - A SAAS Instance of JFrog Platform. This will be provided as part of your enrollment to the Training class.
@@ -108,9 +121,8 @@
 <br/>
 
 ## CHALLENGE  [Optional]
-- Create Policy `Operational Risk` type with Rules 
-  - Using UI
-  - Using Automation 
+- Create Policy `Operational Risk` type with Rules using UI
+- Create Policy `Operational Risk` type with Rules using Automation
 
 
 

@@ -2,7 +2,7 @@
 
 ## Agenda
 - Lab 0 - Configure JFrog CLI
-- LAB 1 - 
+- LAB 1 - Indexing Resources and Create Policy
 - LAB 2 - 
 - LAB 3 - 
 - LAB 4 - 
