@@ -15,6 +15,8 @@
 
   ![Index Repositories](images/1-1.gif)
 
+<br/>
+
 ## INDEX REPOSITORIES using AUTOMATION [Optional]
 - Run ``jf xr curl -XPUT /api/v1/binMgr/1/repos -H "Content-Type: application/json" -d @/scripts/index-repos.json``
 
@@ -39,13 +41,13 @@
 - Navigate to the **Administration** Module, expand the **Xray** menu at the bottom and click on **Watches & Policies** menu item. 
 
 ### CREATE A SECURITY POLICY
-- Click on **Create a Policy** and let's create our first **Security** policy called **"Prod-Security-Policy"**
+- Click on **Create a Policy** and let's create our first **Security** policy called **"prod-security-policy"**
   
   ![Security Policy](images/1-3.gif)
 
 <br/>
 
-- Click on **New Rule** to add rules to **Prod-Security-Policy**. Add the following rule with **Criteria** and **Automatic Actions**. A default Automatic Action of Generate Violation is enabled for every Rule. Click **Save** and Click **Create**.
+- Click on **New Rule** to add rules to **prod-security-policy**. Add the following rule with **Criteria** and **Automatic Actions**. A default Automatic Action of Generate Violation is enabled for every Rule. Click **Save** and Click **Create**.
   * **Rule name**: high
   * **Criteria**: Minimum Severity: High
   * **Automatic Actions**: 
@@ -58,15 +60,15 @@
 <br/>
 
 ### CREATE A LICENSE POLICY
-- Click on **New Policy**. Let's create a **License** policy with **"Prod-License-Policy"** name.
+- Click on **New Policy**. Let's create a **License** policy with **"prod-license-policy"** name.
  
   ![License Policy](images/1-5.gif)
 
 <br/>
 
-- Click on **New Rule** to add rule to **Prod-License-Policy**. Add a Rule for banned licenses with **Criteria** and **Automatic Actions** below. Click **Save** and Click **Create**.
+- Click on **New Rule** to add rule to **prod-license-policy**. Add a Rule for banned licenses with **Criteria** and **Automatic Actions** below. Click **Save** and Click **Create**.
   * **Rule name**: banned
-  * **Criteria**: Banned Licenses: "BSD 2-Clause", GPL-3.0"
+  * **Criteria**: Banned Licenses: "BSD 2-Clause, GPL-3.0"
   * **Automatic Actions**:
     * Notify Deployer
     * Block Download
