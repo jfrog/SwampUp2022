@@ -5,39 +5,29 @@
 
 <br/>
 
-## INDEX REPOSITORIES AND BUILDS RESOURCES using UI
+## INDEX REPOSITORIES using UI
 
 - Login to your saas instance **{{instance_name}}**.jfrog.io with  your admin credentials
 
 - Navigate to the **Administration** Module, **Xray** and click on Settings then **Indexed Resources**
 
-### Add the **Repositories** resources to get indexed
+- Add the **Repositories** resources to get indexed
 
   ![Index Repositories](images/1-1.gif)
 
-<br/> 
-
-### Add **Builds** resources to get indexed
-  
-  ![Index Builds](images/1-2.gif)
-
-<br/>
-<br/>
-<br/>
-
-## INDEX REPOSITORIES AND BUILDS RESOURCES using AUTOMATION [Optional]
-- Using JFrog CLI
-
-<br/>
-
-### Add the **Repositories** resources to get indexed
-
+## INDEX REPOSITORIES using AUTOMATION [Optional]
 - Run ``jf xr curl -XPUT /api/v1/binMgr/1/repos -H "Content-Type: application/json" -d @/scripts/index-repos.json``
 
 <br/> 
 
-### Add **Builds** resources to get indexed
+## INDEX BUILDS using UI
+- Add **Builds** resources to get indexed
+  
+  ![Index Builds](images/1-2.gif)
 
+<br/>
+
+## INDEX BUILDS using AUTOMATION [Optional]
 - Run ``jf xr curl -XPUT /api/v1/binMgr/1/builds -H "Content-Type: application/json" -d @/scripts/index-builds.json``
 
 <br/>
@@ -91,10 +81,6 @@
 <br/>
 
 ## CREATE POLICIES AND RULES using AUTOMATION [Optional]
-- Using JFrog CLI
-
-<br/>
-
 ### CREATE A SECURITY POLICY
 - Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @/scripts/prod-security-policy.json``
   - With Severity - CRITICAL, HIGH, MEDIUM, LOW with different action items

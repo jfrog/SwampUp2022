@@ -1,6 +1,6 @@
 # SUP003 - Intro to DevSecOps with JFrog Xray
 
-### Agenda
+## Agenda
 - Lab 0 - Configure JFrog CLI
 - LAB 1 - 
 - LAB 2 - 
@@ -9,7 +9,7 @@
 
 <br/>
 
-### Prerequisites
+## Prerequisites
 
 - Generate a Github personnal [access token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token). <br/>
   - **NOTE**: if you already have GitHub access token then skip this step else create GitHub account first and then follow above steps.
