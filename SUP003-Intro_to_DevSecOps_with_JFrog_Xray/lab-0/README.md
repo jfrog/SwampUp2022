@@ -5,12 +5,12 @@
 
 
 
-## SETUP JFROG CLI WITH MAIN JPD
+## Option 1 - SETUP JFROG CLI WITH MAIN JPD
 - Checkout all ``jf`` configs ``jf config show``
 
 
 - Configure CLI that point to JFrog Instance ``jf config add --interactive`` or ``jf c add --interactive``
-    - Choose a server ID: ```${{unique name}}```
+    - Choose a server ID: ```${{unique name}}``` e.g. `SUP003`
     - JFrog platform URL: ```https://{{host}}.jfrog.io```
     - JFrog access token (Leave blank for username and password/API key): ```${{access_token}}```
         - Create access token from UI ``Administration`` -> ``Identity and Access`` -> ``Access Tokens``
@@ -26,11 +26,15 @@
 
 
 
-## SETUP JFROG CLI WITH MAIN EDGE NODE
-- ``jf config add SUP016-edge --artifactory-url=https://$JFROG_EDGE/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false``
+## Option 2 - SETUP JFROG CLI WITH MAIN JPD without ``--interactive``
+- ``jf config add SUP003 --artifactory-url=https://$JFROG_EDGE/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false``
+
+
+## SETUP JFROG CLI WITH MAIN EDGE NODE [Optional]
+- ``jf config add SUP016-edge --artifactory-url=https://JFROG_PLATFORM/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false``
 
 
 ## CHALLENGE  [Optional]
-- Export JFrog CLI config ``jf c export SUP016``
+- Export JFrog CLI config ``jf c export SUP003``
   - it generates the `TOKEN`
 - Import on other system ``jf c import $TOKEN``

@@ -1,0 +1,21 @@
+::current location
+set SCRIPT_DIR=$(pwd)
+
+::admin user
+set ADMIN_USER=
+
+::admin password
+set ADMIN_PASSWORD=
+
+::access token
+set ACCESS_TOKEN=
+
+set JFROG_PLATFORM=
+set JFROG_EDGE=
+
+set JFROG_CLI_LOG_LEVEL=INFO
+::set JFROG_CLI_LOG_TIMESTAMP=
+
+set JFROG_CLI_TRANSITIVE_DOWNLOAD_EXPERIMENTAL=true
+::set JFROG_CLI_MIN_CHECKSUM_DEPLOY_SIZE_KB=
+::set JFROG_CLI_REPORT_USAGE=
