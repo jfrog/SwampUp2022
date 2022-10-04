@@ -1,73 +1,92 @@
-# Lab3 
-### Run a maven vulnerable build first causing the build to fail due to security and license violations raised by Xray. Follow that up by running a vuln free and license compliant maven build that should succeed.
+# Lab3 - Shift Left Security
+- Prerequisites
+- IDE Plugin
+- Dependencies Scan
+- On-Demand Binary Scan
+- Docker Desktop JFrog Extension 
+- Frogbot
 
-#### Part 1 - Configure and run a maven vulnerable build using lab3_maven_vuln_build.sh. Xray scan and security violations that it generates should cause this build to fail. The sequence of steps in this script are outlined below.
+## Prerequisites
+- A SAAS Instance of JFrog. This will be provided as part of your enrollment to the Training class.
+- Preferred IDE (Integrated Development Environment) like [Intellij](https://www.jetbrains.com/idea/download/#section=mac), [VSCode](https://code.visualstudio.com/download), [Eclipse](https://www.eclipse.org/downloads/)
+- JFrog CLI is installed on your machine by running `jf -v`
 
--  Generate maven build configuration using **jf mvn-config**. This configures the Resolution repository for snapshot and release dependencies and Deployment repository for snapshot and release artifacts.
+<br/>
 
-    ```
-    jf mvnc --repo-resolve-snapshots s003-libs-snapshot --repo-resolve-releases s003-libs-release --repo-deploy-snapshots s003-libs-snapshot --repo-deploy-releases s003-libs-release
+## IDE PLUGIN
+- The cost of remediating a vulnerability is akin to the cost of fixing a bug. The earlier you remediate a vulnerability in the release cycle, the lower the cost.
+- The IDE integration completes the CI/CD process, by bringing Xray's issue discovery one step earlier, to development time.
 
-    ```
+| IDE  | Supported Packages |
+| ------------- | ------------- |
+| [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-vscode-extension) | Maven, Pypi, npm, NuGet, Go |
+| [Intellij](https://www.jfrog.com/confluence/display/JFROG/JFrog+IntelliJ+IDEA+Plugin) | Maven, Pypi, npm, Gradle, Go |
+| [WebStorm](https://www.jfrog.com/confluence/display/JFROG/JFrog+IntelliJ+IDEA+Plugin) | npm | 
+| [PyCharm](https://www.jfrog.com/confluence/display/JFROG/JFrog+IntelliJ+IDEA+Plugin) | Pypi |
+| [GoLand](https://www.jfrog.com/confluence/display/JFROG/JFrog+IntelliJ+IDEA+Plugin) | Go |
+| [Android Studio](https://www.jfrog.com/confluence/display/JFROG/JFrog+IntelliJ+IDEA+Plugin) | Gradle |
+| [Visual Studio](https://www.jfrog.com/confluence/display/JFROG/JFrog+Visual+Studio+Extension) | NuGet |
+| [Eclipse](https://www.jfrog.com/confluence/display/JFROG/JFrog+Eclipse+IDE+Plugin) | Maven, npm, Gradle |
+| [Theia](https://open-vsx.org/extension/JFrog/jfrog-vscode-extension) | Maven, Pypi, npm, NuGet, Go |
 
--  Run Maven Build using **jf mvn clean install** 
+### SETUP IDE PLUGIN
+- Open one of the above IDE and install plugin/extension called `JFrog`.
+- Configure plugin against the JFrog Platform by providing `JFrog Platform URL`, `Username`, `Password` or `Access Token`
+- Open either `npm-vulnerable-example` or `maven-vulnerable-example` project from `project-examples` 
+  - Run `npm install` or `mvn clean install` (NOTE: make sure your native client is pointing to Artifactory instance to download dependencies)
+- Open `JFrog` tab and review list of vulnerabilities 
 
-    ```
-    jf mvn clean install -Dmaven.test.skip=true -Dartifactory.publish.artifacts=true --build-name=swampup22_s003_mvn_pipeline --build-number=$BUILD_NUMBER
+<br/>
+<br/>
+<br/>
 
-    ```
+## DEPENDENCIES SCAN
+- With this feature, before a developer even checks-in the code they can scan using JFrog CLI for security or license violations saving valuable time to address these issues.
+- Navigate to either `npm-vulnerable-example` or `maven-vulnerable-example` project from `project-examples`
+- Run `jf audit` or `jf aud` (NOTE: we can also pass additional command like `--dep-type`, `--watches`, `--project`, `--repo-path`, etc)
+  - Supported package types: Maven, Gradle, npm, Pip, Pipenv, Go, Nuget, .NET core CLI
+- Run the scan command with the relevant command options. You can view scan results for the following:
+  - Vulnerabilities, Violations, License
+- List output into table format as DEFAULT `--format=json|table`
+- More Information on [Dependencies Scan](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Xray#CLIforJFrogXray-ScanningProjectDependencies)
 
-- Collect Environment Variables using **jf rt build-collect-env**. Environment variables can be excluded using the build-publish command.
+<br/>
+<br/>
+<br/>
 
-    ```
-    jf rt bce swampup22_s003_mvn_pipeline $BUILD_NUMBER
+## ON-DEMAND BINARY SCAN
+- Xray uses the JFrog CLI to provide **on-demand binary scanning** to address:
+  - Run ad-hoc scans for security purposes **without uploading to Artficatory first**.
+  - Adhere to organizational standards, whereas binaries and builds need to be **approved** first before uploading to Artifactory.
+  - Not all binaries are stored in Artifactory, and as a user, you want to use Xray scanning capabilities.
+- Navigate to either `npm-vulnerable-example` or `maven-vulnerable-example` project from `project-examples`
+- Run `jf scan` or `jf s`
+- For Docker, Run `jf docker scan` (NOTE: we can also pass additional command like `--watches`, `--project`, `--repo-path`, etc)
+- For scan binary locally, Run `jf s "path/to/files/"` (NOTE: we can also pass additional command like `--watches`, `--project`, `--repo-path`, etc)
+- More Information on [on-demand binary scan](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Xray#CLIforJFrogXray-On-DemandBinaryScan)
 
-    ```
+<br/>
+<br/>
+<br/>
 
-- Publish Build Info using **jf rt build-publish**
-    
-  ```
-  
-  jf rt bp --build-url JFrog-CLI swampup22_s003_mvn_pipeline $BUILD_NUMBER
-  
-  ```
-  
-- Scan a published build-info with Xray using **jf build-scan**
+## DOCKER DESKTOP EXTENSION [Optional]
+- Download Docker Desktop application
+- Install [JFrog Extension](https://hub.docker.com/extensions/jfrog/jfrog-docker-desktop-extension) 
+- Configure Extension pointing to your JFrog Platform instance
+- Now we can scan any of the docker image that we have locally and see Xray scan results
+- More Information on [Docker Desktop Extension for JFrog Xray](https://jfrog.com/solution-sheet/docker-desktop-extension-for-jfrog-xray/)
 
-  ```
+<br/>
+<br/>
+<br/>
 
-  jf bs swampup22_s003_mvn_pipeline $BUILD_NUMBER
-  
-  ```
-  
-- Xray should fail the build with the following raised security violations
-  
-  | SEVERITY | IMPACTED PACKAGE | IMPACTED PACKAGE VERSION | TYPE  | FIXED VERSIONS | COMPONENT | COMPONENT VERSION | CVE |
-  | -------- | ---------------- | ------------------------ | ----- | -------------- | --------  | ----------------- | -------- |
-  | 🔥High   | org.apache.logging.log4j:log4j-core | 2.14.1 | Maven | [2.12.2] [2.15.0] [2.3.1] | org.apache.logging.log4j:log4j-core | 2.14.1  | CVE-2021-44228 |
-  | 🎃Medium | org.apache.logging.log4j:log4j-core | 2.14.1 | Maven | [2.12.2] [2.16.0] [2.3.1] | org.apache.logging.log4j:log4j-core | 2.14.1  | CVE-2021-45046 |
+## FROGBOT
+- NEED TO ADD CONTENT
 
-  | No license compliance violations were found |
-  | ----- |
+<br/>
+<br/>
+<br/>
 
-
-- See violations in the Artifactory UI. Navigate to **Application** > **Security & Compliance** > **Watch Violations**. You will be able to see the watches that we have created in Step 1. Click on the swampup22_dev_watch watch. The Violations tab in a Watch is the central location for viewing the detected violations based on the policies and rules you have predefined on the Watch. You can view the list of the violations, search for violations according to filters, set ignore rules and edit the Watch in the Settings tab.
-
-  ![New Watch](images/3-1.gif)
-
-- **Ignore Violation** by navigating to **Application** > **Security & Compliance** > **Watch Violation**. Open watch **"swampup2022_dev_watch"** that we created in STEP 1 and hover your mouse over the right side of a violation.
-
-  ![New Watch](images/3-2.gif)
-
-#### Part 2 - Configure and run the same maven build but this time with an update version of the dependency that doesn't have the vulnerability and you should see a successful build.
-
-- Follow the same sequence of steps as above to run a successful build this time.
-
-- This time the build should succeed with the following message
-
-
-| No security violations were found |
-| ----------- |
-
-| No license compliance violations were found |
-| -------- |
+## CHALLENGE [Optional]
+- Change the output format of scan result into `JSON` format
+- Scan one of your local docker image without upload into Artifactory

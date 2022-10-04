@@ -30,4 +30,5 @@
 <br/>
 
 ## CHALLENGE [Optional]
-- Add Operational Risk policy to `prod-watch` Watch 
+- Add Operational Risk policy to `prod-watch` Watch using UI
+- Add Operational Risk policy to `prod-watch` Watch using Automation

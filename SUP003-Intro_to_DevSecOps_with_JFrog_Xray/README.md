@@ -4,8 +4,8 @@
 - Lab 0 - Configure JFrog CLI
 - LAB 1 - Indexing Resources and Create Policy
 - LAB 2 - Create Watch and check for violation
-- LAB 3 - 
-- LAB 4 - 
+- LAB 3 - Shift Left Security
+- LAB 4 - Xray at CI and Create Reports
 
 <br/>
 
