@@ -17,7 +17,7 @@ Replace the variables <username> , <password or API Key> and <instance name> bas
 
 ```
 
-curl -u -v <username>:<password or API Key> --request GET 'https://<instance name>.jfrog.io/artifactory/sup002-swampup-maven-dev-local/hello-world/hello-world-api-1.0.jar'
+time curl -v -u <username>:<password or API Key> --request GET 'https://<instance name>.jfrog.io/artifactory/sup002-swampup-maven-dev-local/hello-world/hello-world-api-1.0.jar'
 
 ```
 
@@ -38,7 +38,7 @@ Replace the variables <username> , <password or API Key> and <instance name> bas
   
 ```
 
-curl -u -v <username>:<password or API Key> --request GET 'https://<instance name>.jfrog.io/artifactory/sup002-swampup-maven-dev-local/hello-world/hello-world-api-1.0.jar'
+time curl -v -u <username>:<password or API Key> --request GET 'https://<instance name>.jfrog.io/artifactory/sup002-swampup-maven-dev-local/hello-world/hello-world-api-1.0.jar'
 
 ```
   

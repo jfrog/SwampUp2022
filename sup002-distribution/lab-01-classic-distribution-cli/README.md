@@ -18,7 +18,7 @@ Below commands need to be run from the scripts directory . Please make sure the 
  
  ```
   cd <git repo cloned>
-  cd sup002-distribution/lab-01-classic-distribution-cli/scripts 
+  cd sup002-distribution/scripts 
   jf ds release-bundle-create  'swampup-release-2022' '2.0' --spec=rb.json --release-notes-path release-notes.txt --target-props 'release_type=main;release_name=swampup-2022'
   ```
   
