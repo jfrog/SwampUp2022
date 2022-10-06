@@ -44,7 +44,7 @@
 - With this feature, before a developer even checks-in the code they can scan using JFrog CLI for security or license violations saving valuable time to address these issues.
 - Navigate to either `npm-vulnerable-example` or `maven-vulnerable-example` project from `project-examples`
 - Run `jf audit` or `jf aud` (NOTE: we can also pass additional command like `--dep-type`, `--watches`, `--project`, `--repo-path`, etc)
-  - Supported package types: Maven, Gradle, npm, Pip, Pipenv, Go, Nuget, .NET core CLI
+  - Supported package types: Maven, Gradle, npm, Pip, Pipenv, Go, Nuget, .NET core CLI, Yarn2
 - Run the scan command with the relevant command options. You can view scan results for the following:
   - Vulnerabilities, Violations, License
 - List output into table format as DEFAULT `--format=json|table`
@@ -81,7 +81,22 @@
 <br/>
 
 ## FROGBOT
-- NEED TO ADD CONTENT
+- Frogbot is a Git (GitHub, GitLab, Bitbucket) bot that **scans your pull requests** and repositories for security vulnerabilities and adds the scan results as a comment on the pull request.
+  - Supported Packages : Maven, Gradle, NPM, Pip, Pipenv, NuGet, Go, .Net, Yarn2
+  - [Here](https://github.com/jfrog/frogbot/tree/master/templates/github-actions/scan-pull-request) are the sample templates for scan pull request in GitHub
+- Frogbot can also **open a pull requests** for upgrading vulnerable dependencies to a version with a fix. 
+  - Supported Packages : Maven, NPM, Pip, Pipenv, Go, Yarn2
+  - [Here](https://github.com/jfrog/frogbot/tree/master/templates/github-actions/scan-and-fix) are the sample templates to open pull request based on scan for fix 
+- Install [Frogbot](https://github.com/jfrog/frogbot#%EF%B8%8F-installing-and-using-frogbot) to your repositories
+- Fork github project [npm-example-swampup](https://github.com/MaharshiPatel/npm-example-swampup) and clone on your machine
+  - navigate to file `.github/workflows/frogbot-scan-pr.yml`
+    - We need to add repository secrets in Github (#2 in [document](https://github.com/jfrog/frogbot#%EF%B8%8F-installing-and-using-frogbot))
+      - `JF_URL` (line 41)
+      - `JF_USER`  (line 45)
+      - `JF_PASSWORD` (line 49)
+      - `NY_GITHUB_TOKEN` (line 53)
+    - Check the allow GitHub Actions to create and approve pull requests check box (#3 in [document](https://github.com/jfrog/frogbot#%EF%B8%8F-installing-and-using-frogbot))
+    - Create a Github Environment called `frogbot` (#4 in [document](https://github.com/jfrog/frogbot#%EF%B8%8F-installing-and-using-frogbot))
 
 <br/>
 <br/>
@@ -90,3 +105,5 @@
 ## CHALLENGE [Optional]
 - Change the output format of scan result into `JSON` format
 - Scan one of your local docker image without upload into Artifactory
+- Create a workflow for Frogbot to **open a pull requests** for upgrading vulnerable dependencies to a version with a fix. 
+  - **HINT**: - [Here](https://github.com/jfrog/frogbot/tree/master/templates/github-actions/scan-and-fix) are the sample templates to open pull request based on scan for fix 

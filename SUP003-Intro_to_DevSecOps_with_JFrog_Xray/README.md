@@ -5,7 +5,7 @@
 - LAB 1 - Indexing Resources and Create Policy
 - LAB 2 - Create Watch and check for violation
 - LAB 3 - Shift Left Security
-- LAB 4 - Xray at CI and Create Reports
+- LAB 4 - Xray at CI/CD and Create Reports
 
 <br/>
 

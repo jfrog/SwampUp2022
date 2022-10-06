@@ -1,4 +1,9 @@
-# Lab3 
+# Lab4 - Xray at CI/CD and Create Reports 
+- Prerequisites
+- Xray at CI/CD
+- Reports (vuln, compliance, SBOM)
+
+
 ### Run a maven vulnerable build first causing the build to fail due to security and license violations raised by Xray. Follow that up by running a vuln free and license compliant maven build that should succeed.
 
 #### Part 1 - Configure and run a maven vulnerable build using lab3_maven_vuln_build.sh. Xray scan and security violations that it generates should cause this build to fail. The sequence of steps in this script are outlined below.

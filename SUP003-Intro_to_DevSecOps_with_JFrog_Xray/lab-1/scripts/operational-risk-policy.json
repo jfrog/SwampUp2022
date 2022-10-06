@@ -1,5 +1,5 @@
 {
-  "name": "operational-risk-policy",
+  "name": "prod-operational-risk-policy",
   "description": "Operational Risk policy with minimal risk rule",
   "type": "operational_risk",
   "rules": [
