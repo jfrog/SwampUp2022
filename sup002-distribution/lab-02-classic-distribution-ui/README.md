@@ -73,7 +73,7 @@ Goal of this lab to is to create a release bundle and distribute the release bun
 - Click on Distribute Release Bundle 
    ![](../.images/10.png)
 
-- select all the edge nodes and make Target Repository Auto-creation check box is enabled 
+- select all the edge nodes and make sure the Target Repository Auto-creation check box is enabled 
   ![](../.images/11.png)
     
 - Distrubute 
