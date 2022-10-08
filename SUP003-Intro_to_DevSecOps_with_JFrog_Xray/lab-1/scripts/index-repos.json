@@ -1,0 +1,35 @@
+{
+    "indexed_repos": [
+      {
+        "name":"s003-docker-local",
+        "type":"local",
+        "pkg_type":"docker"
+      },
+      {
+        "name":"s003-libs-release-local",
+        "type":"local",
+        "pkg_type":"Maven"
+      },{
+        "name":"s003-libs-snapshot-local",
+        "type":"local",
+        "pkg_type":"Maven"
+      },{
+        "name":"s003-npm-local",
+        "type":"local",
+        "pkg_type":"npm"
+      },{
+        "name":"s003-docker-remote",
+        "type":"remote",
+        "pkg_type":"docker"
+      },{
+        "name":"s003-maven-remote",
+        "type":"remote",
+        "pkg_type":"Maven"
+      },{
+        "name":"s003-npm-remote",
+        "type":"remote",
+        "pkg_type":"npm"
+      }
+    ],
+    "non_indexed_repos": []
+}

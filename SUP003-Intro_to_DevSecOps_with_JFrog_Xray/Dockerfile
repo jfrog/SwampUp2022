@@ -37,13 +37,13 @@ RUN curl -fL https://install-cli.jfrog.io | sh
 # END install jfrog CLI
 
 # add sources
-ADD project-examples project-examples
+ADD lab-3/project-examples project-examples
 # add scripts
-ADD scripts/setupCLI.sh setupCLI.sh
-ADD scripts scripts
+ADD scripts-delete/setupCLI.sh setupCLI.sh
+ADD scripts-delete scripts
 ADD docs docs
 ADD README.md README.md
-ADD repository /root/.m2/repository
+ADD repository-delete /root/.m2/repository
 
 # set permissions
 RUN chmod +x setupCLI.sh

@@ -1,0 +1,22 @@
+{
+  "name": "prod-operational-risk-policy",
+  "description": "Operational Risk policy with minimal risk rule",
+  "type": "operational_risk",
+  "rules": [
+    {
+      "name": "op_risk_minimal_risk_rule",
+      "criteria": {
+        "op_risk_min_risk": "High"
+      },
+      "actions": {
+        "webhooks": [],
+        "block_download": {
+          "active": false,
+          "unscanned": false
+        },
+        "fail_build": false
+      },
+      "priority": 1
+    }
+  ]
+}

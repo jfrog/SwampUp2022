@@ -1,0 +1,13 @@
+[
+  {"key":"s003-docker-local"},
+  {"key":"s003-libs-release-local"},
+  {"key":"s003-libs-snapshot-local"},
+  {"key":"s003-npm-local"},
+  {"key":"s003-docker-remote"},
+  {"key":"s003-maven-remote"},
+  {"key":"s003-npm-remote"},
+  {"key":"s003-docker-virtual"},
+  {"key":"s003-libs-release-virtual"},
+  {"key":"s003-libs-snapshot-virtual"},
+  {"key":"s003-npm-virtual"}
+]

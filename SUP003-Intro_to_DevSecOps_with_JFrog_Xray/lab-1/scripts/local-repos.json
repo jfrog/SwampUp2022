@@ -1,0 +1,6 @@
+[
+  {"key":"s003-docker-local","packageType":"docker","rclass":"local","repoLayoutRef":"simple-default", "xrayIndex":"false", "description": "The local DOCKER repository"},
+  {"key":"s003-libs-release-local","packageType":"maven","rclass":"local","repoLayoutRef":"maven-2-default", "xrayIndex":"false", "description": "The local MAVEN release repository"},
+  {"key":"s003-libs-snapshot-local","packageType":"maven","rclass":"local","repoLayoutRef":"maven-2-default", "xrayIndex":"false", "description": "The local MAVEN snapshot repository"},
+  {"key":"s003-npm-local","packageType":"npm","rclass":"local","repoLayoutRef":"npm-default", "xrayIndex":"false", "description": "The local NPM repository"}
+]

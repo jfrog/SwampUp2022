@@ -1,0 +1,39 @@
+{
+  "name": "vuln-report-on-repositories",
+  "resources": {
+    "repositories": [
+      {
+        "name": "s003-libs-snapshot-local"
+      },
+      {
+        "name": "s003-libs-release-local"
+      },
+      {
+        "name": "s003-npm-local"
+      },
+      {
+        "name": "s003-docker-local"
+      }
+    ]
+  },
+  "filters": {
+    "artifact": "",
+    "component": "",
+    "has_remediation": null,
+    "cvss_score": null,
+    "cve": "",
+    "issue_id": "",
+    "severities": [
+      "Critical",
+      "High"
+    ],
+    "published": {
+      "start": null,
+      "end": null
+    },
+    "scan_date": {
+      "start": null,
+      "end": null
+    }
+  }
+}

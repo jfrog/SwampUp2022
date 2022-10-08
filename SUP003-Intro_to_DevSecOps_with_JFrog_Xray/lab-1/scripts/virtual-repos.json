@@ -1,0 +1,6 @@
+[
+  {"key":"s003-docker-virtual","packageType":"docker","rclass":"virtual","repoLayoutRef":"simple-default","defaultDeploymentRepo":"s003-docker-local","externalDependenciesRemoteRepo":"s003-docker-remote","repositories":"s003-docker-local,s003-docker-remote"},
+  {"key":"s003-libs-release-virtual","packageType":"maven","rclass":"virtual","repoLayoutRef":"maven-2-default","defaultDeploymentRepo":"s003-libs-release-local","externalDependenciesRemoteRepo":"s003-maven-remote","repositories":"s003-libs-release-local,s003-maven-remote"},
+  {"key":"s003-libs-snapshot-virtual","packageType":"maven","rclass":"virtual","repoLayoutRef":"maven-2-default","defaultDeploymentRepo":"s003-libs-snapshot-local","externalDependenciesRemoteRepo":"s003-maven-remote","repositories":"s003-libs-snapshot-local,s003-maven-remote"},
+  {"key":"s003-npm-virtual","packageType":"npm","rclass":"virtual","repoLayoutRef":"npm-default","defaultDeploymentRepo":"s003-npm-dev-local","externalDependenciesRemoteRepo":"s003-npm-remote","repositories":"s003-npm-local,s003-npm-remote"}
+]
