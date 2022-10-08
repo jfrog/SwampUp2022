@@ -1,4 +1,4 @@
-# Lab5 - Advanced Automation Scripts 
+# Lab5 - Advanced Automation in Xray 
 
 ## CONFIGURE SETTINGS
 #### CONFIGURE WORKERS COUNT FOR XRAY PROCESSES (ONLY for SELF-HOSTED)
@@ -14,8 +14,10 @@
   - Run `jf xr curl -XGET api/v1/configuration/dbsync/time -H 'Content-Type: application/json'`
 - Update DB sync Daily time
   - Run `jf xr curl -XPUT api/v1/configuration/dbsync/time -H 'Content-Type: application/json' -d @update-db-sync-time.json`
-#### ALL DOWNLOAD
-#### GC
+
+<br />
+<br />
+<br />
 
 ## SUMMARY
 - Starting from Xray version 3.42.3, JFrog Security CVE Research and Enrichment data is supported. Important notes:
