@@ -1,0 +1,45 @@
+{
+  "name": "violation-report-on-repositories",
+  "resources": {
+    "repositories": [
+      {
+        "name": "s003-libs-snapshot-local",
+        "name": "s003-libs-release-local",
+        "name": "s003-npm-local",
+        "name": "s003-docker-local"
+      }
+    ]
+  },
+  "filters": {
+    "component": "",
+    "artifact": "",
+    "severities": ["Critical", "High"],
+    "scan_date": {
+      "start": null,
+      "end": null
+    },
+    "watch_names": ["sup016-xray-watch"],
+    "policy_names": ["prod-security-policy"],
+    "updated": {
+      "start": null,
+      "end": null
+    },
+    "security_filters": {
+      "summary_contains": "",
+      "cve": "",
+      "issue_id": "",
+      "cvss_score": null,
+      "has_remediation": null,
+      "published": {
+        "start": null,
+        "end": null
+      }
+    },
+    "license_filters": {
+      "license_names": ["MIT", "Apache-2.0"],
+      "unknown": null
+    },
+    "type": null,
+    "violation_status": "active"
+  }
+}

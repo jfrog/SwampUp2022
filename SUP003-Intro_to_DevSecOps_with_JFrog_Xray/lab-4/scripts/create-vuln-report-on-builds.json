@@ -1,0 +1,34 @@
+{
+  "name": "vuln-report-on-builds",
+  "resources": {
+    "builds": {
+      "names": [
+        "swampup22_s003_mvn_pipeline",
+        "swampup22_s003_npm_pipeline
+      ],
+      "include_patterns": [],
+      "exclude_patterns": [],
+      "number_of_latest_versions": 5
+    }
+  },
+  "filters": {
+    "artifact": "",
+    "component": "",
+    "has_remediation": null,
+    "cvss_score": null,
+    "cve": "",
+    "issue_id": "",
+    "severities": [
+      "Critical",
+      "High"
+    ],
+    "published": {
+      "start": null,
+      "end": null
+    },
+    "scan_date": {
+      "start": null,
+      "end": null
+    }
+  }
+}

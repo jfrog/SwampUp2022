@@ -1,0 +1,14 @@
+{
+  "filters": {
+    "name_contains": "Denial of Service",
+    "violation_type": "Security",
+    "watch_name": "prod-watch",
+    "min_severity": "Medium",
+    "created_from": "2018-06-06T12:22:16+03:00"
+  },
+  "pagination": {
+    "order_by": "updated",
+    "limit": 25,
+    "offset": 1
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "index": {
+    "new_content": 8,
+    "existing_content": 4
+  },
+  "persist": {
+    "new_content": 8,
+    "existing_content": 4
+  },
+  "analysis": {
+    "new_content": 8,
+    "existing_content": 4
+  },
+  "alert": {
+    "new_content": 8,
+    "existing_content": 8
+  },
+  "impact_analysis": {
+    "new_content": 8
+  },
+  "notification": {
+    "new_content": 8
+  }
+}
