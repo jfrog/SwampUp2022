@@ -10,14 +10,11 @@
 # init process #
 #################
 
-#echo "Configuration name for CLI (unique name) : "
-#read -r CLIConfigName
-
-export CLI_INSTANCE_ID="my-instance"
+export CLI_INSTANCE_ID=s003
 
 jf config use $CLI_INSTANCE_ID
 
-cd ../project-examples/maven-vulnerable-example
+cd ../../lab-3/project-example/maven-fixed-example
 
 echo "Jfrog is accessible check : "
 jf rt ping

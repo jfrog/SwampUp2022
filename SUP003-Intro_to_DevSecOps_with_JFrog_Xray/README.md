@@ -6,7 +6,7 @@
 - LAB 2 - Create Watch and check for violation
 - LAB 3 - Shift Left Security
 - LAB 4 - Xray at CI/CD and Create Reports
-- Lab 5 - Advanced Automation in Xray
+- Lab 5 - Advanced Automation in Xray [Optional]
 
 <br/>
 

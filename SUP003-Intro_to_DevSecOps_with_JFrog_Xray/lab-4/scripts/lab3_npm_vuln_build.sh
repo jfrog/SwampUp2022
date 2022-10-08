@@ -9,11 +9,11 @@
 #################
 # init process #
 #################
-cd ../project-examples/npm-vulnerable-example
-
-export CLI_INSTANCE_ID="my-instance"
+export CLI_INSTANCE_ID=s003
 
 jf config use $CLI_INSTANCE_ID
+
+cd ../../lab-3/project-example/npm-vulnerable-example
 
 echo "Jfrog is accessible check : "
 jf rt ping
