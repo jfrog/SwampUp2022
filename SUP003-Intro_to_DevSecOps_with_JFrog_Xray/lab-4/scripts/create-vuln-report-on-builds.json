@@ -4,7 +4,7 @@
     "builds": {
       "names": [
         "swampup22_s003_mvn_pipeline",
-        "swampup22_s003_npm_pipeline
+        "swampup22_s003_npm_pipeline"
       ],
       "include_patterns": [],
       "exclude_patterns": [],

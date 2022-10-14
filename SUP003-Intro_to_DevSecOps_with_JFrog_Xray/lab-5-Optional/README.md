@@ -27,7 +27,7 @@
     - remediation
 #### ARTIFACT
 - Provides the details about any **artifact** specified by path identifiers or checksum.
-  - Run `jf xr curl -XPOST api/v1/summary/artifact -H 'Content-Type: application/json' -d @summary-for-artifact.json`
+  - Run `jf xr curl -XGET api/v1/summary/artifact -H 'Content-Type: application/json' -d @summary-for-artifact.json`
 
 <br />
 

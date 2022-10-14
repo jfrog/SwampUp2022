@@ -9,7 +9,13 @@
         "name": "s003-libs-release-local"
       },
       {
+        "name": "s003-maven-remote"
+      },
+      {
         "name": "s003-npm-local"
+      },
+      {
+        "name": "s003-npm-remote"
       },
       {
         "name": "s003-docker-local"

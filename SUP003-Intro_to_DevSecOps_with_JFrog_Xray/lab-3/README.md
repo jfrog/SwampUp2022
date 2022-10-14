@@ -8,6 +8,7 @@
 
 ## Prerequisites
 - A SAAS Instance of JFrog. This will be provided as part of your enrollment to the Training class.
+- Locally cloned Github [Project](https://github.com/jfrog/SwampUp2022/tree/main/SUP003-Intro_to_DevSecOps_with_JFrog_Xray/lab-3) where IDE is installed.
 - Preferred IDE (Integrated Development Environment) like [Intellij](https://www.jetbrains.com/idea/download/#section=mac), [VSCode](https://code.visualstudio.com/download), [Eclipse](https://www.eclipse.org/downloads/)
 - JFrog CLI is installed on your machine by running `jf -v`
 
@@ -43,6 +44,7 @@
 ## DEPENDENCIES SCAN
 - With this feature, before a developer even checks-in the code they can scan using JFrog CLI for security or license violations saving valuable time to address these issues.
 - Navigate to either `npm-vulnerable-example` or `maven-vulnerable-example` project from `project-examples`
+- Run `jf rt npmc` or `jf rt mvnc`
 - Run `jf audit` or `jf aud` (NOTE: we can also pass additional command like `--dep-type`, `--watches`, `--project`, `--repo-path`, etc)
   - Supported package types: Maven, Gradle, npm, Pip, Pipenv, Go, Nuget, .NET core CLI, Yarn2
 - Run the scan command with the relevant command options. You can view scan results for the following:
@@ -61,6 +63,7 @@
   - Not all binaries are stored in Artifactory, and as a user, you want to use Xray scanning capabilities.
 - Navigate to either `npm-vulnerable-example` or `maven-vulnerable-example` project from `project-examples`
 - Run `jf scan` or `jf s`
+  - sample (maven or npm) files are located under `../../SUP016-Automate_everything_with_the_JFrog_CLI/lab-5/sample-data/` 
 - For Docker, Run `jf docker scan` (NOTE: we can also pass additional command like `--watches`, `--project`, `--repo-path`, etc)
 - For scan binary locally, Run `jf s "path/to/files/"` (NOTE: we can also pass additional command like `--watches`, `--project`, `--repo-path`, etc)
 - More Information on [on-demand binary scan](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Xray#CLIforJFrogXray-On-DemandBinaryScan)

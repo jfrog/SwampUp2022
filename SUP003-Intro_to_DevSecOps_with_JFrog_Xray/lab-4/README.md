@@ -14,7 +14,7 @@
 
 #### MAVEN - Package Manager Integration
 SUP003-Intro_to_DevSecOps_with_JFrog_Xray/lab-3/project-examples/
-- `cd SUP003-Intro_to_DevSecOps_with_JFrog_Xray/lab-3/project-examples/maven-vulnerable-example`
+- `cd SUP003-Intro_to_DevSecOps_with_JFrog_Xray/lab-4/scripts/project-examples/maven-vulnerable-example`
 - To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.)
   - Run ``jf mvnc``
     - Resolve dependencies from Artifactory? (y/n) [y]? `y`
@@ -34,7 +34,7 @@ NOTE : We can also ``jf mvnc`` without interactive interface
   ```
 
 #### NPM - Package Manager Integration
-- `cd SUP003-Intro_to_DevSecOps_with_JFrog_Xray/lab-3/project-examples/npm-vulnerable-example`
+- `cd SUP003-Intro_to_DevSecOps_with_JFrog_Xray/lab-4/scripts/project-examples/npm-vulnerable-example`
 - To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.)
   - Run ``jf npmc``
   - Resolve dependencies from Artifactory? (y/n) [y]? `y`
@@ -46,7 +46,7 @@ NOTE : We can also ``jf mvnc`` without interactive interface
 - Run ``jf npm install --build-name swampup22_s003_npm_pipeline --build-number $BUILD_NUMBER``
 - Run ``jf npm publish --build-name swampup22_s003_npm_pipeline --build-number $BUILD_NUMBER`` - Publish build Artifact to repository
 
-NOTE : We can also ``jf mvnc`` without interactive interface
+NOTE : We can also ``jf npmc`` without interactive interface
   ```
   jf npmc --repo-resolve s003-npm-virtual --repo-deploy s003-npm-virtual 
   ```
@@ -100,13 +100,15 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
 
 ### SCAN BUILD
 - Scan a published build-info with Xray using **jf build-scan**
-
   ```
-
   jf bs swampup22_s003_mvn_pipeline $BUILD_NUMBER
-  
+  ```
+  or
+  ```
+  jf bs swampup22_s003_npm_pipeline $BUILD_NUMBER
   ```
 <br />
+- Additional commands, `--vuln`, `--fail`, `--format`, [more](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Xray#CLIforJFrogXray-ScanningPublishedBuilds)
 - Xray should fail the build with the following raised security violations
   
   | SEVERITY | IMPACTED PACKAGE | IMPACTED PACKAGE VERSION | TYPE  | FIXED VERSIONS | COMPONENT | COMPONENT VERSION | CVE |
@@ -140,32 +142,84 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
 | No license compliance violations were found |
 | -------- |
 
+<br />
+<br />
+<br />
+<br />
+<br />
 
 ## XRAY REPORTS (VULNERABILITY, COMPLIANCE, SBOM)
 
 ### GENERATE VULNERABILITIES REPORT
-#### REPORT ON REPOSITORIES
-- Run ``jf xr curl -XPOST /api/v1/reports/vulnerabilities -H 'Content-Type: application/json' -d @create-vuln-report-on-repositories.json``
+#### REPORT ON REPOSITORIES using UI
+- Navigate to the **Application** > **Security & Compliance** > **Reports**
+- Enter `vuln report for repositories` from **Name**
+- Select `Vulnerabilities` from  **Report Type**  
+- Select `Repositories` from **Scope** 
+- Click on `Select Repositories`
+- Select &#10004; that is next to Name and Click on a button `>>` to move them to the right
+- Click **Save**
+  - Review all the options under **Advanced Filters** 
+
+#### REPORT ON REPOSITORIES using Automation
+- Run ``jf xr curl -XPOST "/api/v1/reports/vulnerabilities" -H "Content-Type: application/json" -d "@create-vuln-report-on-repositories.json"``
   - We are capturing `Critical` and `High` for today's session
 - we will get a response ``{"**report_id**":1,"status":"pending"}``
 
-#### REPORT ON BUILDS
-- Run ``jf xr curl -XPOST /api/v1/reports/vulnerabilities -H 'Content-Type: application/json' -d @create-vuln-report-on-builds.json``
+<br />
+
+#### REPORT ON BUILDS using Automation
+- Navigate to the **Application** > **Security & Compliance** > **Reports**
+- Enter `vuln report for builds` from **Name**
+- Select `Vulnerabilities` from  **Report Type**
+- Select `Builds` from **Scope**
+- Click on `Select Builds`
+- Select &#10004; that is next to Name and Click on a button `>>` to move them to the right
+  - NOTE: We also have an option to pick `Only Latest` (By Default) or `# of Last Versions`
+- Click **Save**
+  - Review all the options under **Advanced Filters**
+
+#### REPORT ON BUILDS using Automation
+- Run ``jf xr curl -XPOST "/api/v1/reports/vulnerabilities" -H "Content-Type: application/json" -d "@create-vuln-report-on-builds.json"``
   - we will get a response ``{"**report_id**":2,"status":"pending"}``
 
 <br />
 
-#### GET VULNERABILITIES REPORT CONTENT
+
+### GET VULNERABILITIES REPORT CONTENT using Automation
 - Get the ``{{**report_id**}}`` number from above and replace
   - Run ``jf xr curl -XPOST '/api/v1/reports/vulnerabilities/{{**report_id**}}?direction=asc&page_num=1&num_of_rows=10&order_by=summary'``
 
 <br />
 <br />
 
-### GENERATE LICENSE DUE DILIGENCE REPORT
+### GENERATE VULNERABILITIES REPORT
+#### GENERATE LICENSE DUE DILIGENCE REPORT on REPOSITORIES using UI
+- Navigate to the **Application** > **Security & Compliance** > **Reports**
+- Enter `license report for repositories` from **Name**
+- Select `License Due Diligence` from  **Report Type**
+- Select `Repositories` from **Scope**
+- Click on `Select Repositories`
+- Select &#10004; that is next to Name and Click on a button `>>` to move them to the right
+- Click **Save**
+  - Review all the options under **Advanced Filters**
+
+#### GENERATE LICENSE DUE DILIGENCE REPORT ON REPOSITORIES using Automation
 - Run ``jf xr curl -XPOST /api/v1/reports/licenses -H 'Content-Type: application/json' -d @create-license-report-on-repositories.json``
 
-#### GET VULNERABILITIES REPORT CONTENT
+#### GENERATE LICENSE DUE DILIGENCE REPORT on BUILDS using UI
+- Navigate to the **Application** > **Security & Compliance** > **Reports**
+- Enter `license report for builds` from **Name**
+- Select `License Due Diligence` from  **Report Type**
+- Select `Builds` from **Scope**
+- Click on `Select Builds`
+- Select &#10004; that is next to Name and Click on a button `>>` to move them to the right
+- Click **Save**
+  - Review all the options under **Advanced Filters**
+
+<br />
+
+#### GET VULNERABILITIES REPORT CONTENT using Automation
 - Get the ``{{**report_id**}}`` number from above and replace
   - Run ``jf xr curl -XPOST '/api/v1/reports/licenses/{{**report_id**}}?direction=asc&page_num=1&num_of_rows=10&order_by=component'``
 
@@ -173,8 +227,54 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
 <br />
 
 ### GENERATE VIOLATIONS REPORT
+#### GET VIOLATIONS REPORT on REPOSITORIES using UI
+- Navigate to the **Application** > **Security & Compliance** > **Reports**
+- Enter `violations report for repositories` from **Name**
+- Select `Violations` from  **Report Type**
+- Select `Repositories` from **Scope**
+- Click on `Select Repositories`
+- Select &#10004; that is next to Name and Click on a button `>>` to move them to the right
+- Click **Save**
+  - Review all the options under **Advanced Filters**
+
+#### GET VIOLATIONS REPORT on BUILDS using UI
+- Navigate to the **Application** > **Security & Compliance** > **Reports**
+- Enter `violations report for builds` from **Name**
+- Select `Violations` from  **Report Type**
+- Select `Builds` from **Scope**
+- Click on `Select Builds`
+- Select &#10004; that is next to Name and Click on a button `>>` to move them to the right
+- Click **Save**
+  - Review all the options under **Advanced Filters**
+
+#### GET VIOLATIONS REPORT on REPOSITORIES using Automation
 - Run ``jf xr curl -XPOST /api/v1/reports/violations -H 'Content-Type: application/json' -d @create-violations-report-on-repositories.json``
 
+<br />
+<br />
+
+### GENERATE OPERATIONAL RISK REPORT
+#### GET OPERATIONAL RISK on REPOSITORIES using UI
+- Navigate to the **Application** > **Security & Compliance** > **Reports**
+- Enter `os report for repositories` from **Name**
+- Select `Operational Risk` from  **Report Type**
+- Select `Repositories` from **Scope**
+- Click on `Select Repositories`
+- Select &#10004; that is next to Name and Click on a button `>>` to move them to the right
+- Click **Save**
+  - Review all the options under **Advanced Filters**
+
+#### GET OPERATIONAL RISK on BUILDS using UI
+- Navigate to the **Application** > **Security & Compliance** > **Reports**
+- Enter `os report for builds` from **Name**
+- Select `Operational Risk` from  **Report Type**
+- Select `Builds` from **Scope**
+- Click on `Select Builds`
+- Select &#10004; that is next to Name and Click on a button `>>` to move them to the right
+- Click **Save**
+  - Review all the options under **Advanced Filters**
+
+<br />
 <br />
 
 ### GENERATE SBOM REPORT IN SPDX OR CYCLONEDX
@@ -220,3 +320,6 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
   - Spring4Shell - [CVE-2022-22965](https://jfrog.com/blog/springshell-zero-day-vulnerability-all-you-need-to-know/)
   - xmlhttprequest-ssl - CVE-2020-28502
 - Generate `cyclonedx` SBOM report in `JSON` format
+- Generate License Due Diligence on Builds using Automation
+- Generate Operational Risk using Automation  
+

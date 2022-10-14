@@ -11,7 +11,12 @@
 
 ## Prerequisites
 - A SAAS Instance of JFrog Platform. This will be provided as part of your enrollment to the Training class.
-- JFrog CLI is installed on your machine by running `jf -v`
+- Make sure set of repositories appear in your JFrog Platform.
+  - If not then please run `./scripts/CREATE_REPO_RESCUE.sh` to create those repositories created. 
+  - Please let us know if you need help. 
+    - We may need to install jq so run `sudo apt-get install -y jq`
+- JFrog CLI is installed on your machine by running `jf -v` validate the version. 
+  - We are also [setting us JFrog CLI](https://github.com/jfrog/SwampUp2022/tree/main/SUP003-Intro_to_DevSecOps_with_JFrog_Xray/lab-1#setup-jfrog-cli) against JFrog Platform to run automations. -  
 
 <br/>
 
@@ -29,7 +34,11 @@
 <br/>
 
 ### INDEX REPOSITORIES using AUTOMATION [Optional]
-- Run ``jf xr curl -XPUT /api/v1/binMgr/1/repos -H "Content-Type: application/json" -d @/scripts/index-repos.json``
+- Run 
+```
+  jf xr curl -XPUT "/api/v1/binMgr/1/repos" -H "Content-Type: application/json" -d "@index-repos.json"
+  
+```
 
 <br/> 
 
@@ -42,7 +51,10 @@
 <br/>
 
 ### INDEX BUILDS using AUTOMATION [Optional]
-- Run ``jf xr curl -XPUT /api/v1/binMgr/1/builds -H "Content-Type: application/json" -d @/scripts/index-builds.json``
+- Run 
+```
+  jf xr curl -XPUT "/api/v1/binMgr/1/builds" -H "Content-Type: application/json" -d "@index-builds.json"
+```
 
 <br/>
 <br/>
@@ -70,7 +82,10 @@
 <br/>
 
 ### CREATE A SECURITY POLICY using AUTOMATION [Optional]
-- Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @/scripts/prod-security-policy.json``
+- Run
+```
+  jf xr curl -XPOST "/api/v2/policies" -H "Content-Type: application/json" -d "@prod-sec-policy.json"
+```
   - With Severity - CRITICAL, HIGH, MEDIUM, LOW with different action items
 - Confirm Security Policy named with ``prod-security-policy`` is created
 
@@ -99,7 +114,10 @@
 <br/>
 
 ### CREATE A LICENSE POLICY using AUTOMATION [Optional]
-- Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @/scripts/prod-license-policy.json``
+- Run 
+```
+  jf xr curl -XPOST "/api/v2/policies" -H "Content-Type: application/json" -d "@prod-lic-policy.json"
+```
 - Confirm License Policy named with ``prod-license-policy`` is created
 
 <br/>

@@ -35,13 +35,19 @@
 
 
 ## Run Labs
-### Option 1
+
+### Option 1 [Recommended]
+- We will provide cloud hosted VM with basic setup like maven, npm, docker, git client install 
+  - this will ease your setup to run labs 
+  - NOTE: To ssh into that machine, it is required to have SSH and telnet client like terminal, puTTY, git bash or your preferred client
+  
+### Option 2
 - We will be using IDE (any with terminal) or terminal/CMD as part of our labs so please download and install one if you do not have one on your workstation.
 - Download [JFrog CLI](https://jfrog.com/getcli/) based on our machine.
 - Setup MAVEN or NPM and Docker Client.
   - so we can run commands like `mvn install`, `npm install` or `docker pull image:tag`
 
-### Option 2
+### Option 3
 **Using Docker image** :
 - Run the docker image using **run-docker.sh**. This executes the command below and opens an interactive terminal into the container. 
 
@@ -50,4 +56,4 @@
   docker run --name sup003 --rm --env JFROG_PLATFORM="${JFROG_PLATFORM}" --env ADMIN_USER="${ADMIN_USER}" --env ADMIN_PASSWORD="${ADMIN_PASSWORD}" -it -v "/var/run/docker.sock:/var/run/docker.sock" soleng.jfrog.io/sup003-docker-virtual/lab-runner-init /bin/bash
 
   ```
-  
+
