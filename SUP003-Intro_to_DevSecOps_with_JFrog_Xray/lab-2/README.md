@@ -22,7 +22,10 @@
 <br/>
 
 ### CREATE WATCH using Automation
-- Run `jf xr curl -XPOST /api/v2/watches -H 'Content-Type: application/json' -d @/scripts/prod-watch.json`
+- Run 
+```
+  jf xr curl -XPOST "/api/v2/watches" -H "Content-Type: application/json" -d "@prod-watch.json"
+```
 - Confirm Watch named with `prod-watch` is created
 
 <br/>

@@ -34,7 +34,11 @@
 <br/>
 
 ### INDEX REPOSITORIES using AUTOMATION [Optional]
-- Run ``jf xr curl -XPUT /api/v1/binMgr/1/repos -H "Content-Type: application/json" -d @/scripts/index-repos.json``
+- Run 
+```
+  jf xr curl -XPUT "/api/v1/binMgr/1/repos" -H "Content-Type: application/json" -d "@index-repos.json"
+  
+```
 
 <br/> 
 
@@ -47,7 +51,10 @@
 <br/>
 
 ### INDEX BUILDS using AUTOMATION [Optional]
-- Run ``jf xr curl -XPUT /api/v1/binMgr/1/builds -H "Content-Type: application/json" -d @/scripts/index-builds.json``
+- Run 
+```
+  jf xr curl -XPUT "/api/v1/binMgr/1/builds" -H "Content-Type: application/json" -d "@index-builds.json"
+```
 
 <br/>
 <br/>
@@ -75,7 +82,10 @@
 <br/>
 
 ### CREATE A SECURITY POLICY using AUTOMATION [Optional]
-- Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @/scripts/prod-security-policy.json``
+- Run
+```
+  jf xr curl -XPOST "/api/v2/policies" -H "Content-Type: application/json" -d "@prod-sec-policy.json"
+```
   - With Severity - CRITICAL, HIGH, MEDIUM, LOW with different action items
 - Confirm Security Policy named with ``prod-security-policy`` is created
 
@@ -104,7 +114,10 @@
 <br/>
 
 ### CREATE A LICENSE POLICY using AUTOMATION [Optional]
-- Run ``jf xr curl -XPOST /api/v2/policies -H 'Content-Type: application/json' -d @/scripts/prod-license-policy.json``
+- Run 
+```
+  jf xr curl -XPOST "/api/v2/policies" -H "Content-Type: application/json" -d "@prod-lic-policy.json"
+```
 - Confirm License Policy named with ``prod-license-policy`` is created
 
 <br/>
