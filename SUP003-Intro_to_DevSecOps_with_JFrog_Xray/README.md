@@ -35,6 +35,7 @@
 
 
 ## Run Labs
+
 ### Option 1 [Recommended]
 - We will provide cloud hosted VM with basic setup like maven, npm, docker, git client install 
   - this will ease your setup to run labs 
@@ -55,3 +56,4 @@
   docker run --name sup003 --rm --env JFROG_PLATFORM="${JFROG_PLATFORM}" --env ADMIN_USER="${ADMIN_USER}" --env ADMIN_PASSWORD="${ADMIN_PASSWORD}" -it -v "/var/run/docker.sock:/var/run/docker.sock" soleng.jfrog.io/sup003-docker-virtual/lab-runner-init /bin/bash
 
   ```
+

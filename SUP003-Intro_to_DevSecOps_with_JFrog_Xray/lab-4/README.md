@@ -185,6 +185,7 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
 
 <br />
 
+
 ### GET VULNERABILITIES REPORT CONTENT using Automation
 - Get the ``{{**report_id**}}`` number from above and replace
   - Run ``jf xr curl -XPOST '/api/v1/reports/vulnerabilities/{{**report_id**}}?direction=asc&page_num=1&num_of_rows=10&order_by=summary'``
@@ -273,6 +274,8 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
 - Click **Save**
   - Review all the options under **Advanced Filters**
 
+<br />
+<br />
 
 ### GENERATE SBOM REPORT IN SPDX OR CYCLONEDX
 - Copy the SHA256 value of an Artifact that we have in our instance.
@@ -319,3 +322,4 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
 - Generate `cyclonedx` SBOM report in `JSON` format
 - Generate License Due Diligence on Builds using Automation
 - Generate Operational Risk using Automation  
+
