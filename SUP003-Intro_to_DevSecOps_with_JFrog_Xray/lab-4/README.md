@@ -46,7 +46,7 @@ NOTE : We can also ``jf mvnc`` without interactive interface
 - Run ``jf npm install --build-name swampup22_s003_npm_pipeline --build-number $BUILD_NUMBER``
 - Run ``jf npm publish --build-name swampup22_s003_npm_pipeline --build-number $BUILD_NUMBER`` - Publish build Artifact to repository
 
-NOTE : We can also ``jf mvnc`` without interactive interface
+NOTE : We can also ``jf npmc`` without interactive interface
   ```
   jf npmc --repo-resolve s003-npm-virtual --repo-deploy s003-npm-virtual 
   ```
@@ -100,13 +100,15 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
 
 ### SCAN BUILD
 - Scan a published build-info with Xray using **jf build-scan**
-
   ```
-
   jf bs swampup22_s003_mvn_pipeline $BUILD_NUMBER
-  
+  ```
+  or
+  ```
+  jf bs swampup22_s003_npm_pipeline $BUILD_NUMBER
   ```
 <br />
+- Additional commands, `--vuln`, `--fail`, `--format`, [more](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Xray#CLIforJFrogXray-ScanningPublishedBuilds)
 - Xray should fail the build with the following raised security violations
   
   | SEVERITY | IMPACTED PACKAGE | IMPACTED PACKAGE VERSION | TYPE  | FIXED VERSIONS | COMPONENT | COMPONENT VERSION | CVE |
@@ -143,6 +145,8 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
 <br />
 <br />
 <br />
+<br />
+<br />
 
 ## XRAY REPORTS (VULNERABILITY, COMPLIANCE, SBOM)
 
@@ -158,7 +162,7 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
   - Review all the options under **Advanced Filters** 
 
 #### REPORT ON REPOSITORIES using Automation
-- Run ``jf xr curl -XPOST /api/v1/reports/vulnerabilities -H 'Content-Type: application/json' -d @create-vuln-report-on-repositories.json``
+- Run ``jf xr curl -XPOST "/api/v1/reports/vulnerabilities" -H "Content-Type: application/json" -d "@create-vuln-report-on-repositories.json"``
   - We are capturing `Critical` and `High` for today's session
 - we will get a response ``{"**report_id**":1,"status":"pending"}``
 
@@ -176,7 +180,7 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
   - Review all the options under **Advanced Filters**
 
 #### REPORT ON BUILDS using Automation
-- Run ``jf xr curl -XPOST /api/v1/reports/vulnerabilities -H 'Content-Type: application/json' -d @create-vuln-report-on-builds.json``
+- Run ``jf xr curl -XPOST "/api/v1/reports/vulnerabilities" -H "Content-Type: application/json" -d "@create-vuln-report-on-builds.json"``
   - we will get a response ``{"**report_id**":2,"status":"pending"}``
 
 <br />
