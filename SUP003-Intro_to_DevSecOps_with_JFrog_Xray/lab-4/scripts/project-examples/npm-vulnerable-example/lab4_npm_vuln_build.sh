@@ -1,25 +1,10 @@
 #!/usr/bin/env sh
-
-#################
-# init process #
-#################
-
-#!/usr/bin/env sh
-
-#################
-# init process #
-#################
 export CLI_INSTANCE_ID=s003
 
 jf config use $CLI_INSTANCE_ID
 
-cd ../../lab-3/project-example/npm-vulnerable-example
-
 echo "Jfrog is accessible check : "
 jf rt ping
-
-
-#Config Maven
 
 jf npmc --repo-resolve s003-npm --repo-deploy s003-npm
 

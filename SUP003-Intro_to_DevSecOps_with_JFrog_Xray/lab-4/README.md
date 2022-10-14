@@ -14,7 +14,7 @@
 
 #### MAVEN - Package Manager Integration
 SUP003-Intro_to_DevSecOps_with_JFrog_Xray/lab-3/project-examples/
-- `cd SUP003-Intro_to_DevSecOps_with_JFrog_Xray/lab-3/project-examples/maven-vulnerable-example`
+- `cd SUP003-Intro_to_DevSecOps_with_JFrog_Xray/lab-4/scripts/project-examples/maven-vulnerable-example`
 - To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.)
   - Run ``jf mvnc``
     - Resolve dependencies from Artifactory? (y/n) [y]? `y`
@@ -34,7 +34,7 @@ NOTE : We can also ``jf mvnc`` without interactive interface
   ```
 
 #### NPM - Package Manager Integration
-- `cd SUP003-Intro_to_DevSecOps_with_JFrog_Xray/lab-3/project-examples/npm-vulnerable-example`
+- `cd SUP003-Intro_to_DevSecOps_with_JFrog_Xray/lab-4/scripts/project-examples/npm-vulnerable-example`
 - To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.)
   - Run ``jf npmc``
   - Resolve dependencies from Artifactory? (y/n) [y]? `y`
