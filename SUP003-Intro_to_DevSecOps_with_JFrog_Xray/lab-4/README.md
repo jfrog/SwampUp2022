@@ -107,7 +107,6 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
   ```
   jf bs swampup22_s003_npm_pipeline $BUILD_NUMBER
   ```
-<br />
 - Additional commands, `--vuln`, `--fail`, `--format`, [more](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Xray#CLIforJFrogXray-ScanningPublishedBuilds)
 - Xray should fail the build with the following raised security violations
   
