@@ -1,0 +1,169 @@
+# This is a basic workflow to help you get started with Actions
+
+name: python-webapp-gha
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: 
+      - main
+    paths:
+      - 'SUP003-Intro_to_DevSecOps_with_JFrog_Xray/provisioning/python-demo/**'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      jfrog_dns:
+        description: 'your JFrog Platform SaaS URL (for example, yann.jfrog.io)'
+        required: true 
+        type: string
+      jf_secret:
+        description: 'token to configure the JFrog CLI in the Github Workflows (JF_SECRET)'
+        type: string
+        required: true 
+      ci_secret:
+        description: 'ci user s password (JF_CI_SECRET)'
+        type: string
+        required: true 
+env:
+  # the server_id is injected in the JF_SECRET and refers to the CLI profile name
+  # JF_ENV_1: ${{ secrets.JF_SECRET }}
+  JF_ENV_1: ${{ inputs.jf_secret }}
+  SERVER_ID: jfrog-platform-training
+  JF_CLI_VERSION: 2.27.1
+  APP_VERSION: 2.0.0
+  GENERIC_REPO: punch-generic
+  SRC_FOLDER: SUP003-Intro_to_DevSecOps_with_JFrog_Xray/provisioning/python-demo/src
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build_webapp:
+    runs-on: ubuntu-latest
+    env:
+      JFROG_BUILD_STATUS: PASS
+      PYTHON_VERSION: 3.9
+      PYTHON_REPO: punch-python
+      PROMOTE_REPO: punch-generic-release-local
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup JFrog CLI
+        uses: jfrog/setup-jfrog-cli@v2
+        with:
+          version: ${{ env.JF_CLI_VERSION }}
+    
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Ping Artifactory
+        run: |
+            jf --version
+            jf config show
+            jf rt ping
+            
+      - name: Configure JFrog CLI and PIP client
+        run: |
+          cd ${{ env.SRC_FOLDER }}
+          jf pip-config --repo-resolve ${{ env.PYTHON_REPO }} --server-id-resolve ${{ env.SERVER_ID }}
+
+      - name: Scan dependencies
+        run: |
+          cd ${{ env.SRC_FOLDER }} 
+          jf audit 
+
+      - name: Install dependencies
+        run: |
+          cd ${{ env.SRC_FOLDER }}
+          jf pip install -r requirements.txt --no-cache-dir --module=python_webapp
+
+      - name: Package and upload webapp
+        run: |
+          cd ${{ env.SRC_FOLDER }}
+          tar -czvf webapp_python_gha_${{ github.sha }}.tar.gz *.yaml *.txt *.py
+          jf rt upload webapp_python_gha_${{ github.sha }}.tar.gz ${{ env.GENERIC_REPO }} \
+            --target-props "maturity=release-candidate;platform=windows,linux;test.unit=ready" \
+            --module=python_webapp
+        
+      - name: Publish Build Info
+        run: |
+          # Collect environment variables for the build
+          jf rt bce 
+          # Collect VCS details from git and add them to the build
+          jf rt bag
+          # Publish build info
+          jf rt bp
+
+      - name: Run Unit Tests
+        run: echo "deploy and test"
+
+      - name: Set properties
+        run: jf rt sp --build $JFROG_CLI_BUILD_NAME/$JFROG_CLI_BUILD_NUMBER ${{ env.GENERIC_REPO }}/ "test.unit=ok;version=${{ env.APP_VERSION }}"
+
+      # - name: Promote Build 
+      #   run: jf rt bpr   --status "XRAY_SCAN_OK" --comment "promoted to the next level" ${{ env.PROMOTE_REPO }}
+
+  build_docker:
+    needs: build_webapp
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_REG: ${{ inputs.jfrog_dns }}
+      DOCKER_REPO: punch-docker
+      DOCKER_USER: ci
+      PROMOTE_REPO: punch-docker-release-local
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup JFrog CLI
+        uses: jfrog/setup-jfrog-cli@v2
+        with:
+          version: ${{ env.JF_CLI_VERSION }}
+
+      - name: Download webapp
+        run: |
+          cd ${{ env.SRC_FOLDER }}
+          jf rt download \
+            --props "version=${{ env.APP_VERSION }}" \
+            --build $JFROG_CLI_BUILD_NAME/$JFROG_CLI_BUILD_NUMBER  \
+            --build-name=docker-$JFROG_CLI_BUILD_NAME --build-number=$JFROG_CLI_BUILD_NUMBER \
+            ${{ env.GENERIC_REPO }} webapp_python.tar.gz
+
+      - name: Docker Login
+        uses: docker/login-action@v1.10.0
+        with:
+          registry: ${{ env.DOCKER_REG }}
+          username: ${{ env.DOCKER_USER }}
+          password: ${{ inputs.ci_secret }}
+          # password: ${{ secrets.DOCKER_SECRET }}
+
+      - name: Build Docker images
+        uses: docker/build-push-action@v3
+        with:
+          build-args: |
+            RT_TOKEN=${{ inputs.ci_secret }}
+            RT_USER=${{ env.DOCKER_USER }}
+            REGISTRY=${{ env.DOCKER_REG }}
+            DOCKER_REPO=punch-docker
+            PYTHON_REPO=punch-python
+          context: ${{ env.SRC_FOLDER }}
+          tags: ${{ env.DOCKER_REG }}/${{ env.DOCKER_REPO }}/gha-python-webapp:${{ env.APP_VERSION }}
+
+      - name: Scan Docker image 
+        run: >
+          jf docker scan ${{ env.DOCKER_REG }}/${{ env.DOCKER_REPO }}/gha-python-webapp:${{ env.APP_VERSION }}
+
+      - name: Push Docker image
+        run: |
+          jf docker push ${{ env.DOCKER_REG }}/${{ env.DOCKER_REPO }}/gha-python-webapp:${{ env.APP_VERSION }} \
+          --build-name=docker-$JFROG_CLI_BUILD_NAME \
+          --build-number=$JFROG_CLI_BUILD_NUMBER
+
+      - name: Publish Docker Build Info
+        run: |
+          jf rt bce docker-$JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER
+          jf rt bag docker-$JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER
+          jf rt bp docker-$JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER
+
+      # - name: Promote Build 
+      #   run: jfrog rt bpr  --status "XRAY_SCAN_OK" --comment "promoted to the next level" docker-$JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER ${{ env.PROMOTE_REPO }}
