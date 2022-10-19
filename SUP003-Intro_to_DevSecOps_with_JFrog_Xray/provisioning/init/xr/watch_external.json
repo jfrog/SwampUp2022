@@ -1,0 +1,89 @@
+{
+    "general_data": {
+        "name": "external_apps",
+        "description": "Created via API for team 1",
+        "active": true
+    },
+    "project_resources": {
+        "resources": [
+            {
+                "type": "repository",
+                "name": "one-mvn-dev-local",
+                "repo_type": "local",
+                "bin_mgr_id": "default",
+                "filters": [
+                    {
+                        "type": "regex",
+                        "value": ".*"
+                    }
+                ]
+            },
+            {
+                "type": "repository",
+                "name": "one-mvn-release-local",
+                "repo_type": "local",
+                "bin_mgr_id": "default",
+                "filters": [
+                    {
+                        "type": "regex",
+                        "value": ".*"
+                    }
+                ]
+            },
+            {
+                "type": "repository",
+                "name": "one-docker-dev-local",
+                "repo_type": "local",
+                "bin_mgr_id": "default",
+                "filters": [
+                    {
+                        "type": "regex",
+                        "value": ".*"
+                    }
+                ]
+            },
+            {
+                "type": "repository",
+                "name": "one-docker-release-local",
+                "repo_type": "local",
+                "bin_mgr_id": "default",
+                "filters": [
+                    {
+                        "type": "regex",
+                        "value": ".*"
+                    }
+                ]
+            },
+            {
+                "type": "repository",
+                "name": "one-docker-prod-local",
+                "repo_type": "local",
+                "bin_mgr_id": "default",
+                "filters": [
+                    {
+                        "type": "regex",
+                        "value": ".*"
+                    }
+                ]
+            },
+            {
+                "type": "build",
+                "name": "java-webapp-gha",
+                "bin_mgr_id": "default",
+                "build_repo": "builds"
+            },
+            {
+                "type": "build",
+                "name": "docker-java-webapp-gha",
+                "bin_mgr_id": "default",
+                "build_repo": "builds"
+            }
+        ]
+    },
+    "assigned_policies": [
+        {
+            "name": "external_security",
+            "type": "security"
+        }
+    ]
+}

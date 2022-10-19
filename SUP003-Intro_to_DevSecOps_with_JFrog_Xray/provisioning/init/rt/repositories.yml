@@ -1,0 +1,190 @@
+localRepositories:   
+  one-mvn-dev-local:
+    type: maven
+    repoLayout: maven-2-default 
+    xray:   
+      enabled: true
+  one-mvn-release-local:
+    type: maven
+    repoLayout: maven-2-default 
+    xray:   
+      enabled: true
+  one-docker-dev-local:
+    type: docker
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    xray:   
+      enabled: true
+  one-docker-release-local:
+    type: docker
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    xray:   
+      enabled: true
+  one-docker-prod-local:
+    type: docker
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    xray:   
+      enabled: true
+  punch-generic-dev-local:
+    type: generic
+    repoLayout: simple-default 
+    xray:   
+      enabled: false
+  punch-generic-release-local:
+    type: generic
+    repoLayout: simple-default 
+    xray:   
+      enabled: false
+  punch-docker-dev-local:
+    type: docker
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    xray:   
+      enabled: true
+  punch-docker-release-local:
+    type: docker
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    xray:   
+      enabled: true 
+  punch-docker-prod-local:
+    type: docker
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    xray:   
+      enabled: true  
+  man-generic-dev-local:
+    type: generic
+    repoLayout: simple-default 
+    xray:   
+      enabled: false
+  man-generic-release-local:
+    type: generic
+    repoLayout: simple-default 
+    xray:   
+      enabled: false
+  man-docker-dev-local:
+    type: docker
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    xray:   
+      enabled: true
+  man-docker-release-local:
+    type: docker
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    xray:   
+      enabled: true
+  man-docker-prod-local:
+    type: docker
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    xray:   
+      enabled: true  
+  infra-docker-dev-local:
+    type: docker
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    xray:   
+      enabled: true
+  infra-docker-release-local:
+    type: docker
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    xray:   
+      enabled: true
+remoteRepositories: 
+  rcenter-mavencentral-remote:
+    type: maven
+    repoLayout: maven-2-default 
+    url: https://repo1.maven.org/maven2/
+    xray:   
+      enabled: true
+  rcenter-dockerhub-remote:
+    type: docker 
+    url: https://registry-1.docker.io/
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    enableTokenAuthentication: true
+    xray:   
+      enabled: true
+  rcenter-pypi-remote:
+    type: pypi 
+    url: https://files.pythonhosted.org 
+    repoLayout: simple-default 
+    xray:   
+      enabled: true
+  rcenter-npmjs-remote:
+    type: npm 
+    url: https://registry.npmjs.org
+    repoLayout: npm-default 
+    xray:   
+      enabled: true
+virtualRepositories: 
+  one-mvn:
+    type: maven
+    repoLayout: maven-2-default
+    repositories:
+      - rcenter-mavencentral-remote
+      - one-mvn-dev-local
+      - one-mvn-release-local
+    defaultDeploymentRepo: one-mvn-dev-local
+  one-docker:
+    type: docker
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    repositories:   
+      - one-docker-dev-local
+      - one-docker-release-local
+      - one-docker-prod-local
+      - infra-docker-release-local
+      - rcenter-dockerhub-remote
+    defaultDeploymentRepo: one-docker-dev-local
+  punch-generic:
+    type: generic
+    repoLayout: simple-default 
+    repositories:   
+      - punch-generic-dev-local
+      - punch-generic-release-local
+    defaultDeploymentRepo: punch-generic-dev-local
+  punch-python:
+    type: pypi
+    repoLayout: simple-default 
+    repositories:   
+      - rcenter-pypi-remote
+  punch-docker:
+    type: docker
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    repositories:   
+      - punch-docker-dev-local
+      - punch-docker-release-local
+      - punch-docker-prod-local
+      - infra-docker-release-local
+      - rcenter-dockerhub-remote
+    defaultDeploymentRepo: punch-docker-dev-local
+  man-npm:
+    type: npm
+    repoLayout: npm-default 
+    repositories:   
+      - rcenter-npmjs-remote
+  man-generic:
+    type: generic
+    repoLayout: simple-default 
+    repositories:   
+      - man-generic-dev-local
+      - man-generic-release-local
+    defaultDeploymentRepo: man-generic-dev-local
+  man-docker:
+    type: docker
+    dockerApiVersion: V2
+    repoLayout: simple-default 
+    repositories:   
+      - man-docker-dev-local
+      - man-docker-release-local
+      - man-docker-release-local
+      - infra-docker-release-local
+      - rcenter-dockerhub-remote
+    defaultDeploymentRepo: man-docker-dev-local
