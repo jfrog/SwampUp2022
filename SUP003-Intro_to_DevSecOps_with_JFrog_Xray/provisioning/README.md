@@ -8,7 +8,7 @@
 cd init
 chmod +x init.sh
 # run the script and pass parameters (don't forget the single quotes !)
-./init.sh 'https://yann.jfrog.io' 'yannc@jfrog.com' '********'
+./init.sh 'https://yann.jfrog.io' 'yannc@jfrog.com' '********' 'jfrog-platform-training'
 ```
 
 4. save the result of the command as you'll need it later
