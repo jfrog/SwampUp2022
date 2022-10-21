@@ -63,7 +63,9 @@ for p in `ls xr/policy*`; do
 done
 
 ##### Index build info 
-jf xr curl -XPOST api/v1/binMgr/builds -H "Content-Type: application/json" -d '{"names": ["java-webapp-gha", "js-webapp-gha","python-webapp-gha","docker-java-webapp-gha","docker-js-webapp-gha","docker-python-webapp-gha"]}' --server-id $server_id
+jf xr curl -XPOST api/v1/binMgr/builds -H "Content-Type: application/json" \
+    -d '{"names": ["java-webapp", "js-webapp","python-webapp","docker-java-webapp","docker-js-webapp","docker-python-webapp"]}' \
+    --server-id $server_id
 
 ##### Create watches
 for w in `ls xr/watch*`; do  

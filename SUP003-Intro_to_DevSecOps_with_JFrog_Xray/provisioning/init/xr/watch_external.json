@@ -68,13 +68,13 @@
             },
             {
                 "type": "build",
-                "name": "java-webapp-gha",
+                "name": "java-webapp",
                 "bin_mgr_id": "default",
                 "build_repo": "builds"
             },
             {
                 "type": "build",
-                "name": "docker-java-webapp-gha",
+                "name": "docker-java-webapp",
                 "bin_mgr_id": "default",
                 "build_repo": "builds"
             }
