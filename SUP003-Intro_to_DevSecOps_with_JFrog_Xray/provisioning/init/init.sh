@@ -47,7 +47,14 @@ fi
 
 #### Generate user
 jf rt user-create "$5" "$6" "$5@jfrog-training.com" --server-id $server_id
-jf rt group-add-users admin "$5" --server-id $server_id
+jf rt group-add-users administrators "$5" --server-id $server_id
+
+# seems like a bug ... the previous command removes the admin privileges to the group
+# forcing group to be admin 
+jf rt curl -XPUT  \
+    -d '{ "name": "administrators", "description" : "created via automation", "adminPrivileges" : true}' \
+    -H 'Content-Type: application/json' \
+api/security/groups/administrators  --server-id $server_id
 
 # XRAY - CONFIG
 ##### Create policies 
