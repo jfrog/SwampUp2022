@@ -9,11 +9,12 @@
 #   - $4 : docker path
 
 cd $1
+jf c use $4
 
 # MVN BUILD
 bname=java-webapp
 
-jf rt mvnc \
+jf mvnc \
     --server-id-resolve=$4 \
     --repo-resolve-releases=$2	\
     --repo-resolve-snapshots=$2	\
@@ -37,11 +38,12 @@ jf rt bp $bname 1
 echo "[DOCKER] Preparations ..."
 
 docker_reg=`jf c s $4 | grep platform | tr -d "[:space:]" | cut -d'/'  -f3`
-docker_tag=$docker_reg/$3/java-webapp:1.0.0
+docker_tag=$docker_reg/$3/java-webapp:3.0.0
 
 echo "[DOCKER] registry :  $docker_reg"
 echo "[DOCKER] image tag : $docker_tag"
 
+cd $1/src
 cp $1/src/application/target/*application*.jar multi-module-application.jar
 
 echo "[DOCKER] Logging on $docker_reg/$3 ..."
@@ -49,9 +51,9 @@ docker login $docker_reg/$3 --username "$5" --password "$6"
 
 echo "[DOCKER] building  ..."
 docker build \
-    --build-args REGISTRY=$docker_reg \
-    --build-args DOCKER_REPO=$3 \
-    -t $docker_tag
+    --build-arg REGISTRY=$docker_reg \
+    --build-arg DOCKER_REPO=$3 \
+    -t $docker_tag \
     .
 jf docker push $docker_tag \
     --build-name=docker-$bname --build-number=1

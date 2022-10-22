@@ -6,21 +6,23 @@
 #   - $3 : docker virtual
 #   - $4 : server ID
 #   - $5 : docker user
-#   - $6 : docker path
+#   - $6 : docker pass
 #   - $7 : generic virtual
 
 cd $1
+jf c use $4
 
 # Python BUILD
 bname=python-webapp
-webapp_tarball=webapp_python_1.0.0.tar.gz
+webapp_tarball=webapp_python.tar.gz
 
 jf pip-config \
-    --repo-resolve $1 \
+    --repo-resolve $2 \
     --server-id-resolve $4 \
     -global=true
 
-jf pip install --module=python_webapp
+jf pip install -r requirements.txt --no-cache-dir --module=python_webapp \
+    --build-name=$bname --build-number=1 
 
 tar -czvf $webapp_tarball *.yaml *.txt *.py
 jf rt upload $webapp_tarball $7/ \
@@ -49,12 +51,12 @@ docker login $docker_reg/$3 --username "$5" --password "$6"
 
 echo "[DOCKER] building  ..."
 docker build \
-    --build-args REGISTRY=$docker_reg \
-    --build-args DOCKER_REPO=$3 \
-    --build-args RT_USER=$5 \
-    --build-args RT_TOKEN=$6 \
-    --build-args PYTHON_REPO=$1 \
-    -t $docker_tag
+    --build-arg REGISTRY=$docker_reg \
+    --build-arg DOCKER_REPO=$3 \
+    --build-arg RT_USER=$5 \
+    --build-arg RT_TOKEN=$6 \
+    --build-arg PYTHON_REPO=$2 \
+    -t $docker_tag \
     .
 
 jf docker push $docker_tag \

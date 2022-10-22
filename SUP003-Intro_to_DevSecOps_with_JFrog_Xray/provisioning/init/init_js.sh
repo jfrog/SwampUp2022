@@ -6,21 +6,24 @@
 #   - $3 : docker virtual
 #   - $4 : server ID
 #   - $5 : docker user
-#   - $6 : docker path
+#   - $6 : docker pass
 #   - $7 : generic virtual
 
 cd $1
+jf c use $4
 
 # JS BUILD
 bname=js-webapp
-webapp_tarball=webapp_node_1.0.0.tar.gz
+webapp_tarball=webapp.tar.gz
 
 jf npm-config \
-    --repo-resolve $1 \
+    --repo-resolve $2 \
     --server-id-resolve $4 \
     -global=true
 
-jf npm install --module=node_webapp
+jf npm install --module=node_webapp \
+    --build-name=$bname --build-number=1 
+
 
 npm run build && cd build
 tar -czvf $webapp_tarball *
@@ -53,9 +56,9 @@ docker login $docker_reg/$3 --username "$5" --password "$6"
 
 echo "[DOCKER] building  ..."
 docker build \
-    --build-args REGISTRY=$docker_reg \
-    --build-args DOCKER_REPO=$3 \
-    -t $docker_tag
+    --build-arg REGISTRY=$docker_reg \
+    --build-arg DOCKER_REPO=$3 \
+    -t $docker_tag \
     .
 
 jf docker push $docker_tag \
