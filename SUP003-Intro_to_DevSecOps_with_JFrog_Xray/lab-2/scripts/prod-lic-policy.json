@@ -1,0 +1,31 @@
+{
+    "name": "prod-license-policy",
+    "description": "This is a License Policy for Production Repos and Builds",
+    "type": "license",
+    "rules":[
+        {
+        "name":"banned-licenses",
+        "priority":1,
+        "criteria":{
+          "banned_licenses": [
+            "GPL-1.0",
+            "GPL-1.0+",
+            "GPL-1.0-or-later",
+            "GPL-3.0",
+            "GPL-2.0"
+          ],
+          "allow_unknown": true,
+          "multi_license_permissive": true
+        },
+        "actions":{
+          "webhooks": [],
+          "fail_build":true,
+          "block_download":{
+            "unscanned":true,
+            "active":true
+          },
+          "custom_severity": "critical"
+        }
+      }
+    ]
+}
