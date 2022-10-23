@@ -15,7 +15,7 @@ ci_created=false
 #curl -fL -s https://getcli.jfrog.io/v2-jf | sh
 #./jf --version
 
-jc c rm $server_id --quiet
+jf c rm $server_id --quiet
 
 jf c s | grep $server_id > /dev/null
 
