@@ -7,7 +7,7 @@
 
 ## GENERATE VIOLATIONS REPORT
 
-### GET VIOLATIONS REPORT on REPOSITORIES using UI
+### using UI
 
 - Navigate to the **Application** > **Security & Compliance** > **Reports**
 - Enter `violations report for repositories` from **Name**
@@ -18,25 +18,23 @@
 - Click **Save**
   - Review all the options under **Advanced Filters**
 
-### GET VIOLATIONS REPORT on BUILDS using UI
-
-- Navigate to the **Application** > **Security & Compliance** > **Reports**
-- Enter `violations report for builds` from **Name**
-- Select `Violations` from  **Report Type**
-- Select `Builds` from **Scope**
-- Click on `Select Builds`
-- Select &#10004; that is next to Name and Click on a button `>>` to move them to the right
-- Click **Save**
-  - Review all the options under **Advanced Filters**
-
-### GET VIOLATIONS REPORT on REPOSITORIES using Automation
+### using API
 
 - Run ``jf xr curl -XPOST /api/v1/reports/violations -H 'Content-Type: application/json' -d @create-violations-report-on-repositories.json``
 
 ## GENERATE SBOM REPORT IN SPDX OR CYCLONEDX
 
-- Copy the SHA256 value of an Artifact that we have in our instance.
-  - Example - In UI, navigate to  ``Application >> Artifactory >> Artifacts >> jfrog-npm-main-local >> frogui >> frogsui-0.3.0-11.tgz``
+> Only at artifact and build info level
+
+### using UI
+
+- Navigate to the **Application** > **Artifactory** > **Artifacts**
+- Select a **local** or **remote-cache** repsository
+- Select an artifact (for a **docker image**, select the **manifest.json**)
+- Select **Xray tab** and click on the **Actions** button
+
+### using API
+
 - Update the SHA256 value in ``create-SBOM-spdx-report.json``
 - Run ``jf xr curl -XPOST /api/v1/component/exportDetails -H 'Content-Type: application/json' -d @create-SBOM-spdx-report.json >> report.zip``
   - Run ``ls -la`` and unzip ``report.zip``

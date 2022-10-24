@@ -1,4 +1,4 @@
-# Lab1 - Indexing Resources and Create Policy
+# Lab1 - Xray Basics
 
 ## Prerequisites
 

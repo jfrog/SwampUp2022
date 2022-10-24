@@ -22,6 +22,42 @@
 - Configure Extension pointing to your JFrog Platform instance
 - More Information on [Docker Desktop Extension for JFrog Xray](https://jfrog.com/solution-sheet/docker-desktop-extension-for-jfrog-xray/)
 
+## JFrog CLI : Build Scan (required C++ project)
+
+```bash
+
+mkdir cpp_lab
+cd cpp_lab
+
+# download cpp libs from 
+jf rt dl jfrog-training/cpp/ .  \
+  --url=https://yann.jfrog.io/artifactory \
+  --access-token=$yannToken
+
+# Crafting Build Info
+## adding cpp libs to build info 
+jf rt bad --server-id jfrog-training cpp_build 1 cpp/
+
+## changing build type and id of each artifact
+jq '.modules[] += {"type":"cpp"}' build_info.json |\
+jq '.modules[].dependencies[] += {"type":"cpp"}'  |\
+jq '(.modules[].dependencies[] | select(.id == "Poco.dll" ) | .id)     |= "poco:1.8.0"' |\
+jq '(.modules[].dependencies[] | select(.id == "libcurl.dll" ) | .id)  |= "haxx:libcurl:7.70.0"' |\
+jq '(.modules[].dependencies[] | select(.id == "sqlite.dll" ) | .id)   |= "sqlite:3.15.1"' |\
+jq '(.modules[].dependencies[] | select(.id == "zlib.dll" ) | .id)     |= "zlib:1.2.0"' > build_info_xray.json
+
+## generating the Build Info (JSON file)
+jf rt bp --dry-run=true  cpp_build 1 > build_info.json
+
+## publishing the Build Info
+jf xr curl  api/v1/forceReindex  \
+-XPOST \
+-H "Accept: application/json" -H "Content-Type: application/json" \
+-d '{"builds": [{"name": "cpp_build", "number": "1" }]}' \
+--server-id jfrog-training
+```
+
+
 ## JFrog CLI : Dependency scanning
 
 ```bash
