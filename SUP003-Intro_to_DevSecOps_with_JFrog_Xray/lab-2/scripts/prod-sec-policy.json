@@ -1,0 +1,73 @@
+{
+  "name": "prod-security-policy",
+  "type": "security",
+  "description":"Fail build and block download for critical, high and medium risk vulnerabilities",
+  "rules":[
+    {
+      "name":"critical",
+      "priority":1,
+      "criteria":{
+        "min_severity":"critical"
+      },
+      "actions":{
+        "webhooks": [],
+        "fail_build":true,
+        "block_download":{
+          "unscanned":false,
+          "active":false
+        },
+        "notify_deployer": true
+      }
+    },
+    {
+      "name":"high",
+      "priority":2,
+      "criteria":{
+        "min_severity":"High"
+      },
+      "actions":{
+        "webhooks": [],
+        "fail_build":true,
+        "block_download":{
+          "unscanned":false,
+          "active":false
+        },
+        "notify_deployer": true
+      }
+    },
+    {
+      "name":"medium",
+      "priority":3,
+      "criteria":
+      {
+        "min_severity":"Medium"
+      },
+      "actions":{
+        "webhooks": [],
+        "fail_build":true,
+        "block_download":{
+          "unscanned":false,
+          "active":false
+        },
+        "notify_deployer": true
+      }
+    },
+    {
+      "name":"low",
+      "priority":4,
+      "criteria":
+      {
+        "min_severity":"Low"
+      },
+      "actions":{
+        "webhooks": [],
+        "fail_build":false,
+        "block_download":{
+          "unscanned":false,
+          "active":false
+        },
+        "notify_deployer": true
+      }
+    }
+  ]
+}
